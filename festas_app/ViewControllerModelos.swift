@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+var titulo = String()
 class ViewControllerModelos: UIViewController {
     @IBOutlet weak var ViewChurrasco: UIView!
     @IBOutlet weak var ViewAniversario: UIView!
@@ -19,8 +19,20 @@ class ViewControllerModelos: UIViewController {
         ViewReuniaoDeAmigos.layer.cornerRadius = 12
         ViewAniversario.layer.cornerRadius = 12
     }
+    @IBAction func ReuniaoButton(_ sender: Any) {
+        titulo = "Reuniao de amigos"
+    }
     
-
-   
-
+    @IBAction func ChurrascoButton(_ sender: Any) {
+        titulo = "Churrasco"
+    }
+    
+    @IBAction func AniversarioButton(_ sender: Any) {
+        titulo = "Aniversario"
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let newVc:ViewControllerConfiguracao = segue.destination as! ViewControllerConfiguracao
+        newVc.tituloRecebido = titulo
+    }
+    
 }

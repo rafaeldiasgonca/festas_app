@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewControllerConfiguracao: UIViewController {
 
+
+class ViewControllerConfiguracao: UIViewController {
+    var tituloRecebido = String()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        self.title = tituloRecebido        
     }
     
 
