@@ -31,6 +31,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startCardAnimated:" destination="BYZ-38-t0r" eventType="touchDown" id="cqZ-p1-wio"/>
+                                            <action selector="startCardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EX2-eB-gOv"/>
                                             <segue destination="twd-YT-NET" kind="show" id="A62-aY-fk7"/>
                                         </connections>
                                     </button>
@@ -49,6 +50,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="ZlR-0M-OXD" colorLabel="IBBuiltInLabel-Orange"/>
                     <connections>
+                        <outlet property="stardCardButton" destination="uuZ-hc-3sq" id="o3t-cl-7vd"/>
                         <outlet property="startCard" destination="Aw0-8k-0Qy" id="X18-pn-IgZ"/>
                     </connections>
                 </viewController>
