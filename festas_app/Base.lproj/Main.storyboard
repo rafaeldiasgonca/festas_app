@@ -30,9 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="477"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="startCardAnimated:" destination="BYZ-38-t0r" eventType="touchDown" id="cqZ-p1-wio"/>
-                                            <action selector="startCardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EX2-eB-gOv"/>
-                                            <segue destination="twd-YT-NET" kind="show" id="A62-aY-fk7"/>
+                                            <segue destination="twd-YT-NET" kind="show" identifier="goToModelsMenu" id="A62-aY-fk7"/>
                                         </connections>
                                     </button>
                                 </subviews>
