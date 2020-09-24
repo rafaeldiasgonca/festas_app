@@ -236,6 +236,7 @@
                     <navigationItem key="navigationItem" id="CHQ-Hd-L8p"/>
                     <connections>
                         <outlet property="dateTextField" destination="bHi-2U-eBe" id="qnR-RA-eNm"/>
+                        <outlet property="timeTextField" destination="mXo-VS-wLi" id="EEv-Hi-Vb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeO-lz-Xlf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

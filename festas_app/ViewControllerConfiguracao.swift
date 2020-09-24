@@ -12,8 +12,10 @@ import UIKit
 
 class ViewControllerConfiguracao: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var timeTextField: UITextField!
     
     let datePicker = UIDatePicker()
+    let timePIcker = UIDatePicker()
     
     var tituloRecebido = String()
     
@@ -21,6 +23,7 @@ class ViewControllerConfiguracao: UIViewController {
         super.viewDidLoad()
         self.title = tituloRecebido
         createDatePickerView()
+        createTimePickerView()
     }
     
     func createDatePickerView(){
@@ -44,6 +47,24 @@ class ViewControllerConfiguracao: UIViewController {
         formatacao.timeStyle = .none
         dateTextField.text = formatacao.string(from: datePicker.date)
         self.view.endEditing(true)
+        
+    }
+    func createTimePickerView(){
+        let toolbar1 = UIToolbar()
+        toolbar1.sizeToFit()
+        let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
+        toolbar1.setItems([doneBtn1], animated: true)
+        timeTextField.inputAccessoryView = toolbar1
+        timeTextField.inputView = timePIcker
+        timePIcker.datePickerMode = .time
+        
+    }
+    @objc func donePressed1(){
+        
+        let formatacao1 = DateFormatter()
+    
+        formatacao1.timeStyle = .short
+        timeTextField.text = formatacao1.string(from: timePIcker.date)
         
     }
     
