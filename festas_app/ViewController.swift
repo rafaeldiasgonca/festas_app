@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startCard.layer.cornerRadius = 12
+        //.layer.cornerRadius = 12
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController!.navigationBar.isTranslucent = true
     }
