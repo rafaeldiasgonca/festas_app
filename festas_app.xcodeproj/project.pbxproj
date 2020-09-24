@@ -17,6 +17,7 @@
 		DF23B993251A6DBE00F7E57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF23B991251A6DBE00F7E57B /* LaunchScreen.storyboard */; };
 		DF23B99B251A96E700F7E57B /* ViewControllerModelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */; };
 		DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */; };
+		DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DF23B994251A6DBE00F7E57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModelos.swift; sourceTree = "<group>"; };
 		DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfiguracao.swift; sourceTree = "<group>"; };
+		DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConvidados.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				DF23B987251A6DBB00F7E57B /* ViewController.swift */,
 				DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */,
 				DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */,
+				DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				DF23B988251A6DBB00F7E57B /* ViewController.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
+				DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */,
 				DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */,
 				DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */,
