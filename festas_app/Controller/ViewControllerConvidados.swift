@@ -11,9 +11,9 @@ import UIKit
 class ViewControllerConvidados: UIViewController,UITableViewDataSource{
     
     
-  
+    
     let azul =  ["abc","abcd"]
-
+    
     @IBOutlet weak var ViewConvidados: UIView!
     @IBOutlet weak var textFieldConvidados: UITextField!
     var numDeConvidados = Int()
@@ -33,23 +33,22 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource{
         toolbar.setItems([dnButton], animated: true)
         textFieldConvidados.inputAccessoryView = toolbar
     }
-   @objc func dnButtonPressed(){
-    
-    
+    @objc func dnButtonPressed(){
+        
+        
         self.view.endEditing(true)
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let textoConvertido = Int(textFieldConvidados.text)
-        
-          return textoConvertido
-      }
-      
-      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let textoConvertido = Int(textFieldConvidados.text!) ?? 0
+        return textoConvertido
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath)
         return cell
-      }
+    }
     
     
 }
