@@ -11,8 +11,9 @@ import UIKit
 
 
 class ViewControllerConfiguracao: UIViewController {
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var timeTextField: UITextField!
+    
+    @IBOutlet weak var dateTextView: UITextView!
+    @IBOutlet weak var timeTextView: UITextView!
     
     let datePicker = UIDatePicker()
     let timePIcker = UIDatePicker()
@@ -36,16 +37,16 @@ class ViewControllerConfiguracao: UIViewController {
         //assign done button to toolbar
         toolBar.setItems([doneBtn], animated: true)
         //assign toolbar to textfield
-        dateTextField.inputAccessoryView = toolBar
+        dateTextView.inputAccessoryView = toolBar
         //assign datePicker to textField
-        dateTextField.inputView = datePicker
+        dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
         formatacao.dateStyle = .long
         formatacao.timeStyle = .none
-        dateTextField.text = formatacao.string(from: datePicker.date)
+        dateTextView.text = formatacao.string(from: datePicker.date)
         self.view.endEditing(true)
         
     }
@@ -54,18 +55,17 @@ class ViewControllerConfiguracao: UIViewController {
         toolbar1.sizeToFit()
         let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
         toolbar1.setItems([doneBtn1], animated: true)
-        timeTextField.inputAccessoryView = toolbar1
-        timeTextField.inputView = timePIcker
+        timeTextView.inputAccessoryView = toolbar1
+        timeTextView.inputView = timePIcker
         timePIcker.datePickerMode = .time
         
     }
     @objc func donePressed1(){
         
         let formatacao1 = DateFormatter()
-    
         formatacao1.timeStyle = .short
-        timeTextField.text = formatacao1.string(from: timePIcker.date)
-        
+        timeTextView.text = formatacao1.string(from: timePIcker.date)
+        self.view.endEditing(true)
     }
     
 
