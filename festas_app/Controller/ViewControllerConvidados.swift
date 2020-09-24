@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewControllerConvidados: UIViewController,UITableViewDataSource{
+    @IBOutlet weak var tableView: UITableView!
     
     
-    
+    var b = Int()
     let azul =  ["abc","abcd"]
     
     @IBOutlet weak var ViewConvidados: UIView!
@@ -34,15 +35,16 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource{
         textFieldConvidados.inputAccessoryView = toolbar
     }
     @objc func dnButtonPressed(){
-        
-        
         self.view.endEditing(true)
+         b = Int(textFieldConvidados.text!) ?? 0
+        tableView.reloadData()
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let textoConvertido = Int(textFieldConvidados.text!) ?? 0
-        return textoConvertido
+        return b
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

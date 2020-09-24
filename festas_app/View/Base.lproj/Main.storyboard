@@ -283,7 +283,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Convidados" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s0e-Gj-lm9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Convidados" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Convidados" id="s0e-Gj-lm9">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s0e-Gj-lm9" id="lBz-pF-FIB">
@@ -316,6 +316,7 @@
                     <navigationItem key="navigationItem" id="Pey-uI-Rgi"/>
                     <connections>
                         <outlet property="ViewConvidados" destination="xAB-mE-Qce" id="Ypp-Dq-6Vy"/>
+                        <outlet property="tableView" destination="Qjj-yj-c8r" id="sdh-3s-kBU"/>
                         <outlet property="textFieldConvidados" destination="Nsi-0c-XgD" id="T3T-Dx-zzD"/>
                     </connections>
                 </viewController>
