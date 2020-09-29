@@ -32,6 +32,7 @@ class NomeDosConvidadosTableViewCell: UITableViewCell {
        @objc func dnbuttonPressed(){
            let vc = ViewControllerConvidados()
         vc.convidados.append(NomeDosConvidadosTf.text ?? "")
+        
               
           }
    

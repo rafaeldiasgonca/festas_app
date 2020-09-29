@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerConvidados: UIViewController,UITableViewDataSource{
+class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate{
     @IBOutlet weak var tableView: UITableView!
     var convidados1 = 1
     var convidados:[String] = [""]
@@ -28,23 +28,36 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource{
         inserirNovoConvidado()
         
     }
+    @IBAction func ProsseguirButton(_ sender: Any) {
+        
+        
+        
+            print(convidados)
+    }
     
     func inserirNovoConvidado(){
+        let vc = NomeDosConvidadosTableViewCell()
         convidados1 = convidados1 + 1
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
         tableView.endUpdates()
+       
+        
     }
     
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        convidados.append(textField.text!)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return convidados1
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! NomeDosConvidadosTableViewCell
-       // convidados.append(cell.NomeDosConvidadosTf.text ?? "")
+        cell.NomeDosConvidadosTf.delegate = self
+        
+        
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -56,7 +69,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource{
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
-            
+            print(convidados1)
         }
     }
 }
