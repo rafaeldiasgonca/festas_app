@@ -11,7 +11,7 @@ import UIKit
 class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate{
     @IBOutlet weak var tableView: UITableView!
     var convidados1 = 1
-    var convidados:[String] = [""]
+    var convidados:[String] = []
     @IBOutlet weak var ViewConvidados: UIView!
     
     var numDeConvidados = Int()
@@ -46,7 +46,9 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         convidados.append(textField.text!)
+          textField.isEnabled = false
       return  self.view.endEditing(true)
+      
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +68,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             convidados1 = convidados1 - 1
+            convidados.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
