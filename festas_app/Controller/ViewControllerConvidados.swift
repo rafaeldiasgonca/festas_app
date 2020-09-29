@@ -36,7 +36,6 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func inserirNovoConvidado(){
-        let vc = NomeDosConvidadosTableViewCell()
         convidados1 = convidados1 + 1
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.beginUpdates()
@@ -45,10 +44,11 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
        
         
     }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         convidados.append(textField.text!)
+      return  self.view.endEditing(true)
     }
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return convidados1
         
