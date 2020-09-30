@@ -43,6 +43,8 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
         convidados.append(textField.text!)
         textField.isEnabled = false
         return  self.view.endEditing(true)
@@ -58,6 +60,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
         cell.nameGuests.delegate = self
+        cell.layer.cornerRadius = 12
         
         return cell
     }
