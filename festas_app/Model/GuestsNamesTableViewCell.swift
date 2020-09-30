@@ -11,11 +11,12 @@ import UIKit
 class GuestsNamesTableViewCell: UITableViewCell {
     
     
-    @IBOutlet weak var nameGuests: UITextView!
+    
+    @IBOutlet weak var nameGuests: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

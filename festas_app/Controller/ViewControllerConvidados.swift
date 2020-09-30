@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate{
+class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
@@ -46,8 +46,10 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         convidados.append(textField.text!)
         textField.isEnabled = false
         return  self.view.endEditing(true)
-        
+    
     }
+        
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return convidados1
