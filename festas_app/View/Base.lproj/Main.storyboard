@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uCU-fj-2JM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uCU-fj-2JM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -284,30 +284,29 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Convidados" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Convidados" id="s0e-Gj-lm9" customClass="NomeDosConvidadosTableViewCell" customModule="festas_app" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Convidados" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Convidados" id="s0e-Gj-lm9" customClass="GuestsNamesTableViewCell" customModule="festas_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s0e-Gj-lm9" id="lBz-pF-FIB">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V29-cB-rP1">
-                                                    <rect key="frame" x="20" y="5" width="41" height="33"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 40" translatesAutoresizingMaskIntoConstraints="NO" id="V29-cB-rP1">
+                                                    <rect key="frame" x="20" y="7" width="37" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2NI-x1-XlZ">
-                                                    <rect key="frame" x="82" y="5" width="259" height="34"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Convidado 1" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pZ8-fa-c6X">
+                                                    <rect key="frame" x="65" y="3" width="284" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="NomeDosConvidadosAC:" destination="s0e-Gj-lm9" eventType="editingDidEnd" id="h0T-gc-Wlf"/>
-                                                    </connections>
-                                                </textField>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="name"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="NomeDosConvidadosTf" destination="2NI-x1-XlZ" id="j2t-LJ-iXj"/>
+                                            <outlet property="nameGuests" destination="pZ8-fa-c6X" id="1gD-xf-g8F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,11 +315,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woh-qx-4Zr">
-                                <rect key="frame" x="20" y="818" width="374" height="30"/>
+                                <rect key="frame" x="20" y="816" width="374" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="Confirmar">
+                                <state key="normal" title="Completar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -328,26 +327,20 @@
                                     <action selector="ProsseguirButton:" destination="AL8-w4-EjY" eventType="touchUpInside" id="MrZ-6Z-JbU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHK-me-1bk">
-                                <rect key="frame" x="20" y="778" width="374" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <state key="normal" title="add">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" systemColor="placeholderTextColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButton:" destination="AL8-w4-EjY" eventType="touchUpInside" id="LjH-Ja-OAv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="XIh-mR-WJe"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pey-uI-Rgi"/>
+                    <navigationItem key="navigationItem" id="Pey-uI-Rgi">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" style="plain" id="pTQ-Yq-caL">
+                            <connections>
+                                <action selector="addGuestPressed:" destination="AL8-w4-EjY" id="hE3-4B-acs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ViewConvidados" destination="xAB-mE-Qce" id="Ypp-Dq-6Vy"/>
+                        <outlet property="numberOfGuests" destination="vlC-is-FpJ" id="cge-TB-znO"/>
                         <outlet property="tableView" destination="Qjj-yj-c8r" id="sdh-3s-kBU"/>
                     </connections>
                 </viewController>
@@ -378,7 +371,9 @@
         <segue reference="eHz-xs-RmV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Ellipse 40" width="201" height="201"/>
         <image name="card_inicial" width="303" height="616"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>

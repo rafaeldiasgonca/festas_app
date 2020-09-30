@@ -11,6 +11,7 @@ import UIKit
 class NomeDosConvidadosTableViewCell: UITableViewCell {
 
     @IBOutlet weak var NomeDosConvidadosTf: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

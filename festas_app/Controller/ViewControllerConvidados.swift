@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate{
+class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate{
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
     var convidados:[String] = []
     @IBOutlet weak var ViewConvidados: UIView!
@@ -19,20 +20,17 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         super.viewDidLoad()
         self.title = "Convidados"
         ViewConvidados.layer.cornerRadius = 12
-       
+        numberOfGuests.text = String(convidados1)
+        
     }
     
     
-    
-    @IBAction func addButton(_ sender: Any) {
+    @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
         inserirNovoConvidado()
-        
     }
+    
     @IBAction func ProsseguirButton(_ sender: Any) {
-        
-        
-        
-            print(convidados)
+        print(convidados)
     }
     
     func inserirNovoConvidado(){
@@ -41,24 +39,23 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
         tableView.endUpdates()
-       
+        numberOfGuests.text = String(convidados1)
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         convidados.append(textField.text!)
-          textField.isEnabled = false
-      return  self.view.endEditing(true)
-      
+        textField.isEnabled = false
+        return  self.view.endEditing(true)
+        
     }
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return convidados1
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! NomeDosConvidadosTableViewCell
-        cell.NomeDosConvidadosTf.delegate = self
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
+        cell.nameGuests.delegate = self
         
         return cell
     }

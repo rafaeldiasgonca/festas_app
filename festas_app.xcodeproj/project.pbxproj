@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C67C67D251D2BB000421657 /* PartyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C67C67C251D2BB000421657 /* PartyData.swift */; };
+		5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */; };
 		DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B983251A6DBB00F7E57B /* AppDelegate.swift */; };
 		DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */; };
 		DF23B988251A6DBB00F7E57B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B987251A6DBB00F7E57B /* ViewController.swift */; };
@@ -18,11 +19,11 @@
 		DF23B99B251A96E700F7E57B /* ViewControllerModelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */; };
 		DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */; };
 		DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */; };
-		DFB2222F251FB874005A8CC8 /* NomeDosConvidadosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222E251FB874005A8CC8 /* NomeDosConvidadosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C67C67C251D2BB000421657 /* PartyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyData.swift; sourceTree = "<group>"; };
+		5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsNamesTableViewCell.swift; sourceTree = "<group>"; };
 		DF23B980251A6DBB00F7E57B /* festas_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = festas_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF23B983251A6DBB00F7E57B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModelos.swift; sourceTree = "<group>"; };
 		DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfiguracao.swift; sourceTree = "<group>"; };
 		DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConvidados.swift; sourceTree = "<group>"; };
-		DFB2222E251FB874005A8CC8 /* NomeDosConvidadosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomeDosConvidadosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +54,6 @@
 			children = (
 				DF23B989251A6DBB00F7E57B /* Main.storyboard */,
 				DF23B991251A6DBE00F7E57B /* LaunchScreen.storyboard */,
-				DFB2222E251FB874005A8CC8 /* NomeDosConvidadosTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -74,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				5C67C67C251D2BB000421657 /* PartyData.swift */,
+				5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,10 +181,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF23B988251A6DBB00F7E57B /* ViewController.swift in Sources */,
-				DFB2222F251FB874005A8CC8 /* NomeDosConvidadosTableViewCell.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
 				DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */,
+				5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */,
 				DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */,
 				DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */,
 				5C67C67D251D2BB000421657 /* PartyData.swift in Sources */,
