@@ -47,6 +47,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
         convidados.append(textField.text!)
         textField.isEnabled = false
+        tableView.reloadData()
         return  self.view.endEditing(true)
     
     }
