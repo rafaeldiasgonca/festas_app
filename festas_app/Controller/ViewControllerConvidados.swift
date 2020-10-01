@@ -8,14 +8,23 @@
 
 import UIKit
 
+
+
 class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
-    var convidados:[String] = []
+    var convidados:[Convidados] = []
     @IBOutlet weak var ViewConvidados: UIView!
-    
     var numDeConvidados = Int()
+   class Convidados {
+    var nome:String?
+       init(nome: String) {
+        self.nome = nome
+       }
+   }
+    
+    let NomeDeConvidados:[Convidados] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convidados"
@@ -34,7 +43,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func inserirNovoConvidado(){
-        convidados1 = convidados1 + 1
+        convidados.append(Convidados.init(nome:))
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
@@ -55,7 +64,8 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return convidados1
+        return convidados.count
+        
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,6 +80,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+        
             convidados1 = convidados1 - 1
             convidados.remove(at: indexPath.row)
             tableView.beginUpdates()
