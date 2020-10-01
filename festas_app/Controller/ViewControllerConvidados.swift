@@ -53,9 +53,11 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        let indexPath = IndexPath.init(row: convidados1, section: 0)
         tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
         textField.isEnabled = false
+        convidados.append(textField.text!)
+        print(convidados)
         tableView.reloadData()
         return  self.view.endEditing(true)
     
@@ -79,7 +81,13 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
+            let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
+            if cell.nameGuests.text != "" {
+                convidados.remove(at: indexPath.row)
+            }
+           
             convidados1 = convidados1 - 1
+            numberOfGuests.text = String(convidados1)
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
