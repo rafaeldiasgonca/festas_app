@@ -14,17 +14,12 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
-    var convidados:[Convidados] = []
+    var convidados:[String] = []
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
-   class Convidados {
-    var nome:String?
-       init(nome: String) {
-        self.nome = nome
-       }
-   }
     
-    let NomeDeConvidados:[Convidados] = []
+    
+    @IBOutlet weak var guestTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convidados"
@@ -43,28 +38,32 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func inserirNovoConvidado(){
-        convidados.append(Convidados.init(nome:))
+        convidados1 = convidados1 + 1
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
+        let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
+        if cell.nameGuests.text != "" {
+            cell.nameGuests.text = ""
+            cell.nameGuests.isEnabled = true
+            cell.backgroundColor = .white
+        }
         
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
-        convidados.append(textField.text!)
         textField.isEnabled = false
         tableView.reloadData()
         return  self.view.endEditing(true)
     
     }
-        
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return convidados.count
+        return convidados1
         
         
     }
@@ -80,9 +79,7 @@ class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableVi
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-        
             convidados1 = convidados1 - 1
-            convidados.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
