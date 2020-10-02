@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StartViewController: UIViewController {
 
     @IBOutlet weak var startCard: UIView!
     @IBOutlet weak var stardCardButton: UIButton!

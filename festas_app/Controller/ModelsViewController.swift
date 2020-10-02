@@ -8,7 +8,7 @@
 
 import UIKit
 var titulo = String()
-class ViewControllerModelos: UIViewController {
+class ModelsViewController: UIViewController {
     @IBOutlet weak var ViewChurrasco: UIView!
     @IBOutlet weak var ViewAniversario: UIView!
     @IBOutlet weak var ViewReuniaoDeAmigos: UIView!
@@ -31,7 +31,7 @@ class ViewControllerModelos: UIViewController {
         titulo = "Aniversario"
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let newVc:ViewControllerConfiguracao = segue.destination as! ViewControllerConfiguracao
+        let newVc:SettingsViewController = segue.destination as! SettingsViewController
         newVc.tituloRecebido = titulo
     }
     

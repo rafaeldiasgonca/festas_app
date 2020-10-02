@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResumoDeItensTableViewCell: UITableViewCell {
+class PartySummaryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var LabelItens: UILabel!
     override func awakeFromNib() {

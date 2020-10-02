@@ -30,7 +30,7 @@ class ViewControllerInicio: UIViewController,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as!ResumoDeItensTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as!PartySummaryTableViewCell
         cell.LabelItens.text = itens[indexPath.row]
         return cell
     }

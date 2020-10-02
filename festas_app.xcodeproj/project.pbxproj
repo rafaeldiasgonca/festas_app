@@ -11,16 +11,16 @@
 		5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */; };
 		DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B983251A6DBB00F7E57B /* AppDelegate.swift */; };
 		DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */; };
-		DF23B988251A6DBB00F7E57B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B987251A6DBB00F7E57B /* ViewController.swift */; };
+		DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B987251A6DBB00F7E57B /* StartViewController.swift */; };
 		DF23B98B251A6DBB00F7E57B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF23B989251A6DBB00F7E57B /* Main.storyboard */; };
 		DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DF23B98C251A6DBB00F7E57B /* festas_app.xcdatamodeld */; };
 		DF23B990251A6DBE00F7E57B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF23B98F251A6DBE00F7E57B /* Assets.xcassets */; };
 		DF23B993251A6DBE00F7E57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF23B991251A6DBE00F7E57B /* LaunchScreen.storyboard */; };
-		DF23B99B251A96E700F7E57B /* ViewControllerModelos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */; };
-		DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */; };
-		DF52533C252674BB001C72D0 /* ResumoDeItensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* ResumoDeItensTableViewCell.swift */; };
+		DF23B99B251A96E700F7E57B /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99A251A96E700F7E57B /* ModelsViewController.swift */; };
+		DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */; };
+		DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */; };
 		DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */; };
-		DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */; };
+		DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */; };
 		DFEBF6072525222600205D6A /* ViewControllerInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* ViewControllerInicio.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,17 +30,17 @@
 		DF23B980251A6DBB00F7E57B /* festas_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = festas_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF23B983251A6DBB00F7E57B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DF23B987251A6DBB00F7E57B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF23B987251A6DBB00F7E57B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		DF23B98A251A6DBB00F7E57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF23B98D251A6DBB00F7E57B /* festas_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = festas_app.xcdatamodel; sourceTree = "<group>"; };
 		DF23B98F251A6DBE00F7E57B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF23B992251A6DBE00F7E57B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF23B994251A6DBE00F7E57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerModelos.swift; sourceTree = "<group>"; };
-		DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfiguracao.swift; sourceTree = "<group>"; };
-		DF52533B252674BB001C72D0 /* ResumoDeItensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumoDeItensTableViewCell.swift; sourceTree = "<group>"; };
+		DF23B99A251A96E700F7E57B /* ModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsViewController.swift; sourceTree = "<group>"; };
+		DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySummaryTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfigGeral.swift; sourceTree = "<group>"; };
-		DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConvidados.swift; sourceTree = "<group>"; };
+		DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
 		DFEBF6062525222600205D6A /* ViewControllerInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInicio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,10 +67,10 @@
 		5C67C67B251D2B6A00421657 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DF23B987251A6DBB00F7E57B /* ViewController.swift */,
-				DF23B99A251A96E700F7E57B /* ViewControllerModelos.swift */,
-				DF23B99C251AA0DE00F7E57B /* ViewControllerConfiguracao.swift */,
-				DFB2222C251D2DA0005A8CC8 /* ViewControllerConvidados.swift */,
+				DF23B987251A6DBB00F7E57B /* StartViewController.swift */,
+				DF23B99A251A96E700F7E57B /* ModelsViewController.swift */,
+				DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */,
+				DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */,
 				DFEBF6062525222600205D6A /* ViewControllerInicio.swift */,
 				DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */,
 			);
@@ -82,7 +82,7 @@
 			children = (
 				5C67C67C251D2BB000421657 /* PartyData.swift */,
 				5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */,
-				DF52533B252674BB001C72D0 /* ResumoDeItensTableViewCell.swift */,
+				DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,18 +189,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF23B988251A6DBB00F7E57B /* ViewController.swift in Sources */,
+				DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
-				DFB2222D251D2DA0005A8CC8 /* ViewControllerConvidados.swift in Sources */,
+				DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */,
 				DFEBF6072525222600205D6A /* ViewControllerInicio.swift in Sources */,
-				DF23B99D251AA0DE00F7E57B /* ViewControllerConfiguracao.swift in Sources */,
-				DF52533C252674BB001C72D0 /* ResumoDeItensTableViewCell.swift in Sources */,
+				DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */,
+				DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */,
 				5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */,
 				DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */,
 				DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */,
 				5C67C67D251D2BB000421657 /* PartyData.swift in Sources */,
 				DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */,
-				DF23B99B251A96E700F7E57B /* ViewControllerModelos.swift in Sources */,
+				DF23B99B251A96E700F7E57B /* ModelsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
         <!--Modelos-->
         <scene sceneID="3a9-Za-nVC">
             <objects>
-                <viewController id="twd-YT-NET" customClass="ViewControllerModelos" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="twd-YT-NET" customClass="ModelsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZsY-h4-H5s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="1886" y="138"/>
         </scene>
-        <!--View Controller Configuracao-->
+        <!--Settings View Controller-->
         <scene sceneID="LW6-By-O5M">
             <objects>
-                <viewController id="dxa-ps-tNE" customClass="ViewControllerConfiguracao" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dxa-ps-tNE" customClass="SettingsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zek-ye-kwO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,10 +252,10 @@
             </objects>
             <point key="canvasLocation" x="2662.3188405797105" y="126.5625"/>
         </scene>
-        <!--View Controller Convidados-->
+        <!--Guests View Controller-->
         <scene sceneID="AjE-EZ-4G8">
             <objects>
-                <viewController id="AL8-w4-EjY" customClass="ViewControllerConvidados" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AL8-w4-EjY" customClass="GuestsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hPB-WE-aYH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +450,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itens" rowHeight="54" id="FnE-0V-RB2" customClass="ResumoDeItensTableViewCell" customModule="festas_app" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itens" rowHeight="54" id="FnE-0V-RB2" customClass="PartySummaryTableViewCell" customModule="festas_app" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="272" height="54"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FnE-0V-RB2" id="L32-NC-Naq">

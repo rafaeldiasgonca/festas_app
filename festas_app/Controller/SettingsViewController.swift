@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ViewControllerConfiguracao: UIViewController {
+class SettingsViewController: UIViewController {
     
     @IBOutlet weak var dateTextView: UITextView!
     @IBOutlet weak var timeTextView: UITextView!

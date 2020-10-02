@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class ViewControllerConvidados: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate{
+class GuestsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
