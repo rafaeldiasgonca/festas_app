@@ -24,7 +24,7 @@ class ViewControllerConfigGeral: UIViewController {
         self.viewDetalhesConvidados.layer.cornerRadius = 12
         self.ButtonExcluir.layer.cornerRadius = 12
         self.ButtonFinalizar.layer.cornerRadius = 12
-       
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 

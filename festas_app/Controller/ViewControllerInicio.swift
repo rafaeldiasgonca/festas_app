@@ -34,6 +34,12 @@ class ViewControllerInicio: UIViewController,UITableViewDataSource{
         cell.LabelItens.text = itens[indexPath.row]
         return cell
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
    
 
 }
