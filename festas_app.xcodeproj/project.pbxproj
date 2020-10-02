@@ -21,7 +21,7 @@
 		DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */; };
 		DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */; };
 		DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */; };
-		DFEBF6072525222600205D6A /* ViewControllerInicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* ViewControllerInicio.swift */; };
+		DFEBF6072525222600205D6A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +41,7 @@
 		DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySummaryTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfigGeral.swift; sourceTree = "<group>"; };
 		DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
-		DFEBF6062525222600205D6A /* ViewControllerInicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInicio.swift; sourceTree = "<group>"; };
+		DFEBF6062525222600205D6A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				DF23B99A251A96E700F7E57B /* ModelsViewController.swift */,
 				DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */,
 				DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */,
-				DFEBF6062525222600205D6A /* ViewControllerInicio.swift */,
+				DFEBF6062525222600205D6A /* MainViewController.swift */,
 				DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */,
 			);
 			path = Controller;
@@ -192,7 +192,7 @@
 				DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
 				DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */,
-				DFEBF6072525222600205D6A /* ViewControllerInicio.swift in Sources */,
+				DFEBF6072525222600205D6A /* MainViewController.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */,
 				DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */,
 				5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */,

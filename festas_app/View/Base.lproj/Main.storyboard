@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="3400.0000000000005" y="123.88392857142857"/>
         </scene>
-        <!--View Controller Inicio-->
+        <!--Main View Controller-->
         <scene sceneID="M4H-f3-15K">
             <objects>
-                <viewController id="Ryu-CG-i1T" customClass="ViewControllerInicio" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ryu-CG-i1T" customClass="MainViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Orh-Ae-ptw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

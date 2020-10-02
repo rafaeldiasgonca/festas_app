@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerInicio: UIViewController,UITableViewDataSource{
+class MainViewController: UIViewController,UITableViewDataSource{
     
     
     var itens:[String] = ["","",""]
