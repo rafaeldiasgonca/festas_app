@@ -20,7 +20,11 @@
 		DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */; };
 		DF364F282527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F272527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift */; };
 		DF364F2B2527C54400BD9FAB /* ListaDoQueFazerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F2A2527C54400BD9FAB /* ListaDoQueFazerViewController.swift */; };
-		DF364F2E2527CFD100BD9FAB /* EspacosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F2D2527CFD100BD9FAB /* EspacosTableViewCell.swift */; };
+		DF364F322527DB5200BD9FAB /* EspacosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F312527DB5200BD9FAB /* EspacosTableViewCell.swift */; };
+		DF364F352527DB6500BD9FAB /* descartaveisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F342527DB6500BD9FAB /* descartaveisTableViewCell.swift */; };
+		DF364F382527DB7A00BD9FAB /* ComidaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F372527DB7A00BD9FAB /* ComidaTableViewCell.swift */; };
+		DF364F3B2527DB9000BD9FAB /* BebidaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F3A2527DB9000BD9FAB /* BebidaTableViewCell.swift */; };
+		DF364F3E2527DBBD00BD9FAB /* utensiliosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F3D2527DBBD00BD9FAB /* utensiliosTableViewCell.swift */; };
 		DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */; };
 		DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */; };
 		DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */; };
@@ -43,7 +47,11 @@
 		DF23B99C251AA0DE00F7E57B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DF364F272527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListaDeConvidados.swift; sourceTree = "<group>"; };
 		DF364F2A2527C54400BD9FAB /* ListaDoQueFazerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaDoQueFazerViewController.swift; sourceTree = "<group>"; };
-		DF364F2D2527CFD100BD9FAB /* EspacosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspacosTableViewCell.swift; sourceTree = "<group>"; };
+		DF364F312527DB5200BD9FAB /* EspacosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspacosTableViewCell.swift; sourceTree = "<group>"; };
+		DF364F342527DB6500BD9FAB /* descartaveisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = descartaveisTableViewCell.swift; sourceTree = "<group>"; };
+		DF364F372527DB7A00BD9FAB /* ComidaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComidaTableViewCell.swift; sourceTree = "<group>"; };
+		DF364F3A2527DB9000BD9FAB /* BebidaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BebidaTableViewCell.swift; sourceTree = "<group>"; };
+		DF364F3D2527DBBD00BD9FAB /* utensiliosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utensiliosTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySummaryTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfigGeral.swift; sourceTree = "<group>"; };
 		DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +99,11 @@
 				5C67C67C251D2BB000421657 /* PartyData.swift */,
 				5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */,
 				DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */,
-				DF364F2D2527CFD100BD9FAB /* EspacosTableViewCell.swift */,
+				DF364F312527DB5200BD9FAB /* EspacosTableViewCell.swift */,
+				DF364F342527DB6500BD9FAB /* descartaveisTableViewCell.swift */,
+				DF364F372527DB7A00BD9FAB /* ComidaTableViewCell.swift */,
+				DF364F3A2527DB9000BD9FAB /* BebidaTableViewCell.swift */,
+				DF364F3D2527DBBD00BD9FAB /* utensiliosTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,9 +210,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF364F3B2527DB9000BD9FAB /* BebidaTableViewCell.swift in Sources */,
 				DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
 				DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */,
+				DF364F3E2527DBBD00BD9FAB /* utensiliosTableViewCell.swift in Sources */,
+				DF364F382527DB7A00BD9FAB /* ComidaTableViewCell.swift in Sources */,
 				DFEBF6072525222600205D6A /* MainViewController.swift in Sources */,
 				DF364F2B2527C54400BD9FAB /* ListaDoQueFazerViewController.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */,
@@ -209,9 +224,10 @@
 				DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */,
 				DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */,
 				DF364F282527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift in Sources */,
+				DF364F352527DB6500BD9FAB /* descartaveisTableViewCell.swift in Sources */,
 				5C67C67D251D2BB000421657 /* PartyData.swift in Sources */,
 				DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */,
-				DF364F2E2527CFD100BD9FAB /* EspacosTableViewCell.swift in Sources */,
+				DF364F322527DB5200BD9FAB /* EspacosTableViewCell.swift in Sources */,
 				DF23B99B251A96E700F7E57B /* ModelsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

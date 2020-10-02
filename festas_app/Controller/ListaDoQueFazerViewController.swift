@@ -59,15 +59,15 @@ class ListaDoQueFazerViewController: UIViewController,UITableViewDelegate,UITabl
        var  cell = UITableViewCell()
         switch tableView {
         case TableViewEspacos:
-            cell = tableView.dequeueReusableCell(withIdentifier:"Espacos", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier:"Espacos", for: indexPath) as! EspacosTableViewCell
         case tableViewdescartaveis:
-            cell = tableView.dequeueReusableCell(withIdentifier:"descartaveis", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier:"descartaveis", for: indexPath) as! descartaveisTableViewCell
         case tableViewComida:
-            cell = tableView.dequeueReusableCell(withIdentifier:"Comida", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier:"Comida", for: indexPath) as! ComidaTableViewCell
         case TableViewBebidas:
-            cell = tableView.dequeueReusableCell(withIdentifier:"Bebidas", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier:"Bebidas", for: indexPath) as! BebidaTableViewCell
         case TableViewUtensilios:
-            cell = tableView.dequeueReusableCell(withIdentifier:"utensilios", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier:"utensilios", for: indexPath) as! utensiliosTableViewCell
             
         default:
             print("erro")
