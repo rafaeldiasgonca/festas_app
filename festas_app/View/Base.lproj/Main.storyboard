@@ -70,12 +70,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-D9-LO3">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8U-lV-vUu">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="ChurrascoButton:" destination="twd-YT-NET" eventType="touchUpInside" id="oPY-7C-pY6"/>
-                                            <segue destination="dxa-ps-tNE" kind="show" id="uy4-3U-kKK"/>
+                                            <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="raT-MY-kKu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,12 +98,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfO-YU-NSr">
-                                        <rect key="frame" x="-1" y="0.0" width="354" height="203"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgl-0k-T1t">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="ReuniaoButton:" destination="twd-YT-NET" eventType="touchUpInside" id="kBi-JZ-rdv"/>
-                                            <segue destination="dxa-ps-tNE" kind="show" id="eHz-xs-RmV"/>
+                                            <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="4Ne-wg-IEy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -115,7 +113,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aniversário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-MK-uLV">
-                                        <rect key="frame" x="22" y="8" width="149" height="34"/>
+                                        <rect key="frame" x="22" y="8" width="324" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <nil key="textColor"/>
@@ -128,12 +126,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbu-pd-a33">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLk-zH-Nlj">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="AniversarioButton:" destination="twd-YT-NET" eventType="touchUpInside" id="nC3-sJ-Lr3"/>
-                                            <segue destination="dxa-ps-tNE" kind="show" id="RYk-7g-dgS"/>
+                                            <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="nRu-j5-Ng3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -148,11 +145,12 @@
                         <outlet property="ViewAniversario" destination="oAP-BZ-GFQ" id="4XK-lb-VPt"/>
                         <outlet property="ViewChurrasco" destination="7iR-vR-exf" id="l78-la-kvf"/>
                         <outlet property="ViewReuniaoDeAmigos" destination="t6X-mK-Zn7" id="B7M-EM-oFQ"/>
+                        <segue destination="dxa-ps-tNE" kind="show" identifier="goToSettingsMenu" id="YcR-z9-6qX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEy-l5-Stv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886" y="138"/>
+            <point key="canvasLocation" x="1885.5072463768117" y="137.94642857142856"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="LW6-By-O5M">
@@ -818,9 +816,6 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="eHz-xs-RmV"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Ellipse 40" width="201" height="201"/>
         <image name="card_inicial" width="303" height="616"/>

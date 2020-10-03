@@ -12,6 +12,7 @@ class ModelsViewController: UIViewController {
     @IBOutlet weak var ViewChurrasco: UIView!
     @IBOutlet weak var ViewAniversario: UIView!
     @IBOutlet weak var ViewReuniaoDeAmigos: UIView!
+    let models = [1:"Reuniao de amigos", 2:"Churrasco", 3:"Aniversario"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +20,12 @@ class ModelsViewController: UIViewController {
         ViewReuniaoDeAmigos.layer.cornerRadius = 12
         ViewAniversario.layer.cornerRadius = 12
     }
-    @IBAction func ReuniaoButton(_ sender: Any) {
-        titulo = "Reuniao de amigos"
+    
+    @IBAction func modelTypePressed(_ sender: UIButton) {
+        titulo = models[sender.tag]!
+        self.performSegue(withIdentifier: "goToSettingsMenu", sender: self)
     }
     
-    @IBAction func ChurrascoButton(_ sender: Any) {
-        titulo = "Churrasco"
-    }
-    
-    @IBAction func AniversarioButton(_ sender: Any) {
-        titulo = "Aniversario"
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let newVc:SettingsViewController = segue.destination as! SettingsViewController
         newVc.tituloRecebido = titulo
