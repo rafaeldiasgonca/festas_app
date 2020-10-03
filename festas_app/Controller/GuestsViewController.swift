@@ -10,59 +10,27 @@ import UIKit
 
 
 
-class GuestsViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextViewDelegate, UITextFieldDelegate{
+class GuestsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var numberOfGuests: UILabel!
     var convidados1 = 1
     var convidados:[String] = []
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
-    
-    
-    @IBOutlet weak var guestTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convidados"
         ViewConvidados.layer.cornerRadius = 12
         numberOfGuests.text = String(convidados1)
-        
     }
-    
-    
-    @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
-        inserirNovoConvidado()
-    }
-    
-    @IBAction func ProsseguirButton(_ sender: Any) {
-        print(convidados)
-    }
-    
-    func inserirNovoConvidado(){
-        convidados1 = convidados1 + 1
-        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at:[indexPath], with:.automatic)
-        tableView.endUpdates()
-        numberOfGuests.text = String(convidados1)
-        let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
-        if cell.nameGuests.text != "" {
-            cell.nameGuests.text = ""
-            cell.nameGuests.isEnabled = true
-            cell.backgroundColor = .white
-        }
-        
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let indexPath = IndexPath.init(row: convidados1, section: 0)
-        tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
-        textField.isEnabled = false
-        convidados.append(textField.text!)
-        print(convidados)
-        tableView.reloadData()
-        return  self.view.endEditing(true)
-    
-    }
-    
+}
+
+
+
+//MARK: - TableView Controller
+
+extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return convidados1
@@ -85,7 +53,11 @@ class GuestsViewController: UIViewController,UITableViewDataSource,UITableViewDe
             if cell.nameGuests.text != "" {
                 convidados.remove(at: indexPath.row)
             }
-           
+            if cell.nameGuests.text != "" {
+                cell.nameGuests.text = ""
+                cell.nameGuests.isEnabled = true
+                cell.backgroundColor = .white
+            }
             convidados1 = convidados1 - 1
             numberOfGuests.text = String(convidados1)
             tableView.beginUpdates()
@@ -93,6 +65,39 @@ class GuestsViewController: UIViewController,UITableViewDataSource,UITableViewDe
             tableView.endUpdates()
             print(convidados1)
         }
+    }
+}
+
+
+
+//MARK: - TextField Controller
+
+extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
+    
+    @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
+        inserirNovoConvidado()
+    }
+    
+    @IBAction func ProsseguirButton(_ sender: Any) {
+        print(convidados)
+    }
+    
+    func inserirNovoConvidado(){
+        convidados1 = convidados1 + 1
+        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at:[indexPath], with:.automatic)
+        tableView.endUpdates()
+        numberOfGuests.text = String(convidados1)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let indexPath = IndexPath.init(row: convidados1, section: 0)
+        tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
+        textField.isEnabled = false
+        convidados.append(textField.text!)
+        print(convidados)
+        tableView.reloadData()
+        return  self.view.endEditing(true)
     }
     
 }
