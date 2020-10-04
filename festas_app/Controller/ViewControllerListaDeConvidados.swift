@@ -13,7 +13,8 @@ class ViewControllerListaDeConvidados: UIViewController, UITableViewDelegate,UIT
    
     var guestList:[NSManagedObject] = []
 
-    @IBOutlet weak var guestListTable: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +44,7 @@ class ViewControllerListaDeConvidados: UIViewController, UITableViewDelegate,UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(guestList.count)
         return guestList.count
     }
     
