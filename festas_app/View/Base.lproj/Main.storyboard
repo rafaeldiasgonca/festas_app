@@ -740,12 +740,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dkb-0v-qEs">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="zW1-Eu-KbI">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WaG-xI-RxR">
-                                <rect key="frame" x="359" y="4" width="35" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus.circle.fill" catalog="system"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus.circle.fill" catalog="system" id="RNN-eQ-VGD">
+                            <connections>
+                                <action selector="addGuestPressed:" destination="MPs-5N-RF1" id="ee7-qv-gIt"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

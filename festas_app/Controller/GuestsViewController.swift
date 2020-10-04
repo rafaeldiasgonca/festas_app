@@ -55,7 +55,7 @@ class GuestsViewController: UIViewController {
     }
     
     @IBAction func ProsseguirButton(_ sender: Any) {
-        print(convidados)
+        print(guestList)
         self.deleteBlankSpace()
     }
     
@@ -118,6 +118,34 @@ class GuestsViewController: UIViewController {
                  print("Failed saving")
              }
     }
+    
+    func delete(name: String){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+             let context = appDelegate.persistentContainer.viewContext
+             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+             requestDel.returnsObjectsAsFaults = false
+          // If you want to delete data on basis of some condition then you can use NSPredicate
+             let predicateDel = NSPredicate(format: "name = %@", name)
+             requestDel.predicate = predicateDel
+
+
+             do {
+                  let arrUsrObj = try context.fetch(requestDel)
+                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                      context.delete(usrObj) // Deleting Object
+                 }
+             } catch {
+                  print("Failed")
+             }
+
+            // Saving the Delete operation
+             do {
+                 try context.save()
+             } catch {
+                 print("Failed saving")
+             }
+    }
+
     
     func edit(index: Int, nome: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -188,9 +216,8 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
-            if cell.nameGuests.text != "" {
-                //convidados.remove(at: indexPath.row)
-            }
+            guard let nameToDelete = cell.nameGuests.text else {return}
+            self.delete(name: nameToDelete)
             if cell.nameGuests.text != "" {
                 cell.nameGuests.text = ""
                 cell.nameGuests.isEnabled = true
@@ -212,7 +239,6 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.insertRows(at:[indexPath], with:.automatic)
         for names in 0..<(convidados1-1) {
             print(guestList[names].value(forKeyPath: "name") as? String)
-            //Mudança aqui
         }
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
@@ -226,13 +252,21 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        var aux = 0
         let indexPath = IndexPath.init(row: convidados1, section: 0)
         tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
-        textField.isEnabled = false
         guard let nameToSave = textField.text else { return false }
-        self.edit(index: convidados1-1, nome: nameToSave)
-        convidados.append(nameToSave)
-        print(convidados)
+        for empty in 0..<guestList.count {
+            if aux == 0 {
+                if guestList[empty].value(forKeyPath: "name") as? String == "" {
+                    if empty < convidados1 {
+                        self.edit(index: empty, nome: nameToSave)
+                        aux = 1
+                    }
+                }
+            }
+        }
+        aux = 0
         tableView.reloadData()
         return  self.view.endEditing(true)
     }
