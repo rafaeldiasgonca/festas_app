@@ -17,39 +17,38 @@ class GuestsViewController: UIViewController {
     var guestList:[NSManagedObject] = []
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convidados"
         ViewConvidados.layer.cornerRadius = 12
         numberOfGuests.text = String(convidados1)
-        self.save(name: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      
-      //1
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-          return
-      }
-      
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      
-      //2
-      let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "Guest")
-      
-      //3
-      do {
-        guestList = try managedContext.fetch(fetchRequest)
-      } catch let error as NSError {
-        print("Could not fetch. \(error), \(error.userInfo)")
-      }
+        super.viewWillAppear(animated)
+        self.deleteAllData(entity: "Guest")
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Guest")
+        
+        //3
+        do {
+            guestList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
-
+    
     
     @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
         inserirNovoConvidado()
@@ -57,64 +56,67 @@ class GuestsViewController: UIViewController {
     
     @IBAction func ProsseguirButton(_ sender: Any) {
         print(convidados)
+        self.deleteBlankSpace()
     }
     
-//MARK: - CoreData Functions
+    //MARK: - CoreData Functions
     
     func save(name: String) {
-      
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-        return
-      }
-      
-      // 1
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      
-      // 2
-      let entity =
-        NSEntityDescription.entity(forEntityName: "Guest",
-                                   in: managedContext)!
-      
-      let guest = NSManagedObject(entity: entity,
-                                   insertInto: managedContext)
-      
-      // 3
-      guest.setValue(name, forKeyPath: "name")
-      
-      // 4
-      do {
-        try managedContext.save()
-        guestList.append(guest)
-      } catch let error as NSError {
-        print("Could not save. \(error), \(error.userInfo)")
-      }
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Guest",
+                                       in: managedContext)!
+        
+        let guest = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        guest.setValue(name, forKeyPath: "name")
+        
+        // 4
+        do {
+            try managedContext.save()
+            guestList.append(guest)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
-    func delete(index: Int){
+    func deleteBlankSpace(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
-        requestDel.returnsObjectsAsFaults = false
-        
-        
-        do {
-            let arrUsrObj = try context.fetch(requestDel)
-            let usrObj = arrUsrObj as! [NSManagedObject]
-            context.delete(usrObj[index])
-            
-        } catch {
-            print("Failed")
-        }
-        
-        // Saving the Delete operation
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
-        }
+             let context = appDelegate.persistentContainer.viewContext
+             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+             requestDel.returnsObjectsAsFaults = false
+          // If you want to delete data on basis of some condition then you can use NSPredicate
+             let predicateDel = NSPredicate(format: "name = %@", "")
+             requestDel.predicate = predicateDel
+
+
+             do {
+                  let arrUsrObj = try context.fetch(requestDel)
+                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                      context.delete(usrObj) // Deleting Object
+                 }
+             } catch {
+                  print("Failed")
+             }
+
+            // Saving the Delete operation
+             do {
+                 try context.save()
+             } catch {
+                 print("Failed saving")
+             }
     }
     
     func edit(index: Int, nome: String){
@@ -143,24 +145,23 @@ class GuestsViewController: UIViewController {
     }
     
     func deleteAllData(entity: String) {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let managedContext = appDelegate.persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-    fetchRequest.returnsObjectsAsFaults = false
-
-    do
-    {
-        let results = try managedContext.fetch(fetchRequest)
-        for managedObject in results
-        {
-            let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-            managedContext.delete(managedObjectData)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
         }
-    } catch let error as NSError {
-        print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        catch let error as NSError {
+            print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        }
     }
-    }
-
+    
     
 }
 
@@ -176,6 +177,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
+        self.save(name: "")
         let person = guestList[indexPath.row]
         cell.nameGuests.text =  person.value(forKeyPath: "name") as? String
         return cell
@@ -194,7 +196,6 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.nameGuests.isEnabled = true
                 cell.backgroundColor = .white
             }
-            self.delete(index: indexPath.row)
             convidados1 = convidados1 - 1
             numberOfGuests.text = String(convidados1)
             tableView.beginUpdates()
