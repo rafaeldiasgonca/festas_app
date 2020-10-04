@@ -24,7 +24,6 @@ class GuestsViewController: UIViewController {
         ViewConvidados.layer.cornerRadius = 12
         numberOfGuests.text = String(convidados1)
         self.save(name: "")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -212,6 +211,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.insertRows(at:[indexPath], with:.automatic)
         for names in 0..<(convidados1-1) {
             print(guestList[names].value(forKeyPath: "name") as? String)
+            //Mudança aqui
         }
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
