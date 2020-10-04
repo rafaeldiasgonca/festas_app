@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class ViewControllerListaDeConvidados: UIViewController {
-   
+    
     var guestList:[NSManagedObject] = []
     var convidados1 = 0
     
@@ -26,27 +26,27 @@ class ViewControllerListaDeConvidados: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      
-      //1
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
-          return
-      }
-      
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      
-      //2
-      let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "Guest")
-      
-      //3
-      do {
-        guestList = try managedContext.fetch(fetchRequest)
-      } catch let error as NSError {
-        print("Could not fetch. \(error), \(error.userInfo)")
-      }
+        super.viewWillAppear(animated)
+        self.deleteBlankSpace()
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Guest")
+        
+        //3
+        do {
+            guestList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
         convidados1 = guestList.count
     }
     
@@ -83,58 +83,58 @@ class ViewControllerListaDeConvidados: UIViewController {
     
     func deleteBlankSpace(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "name = %@", "")
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "name = %@", "")
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
     
     func delete(name: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "name = %@", name)
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "name = %@", name)
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
-
+    
     
     func edit(index: Int, nome: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
