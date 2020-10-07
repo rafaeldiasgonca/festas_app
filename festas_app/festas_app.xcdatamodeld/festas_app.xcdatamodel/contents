@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Disposable" representedClassName="Disposable" syncable="YES" codeGenerationType="class">
+        <attribute name="to_do" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Drinks" representedClassName="Drinks" syncable="YES" codeGenerationType="class">
+        <attribute name="to_do" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class">
+        <attribute name="to_do" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Guest" representedClassName="Guest" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Space" representedClassName="Space" syncable="YES" codeGenerationType="class">
+        <attribute name="to_do" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Utensils" representedClassName="Utensils" syncable="YES" codeGenerationType="class">
+        <attribute name="to_do" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Guest" positionX="-45" positionY="0" width="128" height="58"/>
+        <element name="Food" positionX="-45" positionY="9" width="128" height="58"/>
+        <element name="Drinks" positionX="-36" positionY="18" width="128" height="58"/>
+        <element name="Disposable" positionX="-18" positionY="27" width="128" height="58"/>
+        <element name="Utensils" positionX="9" positionY="54" width="128" height="58"/>
+        <element name="Space" positionX="27" positionY="72" width="128" height="58"/>
     </elements>
 </model>
