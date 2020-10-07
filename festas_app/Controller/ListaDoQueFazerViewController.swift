@@ -10,7 +10,11 @@ import UIKit
 
 class ListaDoQueFazerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate{
     @IBOutlet weak var tableViewToDoList: UITableView!
+    
+    var cont  = 0
+    var sectionNumber = 0
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.title = "Oque Fazer"
     }
@@ -82,47 +86,57 @@ class ListaDoQueFazerViewController: UIViewController,UITableViewDelegate,UITabl
     }
     @objc func comidaBut(sender:UIButton)
     {
-
-        
+        churrascoToDo[0].append("")
+        let indexPath = IndexPath.init(row:churrascoToDo[0].count-1, section: 0)
+        tableViewToDoList.beginUpdates()
+        tableViewToDoList.insertRows(at: [indexPath], with: .none)
+        tableViewToDoList.endUpdates()
         print("comidaButClicked")
     }
     
     @objc func bebidasBut(sender:UIButton)
     {
-        if(sender.tag == 1){
-
-           //Do something for tag 1
-        }
+        churrascoToDo[1].append("")
+        let indexPath = IndexPath.init(row:churrascoToDo[1].count-1, section: 1)
+        tableViewToDoList.beginUpdates()
+        tableViewToDoList.insertRows(at: [indexPath], with: .none)
+        tableViewToDoList.endUpdates()
         print("bebidasButClicked")
     }
     
     @objc func utensiliosBut(sender:UIButton)
     {
-        if(sender.tag == 1){
-
-           //Do something for tag 1
-        }
+        churrascoToDo[2].append("")
+        let indexPath = IndexPath.init(row:churrascoToDo[2].count-1, section: 2)
+        tableViewToDoList.beginUpdates()
+        tableViewToDoList.insertRows(at: [indexPath], with: .none)
+        tableViewToDoList.endUpdates()
+        
         print("utensiliosButClicked")
     }
     
     @objc func descartaveisBut(sender:UIButton)
     {
-        if(sender.tag == 1){
-
-           //Do something for tag 1
-        }
+        churrascoToDo[3].append("")
+        let indexPath = IndexPath.init(row:churrascoToDo[3].count-1, section: 3)
+        tableViewToDoList.beginUpdates()
+        tableViewToDoList.insertRows(at: [indexPath], with: .none)
+        tableViewToDoList.endUpdates()
+       
         print("descartaveisButClicked")
     }
     
     @objc func espacosBut(sender:UIButton)
     {
-        if(sender.tag == 1){
-
-           //Do something for tag 1
-        }
+        churrascoToDo[4].append("")
+        let indexPath = IndexPath.init(row:churrascoToDo[4].count-1, section: 4)
+        tableViewToDoList.beginUpdates()
+        tableViewToDoList.insertRows(at: [indexPath], with: .none)
+        tableViewToDoList.endUpdates()
         print("espaçosButClicked")
     }
 
+   
     
         }
         
