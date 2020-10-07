@@ -1,15 +1,17 @@
 //
-//  EspacosTableViewCell.swift
+//  ToDoTableViewCell.swift
 //  festas_app
 //
-//  Created by Rafael Dias Gonçalves on 02/10/20.
+//  Created by Rafael Dias Gonçalves on 06/10/20.
 //  Copyright © 2020 Rafael Dias Gonçalves. All rights reserved.
 //
 
 import UIKit
 
-class EspacosTableViewCell: UITableViewCell {
+class ToDoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var itensTF: UITextField!
+    @IBOutlet weak var textFieldToDo: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
