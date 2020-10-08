@@ -230,6 +230,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func comidaBut(sender:UIButton) {
+         sectionNumber = 0
         churrascoToDo[0].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[0].count-1, section: 0)
         tableViewToDoList.beginUpdates()
@@ -238,10 +239,12 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
         print("comidaButClicked")
+        cell.itensTF.tag = sectionNumber
     }
     
     
     @objc func bebidasBut(sender:UIButton) {
+        sectionNumber = 1
         churrascoToDo[1].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[1].count-1, section: 1)
         tableViewToDoList.beginUpdates()
@@ -253,6 +256,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func utensiliosBut(sender:UIButton) {
+        sectionNumber = 2
         churrascoToDo[2].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[2].count-1, section: 2)
         tableViewToDoList.beginUpdates()
@@ -265,6 +269,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func descartaveisBut(sender:UIButton) {
+        sectionNumber = 3
         churrascoToDo[3].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[3].count-1, section: 3)
         tableViewToDoList.beginUpdates()
@@ -277,6 +282,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func espacosBut(sender:UIButton) {
+        sectionNumber = 4
         churrascoToDo[4].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[4].count-1, section: 4)
         tableViewToDoList.beginUpdates()
@@ -286,6 +292,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         tableViewToDoList.endUpdates()
         print("espaçosButClicked")
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(sectionNumber)
+    }
+    
 }
 
 //MARK: - TextField Controller
