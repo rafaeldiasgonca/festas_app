@@ -19,6 +19,7 @@ class ListaDoQueFazerViewController: UIViewController {
         
         super.viewDidLoad()
         self.title = "Oque Fazer"
+        
     }
     
     //Aqui tem comentário
@@ -176,7 +177,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
-        cell.itensTF.delegate = self
+        cell.textFieldToDo.delegate = self
+        if cell.textFieldToDo.text != ""{
+        cell.textFieldToDo.isEnabled = false
+        }
         return cell
     }
        
