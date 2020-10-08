@@ -238,7 +238,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k4P-DW-U8R"/>
-                        <color key="backgroundColor" name="card_home_principal-2"/>
+                        <color key="backgroundColor" name="fundo_telas"/>
                     </view>
                     <navigationItem key="navigationItem" id="CHQ-Hd-L8p"/>
                     <connections>
