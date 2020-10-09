@@ -13,13 +13,21 @@ class ListaDoQueFazerViewController: UIViewController {
     @IBOutlet weak var tableViewToDoList: UITableView!
     var a = 0
     var cont  = 0
+    var aux = 0
     var sectionNumber = 0
     var cellTag = 0
-    var toDoList:[[NSManagedObject]] = [[]]
+    var foodList:[NSManagedObject] = []
+    var contador = -1
+    var posi = 5
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.deleteAllData(entity: "Food")
     }
     
     //Aqui tem comentário
@@ -29,7 +37,7 @@ class ListaDoQueFazerViewController: UIViewController {
     
     //MARK: - Core Data Functions
     
-    func save(task: String, entityName: String, index:Int) {
+    func save(task: String, entityName: String) {
         
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -54,7 +62,7 @@ class ListaDoQueFazerViewController: UIViewController {
         // 4
         do {
             try managedContext.save()
-            toDoList[index].append(toDoTask)
+            foodList.append(toDoTask)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -126,7 +134,7 @@ class ListaDoQueFazerViewController: UIViewController {
             let arrUsrObj = try context.fetch(requestDel)
             let usrObj = arrUsrObj as! [NSManagedObject]
             usrObj[index].setValue(toDoTask, forKey: "toDo")
-            toDoList[entityNumber][index] = usrObj[index]
+            foodList[index] = usrObj[index]
             
         } catch {
             print("Failed")
@@ -180,9 +188,9 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
       let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
         cell.textFieldToDo.delegate = self
-        if cell.textFieldToDo.text != "" {
-            cell.textFieldToDo.isEnabled = false
-        }
+//        if cell.textFieldToDo.text != "" {
+//            cell.textFieldToDo.isEnabled = false
+//        }
         return cell
     }
        
@@ -233,12 +241,11 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func comidaBut(sender:UIButton) {
-         sectionNumber = 0
+        sectionNumber = 0
         churrascoToDo[0].append("")
         let indexPath = IndexPath.init(row:churrascoToDo[0].count-1, section: 0)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
-        cell.itensTF.text = ""
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
         print("comidaButClicked")
@@ -324,4 +331,22 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
 //rtfgcjygvhbjn
 
 extension ListaDoQueFazerViewController: UITextFieldDelegate {
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        posi += 1
+        contador += 1
+        guard let taskToSave = textField.text else { return false }
+        self.save(task: taskToSave, entityName: "Food")
+        churrascoToDo[0][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
+//        posi += 1
+//        contador += 1
+        print(foodList)
+        print(churrascoToDo[0])
+        tableViewToDoList.reloadData()
+        return  self.view.endEditing(true)
+    }
+    // Salvar = OK
+    // Aparecer na Cell = ?
 }
