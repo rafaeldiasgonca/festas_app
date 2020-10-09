@@ -11,9 +11,10 @@ import CoreData
 
 class ListaDoQueFazerViewController: UIViewController {
     @IBOutlet weak var tableViewToDoList: UITableView!
-    
+    var a = 0
     var cont  = 0
     var sectionNumber = 0
+    var cellTag = 0
     var toDoList:[[NSManagedObject]] = [[]]
     override func viewDidLoad() {
         
@@ -224,9 +225,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         default:
             return headerView
         }
-            
         
-        
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
     }
     
     @objc func comidaBut(sender:UIButton) {
@@ -240,6 +242,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         tableViewToDoList.endUpdates()
         print("comidaButClicked")
         cell.itensTF.tag = sectionNumber
+        cell.tag = cellTag
     }
     
     
@@ -253,6 +256,9 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
         print("bebidasButClicked")
+        cell.itensTF.tag = sectionNumber
+        cellTagged()
+        cell.tag = cellTag
     }
     
     @objc func utensiliosBut(sender:UIButton) {
@@ -264,8 +270,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         cell.itensTF.text = ""
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-        
         print("utensiliosButClicked")
+        cell.itensTF.tag = sectionNumber
+        cellTagged()
+        cell.tag = cellTag
     }
     
     @objc func descartaveisBut(sender:UIButton) {
@@ -277,8 +285,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         cell.itensTF.text = ""
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-       
         print("descartaveisButClicked")
+        cell.itensTF.tag = sectionNumber
+        cellTagged()
+        cell.tag = cellTag
     }
     
     @objc func espacosBut(sender:UIButton) {
@@ -291,9 +301,19 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
         print("espaçosButClicked")
+        cell.itensTF.tag = sectionNumber
+        cellTagged()
+        cell.tag = cellTag
+        a = cell.tag
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(sectionNumber)
+        //print(sectionNumber)
+        print(a)
+    }
+    func cellTagged(){
+        cellTag = cellTag + 1
+        
+        
     }
     
 }
