@@ -188,9 +188,9 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
       let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
         cell.textFieldToDo.delegate = self
-//        if cell.textFieldToDo.text != "" {
-//            cell.textFieldToDo.isEnabled = false
-//        }
+        if cell.textFieldToDo.text != "" {
+         cell.textFieldToDo.isEnabled = false
+        }
         return cell
     }
        
@@ -340,8 +340,6 @@ extension ListaDoQueFazerViewController: UITextFieldDelegate {
         guard let taskToSave = textField.text else { return false }
         self.save(task: taskToSave, entityName: "Food")
         churrascoToDo[0][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
-//        posi += 1
-//        contador += 1
         print(foodList)
         print(churrascoToDo[0])
         tableViewToDoList.reloadData()
