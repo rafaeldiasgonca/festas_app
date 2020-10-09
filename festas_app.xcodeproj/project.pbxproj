@@ -25,6 +25,7 @@
 		DF52533F252681F2001C72D0 /* ViewControllerConfigGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */; };
 		DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */; };
 		DFEBF6072525222600205D6A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* MainViewController.swift */; };
+		DFF684242530DE44007E0264 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF684232530DE44007E0264 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DF52533E252681F2001C72D0 /* ViewControllerConfigGeral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConfigGeral.swift; sourceTree = "<group>"; };
 		DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
 		DFEBF6062525222600205D6A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DFF684232530DE44007E0264 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */,
 				DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */,
 				DF364F46252D232700BD9FAB /* ToDoTableViewCell.swift */,
+				DFF684232530DE44007E0264 /* File.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */,
 				DFEBF6072525222600205D6A /* MainViewController.swift in Sources */,
 				DF364F2B2527C54400BD9FAB /* ListaDoQueFazerViewController.swift in Sources */,
+				DFF684242530DE44007E0264 /* File.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* SettingsViewController.swift in Sources */,
 				DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */,
 				5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */,
