@@ -10,6 +10,7 @@ import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var CheckButton: UIButton!
     @IBOutlet weak var itensTF: UITextField!
     @IBOutlet weak var textFieldToDo: UITextField!
     override func awakeFromNib() {

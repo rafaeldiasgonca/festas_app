@@ -215,6 +215,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
+        cell.selectionStyle = .none
+        cell.CheckButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
         return cell
     }
@@ -334,8 +336,17 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
             
             
         }
+        
     }
-    
+    @objc func CheckButtonClicked(sender:UIButton){
+        if sender.isSelected{
+            sender.isSelected = false
+        }
+        else{
+            sender.isSelected = true
+        }
+        
+    }
     @objc func comidaBut(sender:UIButton) {
         sectionNumber = 0
         churrascoToDo[0].append("")
