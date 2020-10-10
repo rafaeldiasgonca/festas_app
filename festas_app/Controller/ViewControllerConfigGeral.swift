@@ -136,7 +136,9 @@ class ViewControllerConfigGeral: UIViewController {
             localNameTextField.isEnabled = false
         }
     }
+    @IBAction func editDateButton(_ sender: UIButton) {
+        
+        
+    }
     
-
-
 }
