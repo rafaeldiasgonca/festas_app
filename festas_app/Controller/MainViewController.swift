@@ -19,8 +19,18 @@ class MainViewController: UIViewController,UITableViewDataSource{
     @IBOutlet weak var tableViewDetalhes: UITableView!
     @IBOutlet weak var typeNameLabel: UILabel!
     @IBOutlet weak var localNameLabel: UILabel!
+    @IBOutlet weak var dayEventLabel: UILabel!
+    @IBOutlet weak var monthEventLabel: UILabel!
+    @IBOutlet weak var timeEventLabel: UILabel!
+    
+    
     var localName = String()
     var typeName = String()
+    var dayEvent = String()
+    var monthEvent = String()
+    var hourEvent = String()
+    var minuteEvent = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Ola,festeiro"
@@ -67,9 +77,52 @@ class MainViewController: UIViewController,UITableViewDataSource{
                 if results[i].value(forKey: "local") != nil {
                     localName = results[i].value(forKey: "local") as! String
                 }
+                if results[i].value(forKey: "day") != nil {
+                    dayEvent = results[i].value(forKey: "day") as! String
+                }
+                if results[i].value(forKey: "month") != nil {
+                    monthEvent = results[i].value(forKey: "month") as! String
+                }
+                if results[i].value(forKey: "hour") != nil {
+                    hourEvent = results[i].value(forKey: "hour") as! String
+                }
+                if results[i].value(forKey: "minute") != nil {
+                    minuteEvent = results[i].value(forKey: "minute") as! String
+                }
             }
             localNameLabel.text = localName
             typeNameLabel.text = typeName
+            dayEventLabel.text = dayEvent
+            let timeEvent = hourEvent + ":" + minuteEvent
+            timeEventLabel.text = timeEvent
+            switch monthEvent {
+            case "01":
+                monthEventLabel.text = "JAN"
+            case "02":
+                monthEventLabel.text = "FEV"
+            case "03":
+                monthEventLabel.text = "MAR"
+            case "04":
+                monthEventLabel.text = "ABR"
+            case "05":
+                monthEventLabel.text = "MAI"
+            case "06":
+                monthEventLabel.text = "JUN"
+            case "07":
+                monthEventLabel.text = "JUL"
+            case "08":
+                monthEventLabel.text = "AGO"
+            case "09":
+                monthEventLabel.text = "SET"
+            case "10":
+                monthEventLabel.text = "OUT"
+            case "11":
+                monthEventLabel.text = "NOV"
+            case "12":
+                monthEventLabel.text = "DEZ"
+            default:
+                print("Erro!!")
+            }
             
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")

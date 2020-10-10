@@ -16,6 +16,10 @@ class SettingsViewController: UIViewController  {
     @IBOutlet weak var timeTextView: UITextView!
     @IBOutlet weak var localTextField: UITextField!
     var localization:NSManagedObject?
+    var dayEvent:NSManagedObject?
+    var monthEvent:NSManagedObject?
+    var hourEvent:NSManagedObject?
+    var minuteEvent:NSManagedObject?
     
     let datePicker = UIDatePicker()
     let timePIcker = UIDatePicker()
@@ -60,8 +64,130 @@ class SettingsViewController: UIViewController  {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-
     
+    func saveDay(dayToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let day = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        day.setValue(dayToEvent, forKeyPath: "day")
+        
+        // 4
+        do {
+            try managedContext.save()
+            dayEvent = day
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+
+    func saveMonth(monthToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let month = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        month.setValue(monthToEvent, forKeyPath: "month")
+        
+        // 4
+        do {
+            try managedContext.save()
+            monthEvent = month
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveHour(hourToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let hour = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        hour.setValue(hourToEvent, forKeyPath: "hour")
+        
+        // 4
+        do {
+            try managedContext.save()
+            hourEvent = hour
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveMinute(minuteToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let minute = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        minute.setValue(minuteToEvent, forKeyPath: "minute")
+        
+        // 4
+        do {
+            try managedContext.save()
+            minuteEvent = minute
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     
     
     func createDatePickerView(){
@@ -83,6 +209,13 @@ class SettingsViewController: UIViewController  {
         let formatacao = DateFormatter()
         formatacao.dateStyle = .long
         formatacao.timeStyle = .none
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        let month: String = dateFormatter.string(from: self.datePicker.date)
+        dateFormatter.dateFormat = "dd"
+        let day: String = dateFormatter.string(from: self.datePicker.date)
+        self.saveDay(dayToEvent: day)
+        self.saveMonth(monthToEvent: month)
         dateTextView.text = formatacao.string(from: datePicker.date)
         self.view.endEditing(true)
         
@@ -99,7 +232,13 @@ class SettingsViewController: UIViewController  {
     }
     
     @objc func donePressed1(){
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        let minutes: String = dateFormatter.string(from: self.timePIcker.date)
+        dateFormatter.dateFormat = "HH"
+        let hour: String = dateFormatter.string(from: self.timePIcker.date)
+        self.saveHour(hourToEvent: hour)
+        self.saveMinute(minuteToEvent: minutes)
         let formatacao1 = DateFormatter()
         formatacao1.timeStyle = .short
         timeTextView.text = formatacao1.string(from: timePIcker.date)

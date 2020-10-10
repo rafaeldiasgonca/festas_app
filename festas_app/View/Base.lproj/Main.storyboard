@@ -404,10 +404,10 @@
                                         <rect key="frame" x="19" y="8" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-cc-QGf">
-                                                <rect key="frame" x="12" y="0.0" width="38" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-cc-QGf">
+                                                <rect key="frame" x="8" y="0.0" width="44" height="41"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -443,7 +443,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMf-z9-wxh">
-                                        <rect key="frame" x="101" y="61" width="41" height="20"/>
+                                        <rect key="frame" x="101" y="61" width="245" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -457,7 +457,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTp-w7-mi0">
-                                        <rect key="frame" x="0.0" y="1" width="354" height="156"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <segue destination="ixz-w3-HpA" kind="show" id="OLQ-lp-PPH"/>
@@ -543,8 +543,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="TKE-aH-ArB"/>
                     <connections>
+                        <outlet property="dayEventLabel" destination="7X2-cc-QGf" id="auX-Qn-GmB"/>
                         <outlet property="localNameLabel" destination="SAt-BG-Gn8" id="TxQ-j0-YzE"/>
+                        <outlet property="monthEventLabel" destination="sZf-au-rb4" id="Xze-UX-3ar"/>
                         <outlet property="tableViewDetalhes" destination="33P-GX-yaC" id="1ia-m7-2Aw"/>
+                        <outlet property="timeEventLabel" destination="hMf-z9-wxh" id="LQl-LJ-dOh"/>
                         <outlet property="typeNameLabel" destination="VpT-Rp-7aN" id="HhV-Zu-Q3t"/>
                         <outlet property="viewDetalhes" destination="dbB-EB-C2E" id="RDr-rE-vKj"/>
                         <outlet property="viewDetalhesData" destination="tTT-qZ-TxX" id="b1H-i8-fHE"/>
