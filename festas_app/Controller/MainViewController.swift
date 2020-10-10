@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController,UITableViewDataSource{
+class MainViewController: UIViewController, UITableViewDataSource {
     
     
     var itens:[String] = ["","",""]
@@ -45,7 +45,7 @@ class MainViewController: UIViewController,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as!PartySummaryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as! PartySummaryTableViewCell
         cell.LabelItens.text = itens[indexPath.row]
         return cell
     }
