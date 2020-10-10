@@ -21,7 +21,7 @@ class ViewControllerConfigGeral: UIViewController {
     @IBOutlet weak var localNameTextField: UITextField!
     @IBOutlet weak var dayEventLabel: UILabel!
     @IBOutlet weak var monthEventLabel: UILabel!
-    @IBOutlet weak var timeEventLabel: UILabel!
+    @IBOutlet weak var timeEventButton: UIButton!
     
     
     var localName = String()
@@ -89,7 +89,7 @@ class ViewControllerConfigGeral: UIViewController {
             typeNameTextField.text = typeName
             dayEventLabel.text = dayEvent
             let timeEvent = hourEvent + ":" + minuteEvent
-            timeEventLabel.text = timeEvent
+            //timeEventButton.currentTitle. = timeEvent
             switch monthEvent {
             case "01":
                 monthEventLabel.text = "JAN"

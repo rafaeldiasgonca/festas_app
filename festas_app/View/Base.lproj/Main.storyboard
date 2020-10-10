@@ -672,13 +672,6 @@
                                         </subviews>
                                         <color key="backgroundColor" name="card_data_config"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tri-4G-5AP">
-                                        <rect key="frame" x="101" y="61" width="240" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSP-Gz-MOk">
                                         <rect key="frame" x="321" y="12" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -704,6 +697,14 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpM-Dh-HhT">
+                                        <rect key="frame" x="101" y="58" width="212" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="18:30">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-1"/>
                             </view>
@@ -719,7 +720,7 @@
                         <outlet property="dayEventLabel" destination="LKp-Ap-DNp" id="v1P-Ms-hOo"/>
                         <outlet property="localNameTextField" destination="p7p-Eb-Dyt" id="0cY-Yq-2iw"/>
                         <outlet property="monthEventLabel" destination="Wm6-br-1Ez" id="l9Z-gl-7m5"/>
-                        <outlet property="timeEventLabel" destination="Tri-4G-5AP" id="C16-RY-iTH"/>
+                        <outlet property="timeEventButton" destination="SpM-Dh-HhT" id="bRh-DM-wjH"/>
                         <outlet property="typeNameTextField" destination="W7K-PM-SfB" id="mSg-sc-nSK"/>
                         <outlet property="viewDetalhes" destination="eV9-Y8-rye" id="OyB-SA-DTc"/>
                         <outlet property="viewDetalhesConvidados" destination="K2A-1L-ska" id="sqd-OF-9kr"/>
