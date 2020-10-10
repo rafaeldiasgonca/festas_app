@@ -17,8 +17,21 @@ class ListaDoQueFazerViewController: UIViewController {
     var sectionNumber = 0
     var cellTag = 0
     var foodList:[NSManagedObject] = []
-    var contador = -1
-    var posi = 5
+    var drinksList:[NSManagedObject] = []
+    var disposableList:[NSManagedObject] = []
+    var spaceList:[NSManagedObject] = []
+    var utensilsList:[NSManagedObject] = []
+    
+    var contador1 = -1
+    var contador2 = -1
+    var contador3 = -1
+    var contador4 = -1
+    var contador5 = -1
+    var posi1 = 5
+    var posi2 = 2
+    var posi3 = 3
+    var posi4 = 4
+    var posi5 = 6
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
@@ -37,7 +50,7 @@ class ListaDoQueFazerViewController: UIViewController {
     
     //MARK: - Core Data Functions
     
-    func save(task: String, entityName: String) {
+    func save(task: String, entityName: String, section: Int) {
         
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -54,7 +67,7 @@ class ListaDoQueFazerViewController: UIViewController {
                                        in: managedContext)!
         
         let toDoTask = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                       insertInto: managedContext)
         
         // 3
         toDoTask.setValue(task, forKeyPath: "toDo")
@@ -62,7 +75,20 @@ class ListaDoQueFazerViewController: UIViewController {
         // 4
         do {
             try managedContext.save()
-            foodList.append(toDoTask)
+            switch section {
+            case 0:
+                foodList.append(toDoTask)
+            case 1:
+                drinksList.append(toDoTask)
+            case 2:
+                utensilsList.append(toDoTask)
+            case 3:
+                disposableList.append(toDoTask)
+            case 4:
+                spaceList.append(toDoTask)
+            default:
+                print("Erro!")
+            }
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -70,58 +96,58 @@ class ListaDoQueFazerViewController: UIViewController {
     
     func deleteBlankSpace(entity: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "toDo = %@", "")
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "toDo = %@", "")
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
     
     func delete(entity: String, toDoTask: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "toDo = %@", toDoTask)
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "toDo = %@", toDoTask)
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
-
+    
     
     func edit(entity: String, index: Int, toDoTask: String, entityNumber: Int){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -170,7 +196,7 @@ class ListaDoQueFazerViewController: UIViewController {
 }
 
 //MARK: - TableView Controller
-        
+
 extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
@@ -184,29 +210,29 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         return churrascoToDo[section].count
         
         
-            }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
+        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
         cell.textFieldToDo.delegate = self
         if cell.textFieldToDo.text != "" {
-         cell.textFieldToDo.isEnabled = false
+            cell.textFieldToDo.isEnabled = false
         }
         return cell
     }
-       
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-             
+        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height:100))
-           
-       
+        
+        
         let label = UILabel(frame: CGRect(x: 5 , y: 5, width: 100, height: 15))
         label.tag = section
         headerView.addSubview(label)
         
         
-       let button = UIButton(frame: CGRect(x: 360, y: 10, width: 10, height: 11))
+        let button = UIButton(frame: CGRect(x: 360, y: 10, width: 10, height: 11))
         button.tag = section
         button.setImage(UIImage(named: "remove_button"), for: UIControl.State.normal)
         button.backgroundColor = .blue
@@ -242,10 +268,14 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         return true
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-       
+        
         if editingStyle == .delete{
             if indexPath.section == 0{
                 tableView.beginUpdates()
+                if indexPath.row > posi1 {
+                    self.delete(entity: "Food", toDoTask: churrascoToDo[0][indexPath.row])
+                }
+                posi1 -= 1
                 churrascoToDo[0].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
@@ -253,6 +283,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
             }
             if indexPath.section == 1{
                 tableView.beginUpdates()
+                if indexPath.row > posi2 {
+                    self.delete(entity: "Drinks", toDoTask: churrascoToDo[1][indexPath.row])
+                }
+                posi2 -= 1
                 churrascoToDo[1].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
@@ -260,6 +294,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
             }
             if indexPath.section == 2{
                 tableView.beginUpdates()
+                if indexPath.row > posi1 {
+                    self.delete(entity: "Utensils", toDoTask: churrascoToDo[2][indexPath.row])
+                }
+                posi3 -= 1
                 churrascoToDo[2].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
@@ -267,6 +305,10 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
             }
             if indexPath.section == 3{
                 tableView.beginUpdates()
+                if indexPath.row > posi1 {
+                    self.delete(entity: "Disposable", toDoTask: churrascoToDo[3][indexPath.row])
+                }
+                posi4 -= 1
                 churrascoToDo[3].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
@@ -274,17 +316,21 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
             }
             if indexPath.section == 4{
                 tableView.beginUpdates()
+                if indexPath.row > posi1 {
+                    self.delete(entity: "Space", toDoTask: churrascoToDo[4][indexPath.row])
+                }
+                posi5 -= 1
                 churrascoToDo[4].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
             }
-               
-              
-                
-           
-          
-          
+            
+            
+            
+            
+            
+            
         }
     }
     
@@ -383,16 +429,61 @@ extension ListaDoQueFazerViewController: UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        posi += 1
-        contador += 1
+        var entidadeNome = String()
         guard let taskToSave = textField.text else { return false }
-        self.save(task: taskToSave, entityName: "Food")
-        churrascoToDo[sectionNumber][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
-        print(foodList)
-        print(churrascoToDo[sectionNumber])
+        switch sectionNumber {
+        case 0:
+            posi1 += 1
+            contador1 += 1
+            entidadeNome = "Food"
+            self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
+            churrascoToDo[sectionNumber][posi1] = foodList[contador1].value(forKeyPath: "toDo") as? String ?? ""
+            print(foodList)
+        case 1:
+            posi2 += 1
+            contador2 += 1
+            entidadeNome = "Drinks"
+            self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
+            churrascoToDo[sectionNumber][posi2] = drinksList[contador2].value(forKeyPath: "toDo") as? String ?? ""
+            print(drinksList)
+        case 2:
+            posi3 += 1
+            contador3 += 1
+            entidadeNome = "Utensils"
+            self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
+            print(churrascoToDo[sectionNumber])
+            churrascoToDo[sectionNumber][posi3] = utensilsList[contador3].value(forKeyPath: "toDo") as? String ?? ""
+            print(utensilsList)
+        case 3:
+            posi4 += 1
+            contador4 += 1
+            entidadeNome = "Disposable"
+            print(churrascoToDo[sectionNumber])
+            self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
+            churrascoToDo[sectionNumber][posi4] = disposableList[contador4].value(forKeyPath: "toDo") as? String ?? ""
+            print(disposableList)
+        case 4:
+            posi5 += 1
+            contador5 += 1
+            entidadeNome = "Space"
+            self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
+            churrascoToDo[sectionNumber][posi5] = spaceList[contador5].value(forKeyPath: "toDo") as? String ?? ""
+            print(spaceList)
+        default:
+            print("Erro!")
+        }
+                
+        //self.save(task: taskToSave, entityName: entidadeNome)
+        //churrascoToDo[sectionNumber][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
+        //print(foodList)
+       
         tableViewToDoList.reloadData()
         return  self.view.endEditing(true)
     }
     // Salvar = OK
-    // Aparecer na Cell = ?
+    // Acrescentar na Cell = OK
+    // Apagar Cell = OK
+    // Acrescentar em todas as sections = OK
+    // Apagar em todas as sections = OK
+    
 }
