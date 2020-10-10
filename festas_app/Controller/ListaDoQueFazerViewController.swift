@@ -242,14 +242,39 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         return true
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
+       
         if editingStyle == .delete{
-        //    print([indexPath.section][indexPath.row])
-                print(indexPath.row)
-               
             if indexPath.section == 0{
                 tableView.beginUpdates()
                 churrascoToDo[0].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+            }
+            if indexPath.section == 1{
+                tableView.beginUpdates()
+                churrascoToDo[1].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+            }
+            if indexPath.section == 2{
+                tableView.beginUpdates()
+                churrascoToDo[2].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+            }
+            if indexPath.section == 3{
+                tableView.beginUpdates()
+                churrascoToDo[3].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+            }
+            if indexPath.section == 4{
+                tableView.beginUpdates()
+                churrascoToDo[4].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
