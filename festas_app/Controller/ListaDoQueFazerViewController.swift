@@ -182,7 +182,9 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return churrascoToDo[section].count
-    }
+        
+        
+            }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -236,8 +238,29 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         }
         
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
+        if editingStyle == .delete{
+        //    print([indexPath.section][indexPath.row])
+                print(indexPath.row)
+               
+            if indexPath.section == 0{
+                tableView.beginUpdates()
+                churrascoToDo[0].remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+            }
+               
+              
+                
+           
+          
+          
+        }
     }
     
     @objc func comidaBut(sender:UIButton) {
@@ -339,9 +362,9 @@ extension ListaDoQueFazerViewController: UITextFieldDelegate {
         contador += 1
         guard let taskToSave = textField.text else { return false }
         self.save(task: taskToSave, entityName: "Food")
-        churrascoToDo[0][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
+        churrascoToDo[sectionNumber][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
         print(foodList)
-        print(churrascoToDo[0])
+        print(churrascoToDo[sectionNumber])
         tableViewToDoList.reloadData()
         return  self.view.endEditing(true)
     }
