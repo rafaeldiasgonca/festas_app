@@ -9,6 +9,9 @@
     <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class">
         <attribute name="toDo" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="General" representedClassName="General" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Guest" representedClassName="Guest" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
@@ -25,5 +28,6 @@
         <element name="Guest" positionX="-45" positionY="0" width="128" height="58"/>
         <element name="Space" positionX="27" positionY="72" width="128" height="58"/>
         <element name="Utensils" positionX="9" positionY="54" width="128" height="58"/>
+        <element name="General" positionX="0" positionY="54" width="128" height="58"/>
     </elements>
 </model>
