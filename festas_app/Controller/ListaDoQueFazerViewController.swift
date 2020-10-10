@@ -216,10 +216,12 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
         cell.textFieldToDo.delegate = self
-        if cell.textFieldToDo.text != "" {
-            cell.textFieldToDo.isEnabled = false
-        }
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
+        tableView.deselectRow(at: indexPath, animated: true)
+        cell.textFieldToDo.isEnabled = true
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
