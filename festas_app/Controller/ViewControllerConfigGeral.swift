@@ -41,12 +41,13 @@ class ViewControllerConfigGeral: UIViewController {
         self.viewDetalhesConvidados.layer.cornerRadius = 12
         self.ButtonExcluir.layer.cornerRadius = 12
         self.ButtonFinalizar.layer.cornerRadius = 12
+        typeNameTextField.isEnabled = false
+        localNameTextField.isEnabled = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         //1
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -120,6 +121,19 @@ class ViewControllerConfigGeral: UIViewController {
             
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    
+    @IBAction func editDetailsButton(_ sender: UIButton) {
+        if sender.tag == 1 {
+            sender.tag = 2
+            typeNameTextField.isEnabled = true
+            localNameTextField.isEnabled = true
+        } else {
+            sender.tag = 1
+            typeNameTextField.isEnabled = false
+            localNameTextField.isEnabled = false
         }
     }
     
