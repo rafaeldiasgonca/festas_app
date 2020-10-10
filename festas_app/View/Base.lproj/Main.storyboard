@@ -243,6 +243,7 @@
                     <navigationItem key="navigationItem" id="CHQ-Hd-L8p"/>
                     <connections>
                         <outlet property="dateTextView" destination="rVV-BT-HgW" id="uYu-KM-agH"/>
+                        <outlet property="localTextField" destination="rKK-pL-aDX" id="QIe-HG-aN4"/>
                         <outlet property="timeTextView" destination="ffy-ol-Eua" id="jsn-bN-Yko"/>
                     </connections>
                 </viewController>
