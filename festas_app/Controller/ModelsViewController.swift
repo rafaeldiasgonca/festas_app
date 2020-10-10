@@ -16,14 +16,34 @@ class ModelsViewController: UIViewController {
     @IBOutlet weak var ViewReuniaoDeAmigos: UIView!
     var modelName: NSManagedObject?
     
-    let models = [1:"Reuniao de amigos", 2:"Churrasco", 3:"Aniversario"]
+    let models = [3:"Reunião de amigos", 2:"Churrasco", 1:"Aniversário"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.deleteAllData(entity: "General")
         ViewChurrasco.layer.cornerRadius = 12
         ViewReuniaoDeAmigos.layer.cornerRadius = 12
         ViewAniversario.layer.cornerRadius = 12
     }
+    
+    func deleteAllData(entity: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
+        }
+        catch let error as NSError {
+            print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
     
     func save(model: String) {
         
@@ -59,7 +79,7 @@ class ModelsViewController: UIViewController {
     @IBAction func modelTypePressed(_ sender: UIButton) {
         titulo = models[sender.tag]!
         self.save(model: titulo)
-        print(modelName)
+        print(titulo)
         self.performSegue(withIdentifier: "goToSettingsMenu", sender: self)
     }
     

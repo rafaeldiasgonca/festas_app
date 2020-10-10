@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController,UITableViewDataSource{
     
@@ -16,6 +17,10 @@ class MainViewController: UIViewController,UITableViewDataSource{
     @IBOutlet weak var viewDetalhesData: UIView!
     @IBOutlet weak var viewDetalhes: UIView!
     @IBOutlet weak var tableViewDetalhes: UITableView!
+    @IBOutlet weak var typeNameLabel: UILabel!
+    @IBOutlet weak var localNameLabel: UILabel!
+    var localName = String()
+    var typeName = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Ola,festeiro"
@@ -38,8 +43,39 @@ class MainViewController: UIViewController,UITableViewDataSource{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "General")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                if results[i].value(forKey: "type") != nil {
+                    typeName = results[i].value(forKey: "type") as! String
+                }
+                
+                if results[i].value(forKey: "local") != nil {
+                    localName = results[i].value(forKey: "local") as! String
+                }
+            }
+            localNameLabel.text = localName
+            typeNameLabel.text = typeName
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
-
-   
-
+    
+    
+    
 }

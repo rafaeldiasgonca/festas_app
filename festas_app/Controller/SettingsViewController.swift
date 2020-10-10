@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController  {
         createTimePickerView()
     }
     
-    func save(local: String) {
+    func saveLocal(local: String) {
         
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -110,18 +110,11 @@ class SettingsViewController: UIViewController  {
 }
 
 extension SettingsViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        localTextField.isEnabled = false
-        localTextField.borderStyle = .none
-        localTextField.backgroundColor = #colorLiteral(red: 0.4957505465, green: 0.4904546738, blue: 0.9963564277, alpha: 1)
-        self.save(local: localTextField.text ?? "")
-        print(localization)
-    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        localTextField.isEnabled = false
         localTextField.borderStyle = .none
         localTextField.backgroundColor = #colorLiteral(red: 0.4957505465, green: 0.4904546738, blue: 0.9963564277, alpha: 1)
-        self.save(local: localTextField.text ?? "")
+        self.saveLocal(local: localTextField.text ?? "")
         print(localization)
         return true
     }
