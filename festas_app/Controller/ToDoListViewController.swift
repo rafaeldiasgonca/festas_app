@@ -39,22 +39,63 @@ class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
-        print(niverToDo[0].count)
-        print(niverToDo[1].count)
-        print(niverToDo[2].count)
-        print(niverToDo[3].count)
-        print(niverToDo[4].count)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.deleteAllData(entity: "Food")
-        self.deleteAllData(entity: "Drinks")
-        self.deleteAllData(entity: "Space")
-        self.deleteAllData(entity: "Disposable")
-        self.deleteAllData(entity: "Utensils")
+        self.loadModelType()
+        self.deleteBlankSpace(entity: "Food")
+        self.deleteBlankSpace(entity: "Drinks")
+        self.deleteBlankSpace(entity: "Space")
+        self.deleteBlankSpace(entity: "Disposable")
+        self.deleteBlankSpace(entity: "Utensils")
+        self.loadData(entity: "Food", sectionNumberLoad: 0)
+        self.loadData(entity: "Drinks", sectionNumberLoad: 1)
+        self.loadData(entity: "Space", sectionNumberLoad: 4)
+        self.loadData(entity: "Disposable", sectionNumberLoad: 3)
+        self.loadData(entity: "Utensils", sectionNumberLoad: 2)
+    }
+    
+    
+    //MARK: - Core Data Functions
+    
+    func loadData(entity: String, sectionNumberLoad: Int) {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: entity)
+        
+        //3
+        var typeName = String()
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if results.count > 0 {
+                for i in 0...results.count - 1 {
+                    if results[i].value(forKey: "toDo") != nil {
+                        typeName = results[i].value(forKey: "toDo") as! String
+                        toDoList[sectionNumberLoad].append(typeName)
+                        posiList[sectionNumberLoad] += 1
+                        countList[sectionNumberLoad] += 1
+                    }
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    
+    
+    func loadModelType() {
         //1
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -98,9 +139,6 @@ class ToDoListViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-    
-    
-    //MARK: - Core Data Functions
     
     func save(task: String, entityName: String, section: Int) {
         
@@ -535,7 +573,7 @@ extension ToDoListViewController: UITextFieldDelegate {
         default:
             print("Erro!")
         }
-       
+        
         tableViewToDoList.reloadData()
         return  self.view.endEditing(true)
     }
@@ -545,6 +583,6 @@ extension ToDoListViewController: UITextFieldDelegate {
     // Acrescentar em todas as sections = OK
     // Apagar em todas as sections = OK
     // Cells estarem de acordo com o modelo escolhido = OK
-    // Load de Dados salvos anteriormente = ?
+    // Load de Dados salvos anteriormente = OK
     
 }
