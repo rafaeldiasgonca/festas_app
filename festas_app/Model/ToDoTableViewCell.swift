@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var CheckButton: UIButton!
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var itensTF: UITextField!
     @IBOutlet weak var textFieldToDo: UITextField!
     override func awakeFromNib() {
@@ -23,5 +23,18 @@ class ToDoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func checkButtonPressed(_ sender: UIButton) {
+        if sender.isSelected{
+            sender.isSelected = false
+            textFieldToDo.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        else{
+            sender.isSelected = true
+            checkButton.setImage(UIImage.checkmark, for: .normal)
+            textFieldToDo.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }
 
+    }
+    
 }

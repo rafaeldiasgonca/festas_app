@@ -17,6 +17,8 @@ class ToDoListViewController: UIViewController {
     var sectionNumber = 0
     var modelNumber = 0
     var cellTag = 0
+    var checkRow = 0
+    var checkSection = 0
     var foodList:[NSManagedObject] = []
     var drinksList:[NSManagedObject] = []
     var disposableList:[NSManagedObject] = []
@@ -306,7 +308,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.textFieldToDo.text = toDoList[indexPath.section][indexPath.row]
         cell.selectionStyle = .none
-        cell.CheckButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
+        cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
         return cell
     }
@@ -419,12 +421,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.endUpdates()
                 
             }
-            
-            
-            
-            
-            
-            
+          
         }
         
     }
@@ -524,8 +521,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: - TextField Controller
-
-//rtfgcjygvhbjn
 
 extension ToDoListViewController: UITextFieldDelegate {
     

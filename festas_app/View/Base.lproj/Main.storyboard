@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -859,15 +860,21 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZG-pU-FNl">
-                                                    <rect key="frame" x="5" y="5" width="30" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="O"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                                    </state>
                                                     <state key="selected" title="o" image="pencil.circle.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="checkButtonPressed:" destination="rUq-FC-lj8" eventType="touchUpInside" id="yFp-Or-tC4"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="CheckButton" destination="VZG-pU-FNl" id="GLz-dC-TRe"/>
+                                            <outlet property="checkButton" destination="VZG-pU-FNl" id="GLz-dC-TRe"/>
                                             <outlet property="itensTF" destination="0SZ-Xt-84s" id="Ic1-cM-WW2"/>
                                             <outlet property="textFieldToDo" destination="0SZ-Xt-84s" id="vkc-Tc-bWJ"/>
                                         </connections>
@@ -889,7 +896,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3O-fX-A2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6425" y="138"/>
+            <point key="canvasLocation" x="6424.6376811594209" y="137.94642857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mOT-Db-maO">
@@ -913,6 +920,7 @@
     <resources>
         <image name="Ellipse 40" width="201" height="201"/>
         <image name="card_inicial" width="303" height="616"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="config_chu_reu" width="325" height="554.5"/>
         <image name="curva_inf_principal" width="303" height="206"/>
         <image name="curva_sup_config" width="375" height="290.5"/>
