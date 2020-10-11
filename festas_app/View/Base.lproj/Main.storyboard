@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Olá, novato-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,14 +33,6 @@
                                     <segue destination="twd-YT-NET" kind="show" identifier="goToModelsMenu" id="A62-aY-fk7"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-ZU-FEU">
-                                <rect key="frame" x="-25" y="452" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_brilho_2" translatesAutoresizingMaskIntoConstraints="NO" id="sGX-cx-mt6">
-                                <rect key="frame" x="188" y="452" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-2M-B0Z">
                                 <rect key="frame" x="-117" y="452" width="628" height="334"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -49,7 +41,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="fundo_home_inicial"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="ZlR-0M-OXD" colorLabel="IBBuiltInLabel-Orange"/>
+                    <navigationItem key="navigationItem" title="Olá, novato" id="ZlR-0M-OXD" colorLabel="IBBuiltInLabel-Orange"/>
                     <connections>
                         <outlet property="stardCardButton" destination="uuZ-hc-3sq" id="o3t-cl-7vd"/>
                     </connections>
@@ -512,10 +504,6 @@
                                             <outlet property="dataSource" destination="Ryu-CG-i1T" id="OCC-5t-ShO"/>
                                         </connections>
                                     </tableView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_inf_principal" translatesAutoresizingMaskIntoConstraints="NO" id="pGw-Sa-2yb">
-                                        <rect key="frame" x="-31" y="307" width="415" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW6-4z-vLf">
                                         <rect key="frame" x="223" y="500" width="91" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -755,6 +743,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_sup_convidados" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-pQ-8wi">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-vN-Gdn">
                                 <rect key="frame" x="16" y="227" width="386" height="609"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -810,10 +802,6 @@
                                 </subviews>
                                 <color key="backgroundColor" name="fundo_quantidade"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_sup_convidados" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-pQ-8wi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F16-0z-1hu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -922,11 +910,8 @@
         <image name="card_inicial" width="303" height="616"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="config_chu_reu" width="325" height="554.5"/>
-        <image name="curva_inf_principal" width="303" height="206"/>
         <image name="curva_sup_config" width="375" height="290.5"/>
         <image name="curva_sup_convidados" width="375" height="250.5"/>
-        <image name="home_brilho_1" width="47.5" height="111"/>
-        <image name="home_brilho_2" width="48.5" height="114.5"/>
         <image name="home_inicial" width="429" height="862"/>
         <image name="home_principal" width="128" height="222"/>
         <image name="modelo_aniversario" width="341.5" height="360.5"/>
