@@ -824,10 +824,10 @@
             </objects>
             <point key="canvasLocation" x="5678" y="138"/>
         </scene>
-        <!--Lista Do Que Fazer View Controller-->
+        <!--To Do List View Controller-->
         <scene sceneID="jBt-sm-HNW">
             <objects>
-                <viewController id="FvP-iU-QKI" customClass="ListaDoQueFazerViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FvP-iU-QKI" customClass="ToDoListViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zw5-2k-2In">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
