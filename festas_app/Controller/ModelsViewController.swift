@@ -20,7 +20,12 @@ class ModelsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.deleteAllData(entity: "General")
+//        self.deleteAllData(entity: "General")
+//        self.deleteAllData(entity: "Food")
+//        self.deleteAllData(entity: "Drinks")
+//        self.deleteAllData(entity: "Space")
+//        self.deleteAllData(entity: "Disposable")
+//        self.deleteAllData(entity: "Utensils")
         ViewChurrasco.layer.cornerRadius = 12
         ViewReuniaoDeAmigos.layer.cornerRadius = 12
         ViewAniversario.layer.cornerRadius = 12
