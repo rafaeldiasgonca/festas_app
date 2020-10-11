@@ -21,7 +21,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var localNameTextField: UITextField!
     @IBOutlet weak var dayEventLabel: UILabel!
     @IBOutlet weak var monthEventLabel: UILabel!
-    @IBOutlet weak var timeEventButton: UIButton!
+    @IBOutlet weak var timeEventTextView: UITextView!
+    @IBOutlet weak var dateTextView: UITextView!
     
     let calendar = Calendar.current
     let rightNow = Date()
@@ -32,7 +33,8 @@ class SettingsViewController: UIViewController {
     var hourEvent = String()
     var minuteEvent = String()
     
-    
+    let datePicker = UIDatePicker()
+    let timePIcker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,8 @@ class SettingsViewController: UIViewController {
         self.viewDetalhesConvidados.layer.cornerRadius = 12
         self.ButtonExcluir.layer.cornerRadius = 12
         self.ButtonFinalizar.layer.cornerRadius = 12
+        createDatePickerView()
+        createTimePickerView()
         typeNameTextField.isEnabled = false
         localNameTextField.isEnabled = false
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -90,7 +94,7 @@ class SettingsViewController: UIViewController {
             typeNameTextField.text = typeName
             dayEventLabel.text = dayEvent
             let timeEvent = hourEvent + ":" + minuteEvent
-            //timeEventButton.currentTitle. = timeEvent
+            timeEventTextView.text = timeEvent
             switch monthEvent {
             case "01":
                 monthEventLabel.text = "JAN"
@@ -125,6 +129,206 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    func saveDay(dayToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let day = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        day.setValue(dayToEvent, forKeyPath: "day")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+
+    func saveMonth(monthToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let month = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        month.setValue(monthToEvent, forKeyPath: "month")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveHour(hourToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let hour = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        hour.setValue(hourToEvent, forKeyPath: "hour")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveMinute(minuteToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let minute = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        minute.setValue(minuteToEvent, forKeyPath: "minute")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func createDatePickerView(){
+        // Create toolBar
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        //Create bar Button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePressed))
+        
+        //assign done button to toolbar
+        toolBar.setItems([doneBtn], animated: true)
+        //assign toolbar to textfield
+        dateTextView.inputAccessoryView = toolBar
+        //assign datePicker to textField
+        dateTextView.inputView = datePicker
+        datePicker.datePickerMode  = .date
+    }
+    @objc func donePressed(){
+        let formatacao = DateFormatter()
+        formatacao.dateStyle = .long
+        formatacao.timeStyle = .none
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        let month: String = dateFormatter.string(from: self.datePicker.date)
+        dateFormatter.dateFormat = "dd"
+        let day: String = dateFormatter.string(from: self.datePicker.date)
+        self.saveDay(dayToEvent: day)
+        self.saveMonth(monthToEvent: month)
+        dayEventLabel.text = day
+        switch month {
+        case "01":
+            monthEventLabel.text = "JAN"
+        case "02":
+            monthEventLabel.text = "FEV"
+        case "03":
+            monthEventLabel.text = "MAR"
+        case "04":
+            monthEventLabel.text = "ABR"
+        case "05":
+            monthEventLabel.text = "MAI"
+        case "06":
+            monthEventLabel.text = "JUN"
+        case "07":
+            monthEventLabel.text = "JUL"
+        case "08":
+            monthEventLabel.text = "AGO"
+        case "09":
+            monthEventLabel.text = "SET"
+        case "10":
+            monthEventLabel.text = "OUT"
+        case "11":
+            monthEventLabel.text = "NOV"
+        case "12":
+            monthEventLabel.text = "DEZ"
+        default:
+            print("Erro!!")
+        }
+        self.view.endEditing(true)
+        
+    }
+    func createTimePickerView(){
+        let toolbar1 = UIToolbar()
+        toolbar1.sizeToFit()
+        let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
+        toolbar1.setItems([doneBtn1], animated: true)
+        timeEventTextView.inputAccessoryView = toolbar1
+        timeEventTextView.inputView = timePIcker
+        timePIcker.datePickerMode = .time
+
+    }
+
+    @objc func donePressed1(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        let minutes: String = dateFormatter.string(from: self.timePIcker.date)
+        dateFormatter.dateFormat = "HH"
+        let hour: String = dateFormatter.string(from: self.timePIcker.date)
+        self.saveHour(hourToEvent: hour)
+        self.saveMinute(minuteToEvent: minutes)
+        timeEventTextView.text = hour + ":" + minutes
+        self.view.endEditing(true)
+    }
     
     @IBAction func editDetailsButton(_ sender: UIButton) {
         if sender.tag == 1 {

@@ -705,14 +705,20 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpM-Dh-HhT">
-                                        <rect key="frame" x="101" y="58" width="212" height="30"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-WJ-ecm">
+                                        <rect key="frame" x="19" y="7" width="60" height="61"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="18:30" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-AK-kI9">
+                                        <rect key="frame" x="97" y="52" width="65" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="18:30">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-1"/>
                             </view>
@@ -725,10 +731,11 @@
                         <outlet property="ButtonExcluir" destination="5fu-Q8-G2m" id="rxg-GG-flh"/>
                         <outlet property="ButtonFinalizar" destination="azv-hc-ReA" id="JCa-Sw-JHk"/>
                         <outlet property="ViewDetalhesData" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
+                        <outlet property="dateTextView" destination="CgW-WJ-ecm" id="0em-9v-GPz"/>
                         <outlet property="dayEventLabel" destination="LKp-Ap-DNp" id="v1P-Ms-hOo"/>
                         <outlet property="localNameTextField" destination="p7p-Eb-Dyt" id="0cY-Yq-2iw"/>
                         <outlet property="monthEventLabel" destination="Wm6-br-1Ez" id="l9Z-gl-7m5"/>
-                        <outlet property="timeEventButton" destination="SpM-Dh-HhT" id="bRh-DM-wjH"/>
+                        <outlet property="timeEventTextView" destination="BgR-AK-kI9" id="nlV-EG-fjf"/>
                         <outlet property="typeNameTextField" destination="W7K-PM-SfB" id="mSg-sc-nSK"/>
                         <outlet property="viewDetalhes" destination="eV9-Y8-rye" id="OyB-SA-DTc"/>
                         <outlet property="viewDetalhesConvidados" destination="K2A-1L-ska" id="sqd-OF-9kr"/>
@@ -971,6 +978,9 @@
         <namedColor name="title_card_color">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
