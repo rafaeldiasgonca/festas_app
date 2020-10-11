@@ -46,8 +46,8 @@
             filePath = "festas_app/Controller/SettingsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "createTimePickerView()"
             landmarkType = "7">
          </BreakpointContent>

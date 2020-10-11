@@ -129,6 +129,66 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    func save(newName: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let modelType = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        modelType.setValue(newName, forKeyPath: "type")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveLocal(local: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let place = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        place.setValue(local, forKeyPath: "local")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     func saveDay(dayToEvent: String) {
         
         guard let appDelegate =
@@ -338,7 +398,9 @@ class SettingsViewController: UIViewController {
         } else {
             sender.tag = 1
             typeNameTextField.isEnabled = false
+            self.save(newName: typeNameTextField.text ?? "")
             localNameTextField.isEnabled = false
+            self.saveLocal(local: localNameTextField.text ?? "")
         }
         
     }
@@ -346,5 +408,7 @@ class SettingsViewController: UIViewController {
         
         
     }
+    //Por para salvar td ao final da edição
+    //Talvez trocar pela função de edição
 
 }
