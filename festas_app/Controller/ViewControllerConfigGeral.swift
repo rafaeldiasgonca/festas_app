@@ -136,6 +136,7 @@ class ViewControllerConfigGeral: UIViewController {
             typeNameTextField.isEnabled = false
             localNameTextField.isEnabled = false
         }
+        TimeCount()
     }
     @IBAction func editDateButton(_ sender: UIButton) {
         
