@@ -22,14 +22,18 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var dayEventLabel: UILabel!
     @IBOutlet weak var monthEventLabel: UILabel!
     @IBOutlet weak var timeEventLabel: UILabel!
+    @IBOutlet weak var countTimeLabel: UILabel!
     
-    
+    var releaseDate: NSDate?
+    var countdownTimer = Timer()
     var localName = String()
     var typeName = String()
     var dayEvent = String()
     var monthEvent = String()
     var hourEvent = String()
     var minuteEvent = String()
+    let calendar = Calendar.current
+    let date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +98,8 @@ class MainViewController: UIViewController, UITableViewDataSource {
             typeNameLabel.text = typeName
             dayEventLabel.text = dayEvent
             let timeEvent = hourEvent + ":" + minuteEvent
+            startTimer(day: dayEvent, hour: hourEvent, minute: minuteEvent, month: monthEvent)
+            
             timeEventLabel.text = timeEvent
             switch monthEvent {
             case "01":
@@ -127,6 +133,29 @@ class MainViewController: UIViewController, UITableViewDataSource {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    func startTimer(day: String, hour:String, minute:String, month:String) {
+        let year = calendar.component(.year, from: date)
+        let stringYear = String(year)
+        let releaseDateString = stringYear + "-" + month + "-" + day + " " + hour + ":" + minute + ":00"
+        print(releaseDateString)
+        let releaseDateFormatter = DateFormatter()
+        releaseDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        releaseDate = releaseDateFormatter.date(from: releaseDateString) as NSDate?
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+
+    @objc func updateTime() {
+
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        let diffDateComponents = calendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: releaseDate! as Date)
+
+        let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
+        
+        countTimeLabel.text = countdown
     }
     
     

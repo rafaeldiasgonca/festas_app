@@ -136,19 +136,11 @@ class ViewControllerConfigGeral: UIViewController {
             typeNameTextField.isEnabled = false
             localNameTextField.isEnabled = false
         }
-        TimeCount()
+        
     }
     @IBAction func editDateButton(_ sender: UIButton) {
         
         
     }
-    func TimeCount(){
-        let configuredDate = DateComponents(calendar:calendar,year:calendar.component(.year, from: rightNow),month:Int(monthEvent),day:Int(dayEvent))
-        let configuredDateComposed = calendar.date(from: configuredDate)
-        let CalculatedTime = calendar.dateComponents([.minute], from: configuredDateComposed!, to: rightNow).minute
-        print(CalculatedTime)
-        print(dayEvent)
-        print(monthEvent)
-        
-    }
+
 }

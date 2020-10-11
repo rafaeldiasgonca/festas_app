@@ -435,8 +435,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123 dias,8 horas e 40 minutos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-q0-ysQ">
-                                        <rect key="frame" x="101" y="109" width="240" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-q0-ysQ">
+                                        <rect key="frame" x="101" y="109" width="245" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -543,6 +543,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TKE-aH-ArB"/>
                     <connections>
+                        <outlet property="countTimeLabel" destination="fJs-q0-ysQ" id="KpD-Xu-h4N"/>
                         <outlet property="dayEventLabel" destination="7X2-cc-QGf" id="auX-Qn-GmB"/>
                         <outlet property="localNameLabel" destination="SAt-BG-Gn8" id="TxQ-j0-YzE"/>
                         <outlet property="monthEventLabel" destination="sZf-au-rb4" id="Xze-UX-3ar"/>
