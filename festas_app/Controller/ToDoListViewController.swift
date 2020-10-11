@@ -9,44 +9,96 @@
 import UIKit
 import CoreData
 
-class ListaDoQueFazerViewController: UIViewController {
+class ToDoListViewController: UIViewController {
     @IBOutlet weak var tableViewToDoList: UITableView!
     var a = 0
     var cont  = 0
     var aux = 0
     var sectionNumber = 0
+    var modelNumber = 0
     var cellTag = 0
     var foodList:[NSManagedObject] = []
     var drinksList:[NSManagedObject] = []
     var disposableList:[NSManagedObject] = []
     var spaceList:[NSManagedObject] = []
     var utensilsList:[NSManagedObject] = []
+    var posiNiver = [6,4,5,3,4]
+    var countNiver = [-1,-1,-1,-1,-1]
+    var posiChurrasco = [5,2,3,4,6]
+    var countChurrasco = [-1,-1,-1,-1,-1]
+    var posiReuniao = [9,2,7,10,4]
+    var countReuniao = [-1,-1,-1,-1,-1]
+    var toDoList:[[String]] = []
+    var posiList:[Int] = []
+    var countList:[Int] = []
+    var churrascoToDo = [["Decidir que Carnes usar","Mensurar quantidade de carnes","Comprar carnes","Decidir que tempero de carne usar","Comprar temperos","Comprar carvão"],["Decidir que bebidas comprar","Comprar bebidas","Comprar gelo"],["Comprar copos","Comprar pratos","Comprar espetinhos","Comprar talheres"],["Verificar se há amoladores","Verificar talheres","Verificar pegadores","Veridicar facas","Verificar tábuas"],["Verificar cadeiras","Alugar cadeiras","Verificar mesas","Alugar mesas","Verificar Local","Alugar local","Preparar local"]]
+    var reuniaoToDo = [["Decida como vai ser o bolo","Encomende o bolo com antecedencia","Decida os salgadinhos","Compre os salgadinhos","Decida os docinhos","Compre os docinhos","Monte um cardápio","Compre ingredientes para os pratos(caso não haja buffet)","Decida se vai contratar um buffet","Decida se vai contratar um buffet"],["Defina todas as bebidas","Compre todas as bebidas","Certifique-se de gelar as bebidas no dia anterior"],["Escolha o tema da festa","Defina o preço total da festa","Confirme todos os serviços contratados","Faça uma lista dos profissionais envolvidos","Defina as musicas","Decida os adereços utilizados","Compre os adereços","Compre balões"],["Compre as velas","Compre ou alugue toalhas","adquira pratos","Compre guardanapos","Compre bandejas para doces e salgados","Decida sobre as atividades de festa","adquira copos","adquira talheres","Compre fita dupla face","Compre fósforos","Compre barbante"],["Cheque a estrutura do local","Cheque a disponibilidade das mesas e cadeiras","Garanta a limpeza do local","Prepare os banheiros para os convidados","Defina como organizar o ambiente  de acordo com o tema"]]
+    var niverToDo =  [["Defina se cada um trará um prato","Defina se cada um trará uma sobremesa","Defina que prato você fará","Defina os aperitivos e petiscos","Compre os ingredientes para seu prato","Compre o(s) ingredientes para as sobremesa(s)","Compre os ingredientes para preparar os petiscos"],["Defina os tipos de  bebida","Defina se cada um  trará uma bebida","Compre as bebidas","Coloque as bebidas para gelar no dia anterior","Organize as bebidas em um local de facil acesso"],["Defina as músicas","Cheque as restrições alimentícias de seus amigos","Cheque a afinidade entre seus convidados","Compre palitos de dente, guardanapos e outros utilitários","Compre os adereços","Defina o tema da festa"],["Separe pratos","Separe copos","Separe os talheres","Lave todas as louças que serão utilizadas"],["Limpe o local","Limpe o(s) banheiro(s)","Prepare os banheiros para os convidados","Garanta o conforto do local","Defina como organizar o ambiente  de acordo com o tema"]]
     
-    var contador1 = -1
-    var contador2 = -1
-    var contador3 = -1
-    var contador4 = -1
-    var contador5 = -1
-    var posi1 = 5
-    var posi2 = 2
-    var posi3 = 3
-    var posi4 = 4
-    var posi5 = 6
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
+        print(niverToDo[0].count)
+        print(niverToDo[1].count)
+        print(niverToDo[2].count)
+        print(niverToDo[3].count)
+        print(niverToDo[4].count)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.deleteAllData(entity: "Food")
+        self.deleteAllData(entity: "Drinks")
+        self.deleteAllData(entity: "Space")
+        self.deleteAllData(entity: "Disposable")
+        self.deleteAllData(entity: "Utensils")
+        
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "General")
+        
+        //3
+        var typeName = String()
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                if results[i].value(forKey: "type") != nil {
+                    typeName = results[i].value(forKey: "type") as! String
+                }
+            }
+            switch typeName {
+            case "Aniversário":
+                toDoList = niverToDo
+                posiList = posiNiver
+                countList = countNiver
+            case "Churrasco":
+                toDoList = churrascoToDo
+                posiList = posiChurrasco
+                countList = countChurrasco
+            case "Reunião de amigos":
+                toDoList = reuniaoToDo
+                posiList = posiReuniao
+                countList = countReuniao
+            default:
+                print("Erro!")
+            }
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
-    //Aqui tem comentário
-    var churrascoToDo = [["Decidir que Carnes usar","Mensurar quantidade de carnes","Comprar carnes","Decidir que tempero de carne usar","Comprar temperos","Comprar carvão"],["Decidir que bebidas comprar","Comprar bebidas","Comprar gelo"],["Comprar copos","Comprar pratos","Comprar espetinhos","Comprar talheres"],["Verificar se há amoladores","Verificar talheres","Verificar pegadores","Veridicar facas","Verificar tábuas"],["Verificar cadeiras","Alugar cadeiras","Verificar mesas","Alugar mesas","Verificar Local","Alugar local","Preparar local"]]
-    var ReuniaoDeAmigos = [["Decida como vai ser o bolo","Encomende o bolo com antecedencia","Decida os salgadinhos","Compre os salgadinhos","Decida os docinhos","Compre os docinhos","Monte um cardápio","Compre ingredientes para os pratos(caso não haja buffet)","Decida se vai contratar um buffet","Decida se vai contratar um buffet"],["Defina todas as bebidas","Compre todas as bebidas","Certifique-se de gelar as bebidas no dia anterior"],["Escolha o tema da festa","Defina o preço total da festa","Confirme todos os serviços contratados","Faça uma lista dos profissionais envolvidos","Defina as musicas","Decida os adereços utilizados","Compre os adereços","Compre balões"],["Compre as velas","Compre ou alugue toalhas","adquira pratos","Compre guardanapos","Compre bandejas para doces e salgados","Decida sobre as atividades de festa","adquira copos","adquira talheres","Compre fita dupla face","Compre fósforos","Compre barbante"],["Cheque a estrutura do local","Cheque a disponibilidade das mesas e cadeiras","Garanta a limpeza do local","Prepare os banheiros para os convidados","Defina como organizar o ambiente  de acordo com o tema"]]
-    var Aniversario =  [["Defina se cada um trará um prato","Defina se cada um trará uma sobremesa","Defina que prato você fará","Defina os aperitivos e petiscos","Compre os ingredientes para seu prato","Compre o(s) ingredientes para as sobremesa(s)","Compre os ingredientes para preparar os petiscos"],["Defina os tipos de  bebida","Defina se cada um  trará uma bebida","Compre as bebidas","Coloque as bebidas para gelar no dia anterior","Organize as bebidas em um local de facil acesso"],["Defina as músicas","Cheque as restrições alimentícias de seus amigos","Cheque a afinidade entre seus convidados","Compre palitos de dente, guardanapos e outros utilitários","Compre os adereços","Defina o tema da festa"],["Separe pratos","Separe copos","Separe os talheres","Lave todas as louças que serão utilizadas"],["Limpe o local","Limpe o(s) banheiro(s)","Prepare os banheiros para os convidados","Garanta o conforto do local","Defina como organizar o ambiente  de acordo com o tema"]]
     
     //MARK: - Core Data Functions
     
@@ -197,7 +249,7 @@ class ListaDoQueFazerViewController: UIViewController {
 
 //MARK: - TableView Controller
 
-extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSource {
+extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
@@ -207,14 +259,12 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return churrascoToDo[section].count
-        
-        
+        return toDoList[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
-        cell.textFieldToDo.text = churrascoToDo[indexPath.section][indexPath.row]
+        cell.textFieldToDo.text = toDoList[indexPath.section][indexPath.row]
         cell.selectionStyle = .none
         cell.CheckButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
@@ -276,55 +326,55 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
         if editingStyle == .delete{
             if indexPath.section == 0{
                 tableView.beginUpdates()
-                if indexPath.row > posi1 {
-                    self.delete(entity: "Food", toDoTask: churrascoToDo[0][indexPath.row])
+                if indexPath.row > posiList[0] {
+                    self.delete(entity: "Food", toDoTask: toDoList[0][indexPath.row])
                 }
-                posi1 -= 1
-                churrascoToDo[0].remove(at: indexPath.row)
+                posiList[0] -= 1
+                toDoList[0].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
             }
             if indexPath.section == 1{
                 tableView.beginUpdates()
-                if indexPath.row > posi2 {
-                    self.delete(entity: "Drinks", toDoTask: churrascoToDo[1][indexPath.row])
+                if indexPath.row > posiList[1] {
+                    self.delete(entity: "Drinks", toDoTask: toDoList[1][indexPath.row])
                 }
-                posi2 -= 1
-                churrascoToDo[1].remove(at: indexPath.row)
+                posiList[1] -= 1
+                toDoList[1].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
             }
             if indexPath.section == 2{
                 tableView.beginUpdates()
-                if indexPath.row > posi1 {
-                    self.delete(entity: "Utensils", toDoTask: churrascoToDo[2][indexPath.row])
+                if indexPath.row > posiList[2] {
+                    self.delete(entity: "Utensils", toDoTask: toDoList[2][indexPath.row])
                 }
-                posi3 -= 1
-                churrascoToDo[2].remove(at: indexPath.row)
+                posiList[2] -= 1
+                toDoList[2].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
             }
             if indexPath.section == 3{
                 tableView.beginUpdates()
-                if indexPath.row > posi1 {
-                    self.delete(entity: "Disposable", toDoTask: churrascoToDo[3][indexPath.row])
+                if indexPath.row > posiList[3] {
+                    self.delete(entity: "Disposable", toDoTask: toDoList[3][indexPath.row])
                 }
-                posi4 -= 1
-                churrascoToDo[3].remove(at: indexPath.row)
+                posiList[3] -= 1
+                toDoList[3].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
             }
             if indexPath.section == 4{
                 tableView.beginUpdates()
-                if indexPath.row > posi1 {
-                    self.delete(entity: "Space", toDoTask: churrascoToDo[4][indexPath.row])
+                if indexPath.row > posiList[4] {
+                    self.delete(entity: "Space", toDoTask: toDoList[4][indexPath.row])
                 }
-                posi5 -= 1
-                churrascoToDo[4].remove(at: indexPath.row)
+                posiList[4] -= 1
+                toDoList[4].remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.endUpdates()
                 
@@ -349,8 +399,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     }
     @objc func comidaBut(sender:UIButton) {
         sectionNumber = 0
-        churrascoToDo[0].append("")
-        let indexPath = IndexPath.init(row:churrascoToDo[0].count-1, section: 0)
+        toDoList[0].append("")
+        let indexPath = IndexPath.init(row:toDoList[0].count-1, section: 0)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
@@ -363,8 +413,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     
     @objc func bebidasBut(sender:UIButton) {
         sectionNumber = 1
-        churrascoToDo[1].append("")
-        let indexPath = IndexPath.init(row:churrascoToDo[1].count-1, section: 1)
+        toDoList[1].append("")
+        let indexPath = IndexPath.init(row:toDoList[1].count-1, section: 1)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.itensTF.text = ""
@@ -378,8 +428,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     
     @objc func utensiliosBut(sender:UIButton) {
         sectionNumber = 2
-        churrascoToDo[2].append("")
-        let indexPath = IndexPath.init(row:churrascoToDo[2].count-1, section: 2)
+        toDoList[2].append("")
+        let indexPath = IndexPath.init(row:toDoList[2].count-1, section: 2)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.itensTF.text = ""
@@ -393,8 +443,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     
     @objc func descartaveisBut(sender:UIButton) {
         sectionNumber = 3
-        churrascoToDo[3].append("")
-        let indexPath = IndexPath.init(row:churrascoToDo[3].count-1, section: 3)
+        toDoList[3].append("")
+        let indexPath = IndexPath.init(row:toDoList[3].count-1, section: 3)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.itensTF.text = ""
@@ -408,8 +458,8 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
     
     @objc func espacosBut(sender:UIButton) {
         sectionNumber = 4
-        churrascoToDo[4].append("")
-        let indexPath = IndexPath.init(row:churrascoToDo[4].count-1, section: 4)
+        toDoList[4].append("")
+        let indexPath = IndexPath.init(row:toDoList[4].count-1, section: 4)
         tableViewToDoList.beginUpdates()
         let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         cell.itensTF.text = ""
@@ -437,7 +487,7 @@ extension ListaDoQueFazerViewController: UITableViewDelegate, UITableViewDataSou
 
 //rtfgcjygvhbjn
 
-extension ListaDoQueFazerViewController: UITextFieldDelegate {
+extension ToDoListViewController: UITextFieldDelegate {
     
     
     
@@ -446,49 +496,45 @@ extension ListaDoQueFazerViewController: UITextFieldDelegate {
         guard let taskToSave = textField.text else { return false }
         switch sectionNumber {
         case 0:
-            posi1 += 1
-            contador1 += 1
+            posiList[0] += 1
+            countList[0] += 1
             entidadeNome = "Food"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            churrascoToDo[sectionNumber][posi1] = foodList[contador1].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[0]] = foodList[countList[0]].value(forKeyPath: "toDo") as? String ?? ""
             print(foodList)
         case 1:
-            posi2 += 1
-            contador2 += 1
+            posiList[1] += 1
+            countList[1] += 1
             entidadeNome = "Drinks"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            churrascoToDo[sectionNumber][posi2] = drinksList[contador2].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[1]] = drinksList[countList[1]].value(forKeyPath: "toDo") as? String ?? ""
             print(drinksList)
         case 2:
-            posi3 += 1
-            contador3 += 1
+            posiList[2] += 1
+            countList[2] += 1
             entidadeNome = "Utensils"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            print(churrascoToDo[sectionNumber])
-            churrascoToDo[sectionNumber][posi3] = utensilsList[contador3].value(forKeyPath: "toDo") as? String ?? ""
+            print(toDoList[sectionNumber])
+            toDoList[sectionNumber][posiList[2]] = utensilsList[countList[2]].value(forKeyPath: "toDo") as? String ?? ""
             print(utensilsList)
         case 3:
-            posi4 += 1
-            contador4 += 1
+            posiList[3] += 1
+            countList[3] += 1
             entidadeNome = "Disposable"
-            print(churrascoToDo[sectionNumber])
+            print(toDoList[sectionNumber])
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            churrascoToDo[sectionNumber][posi4] = disposableList[contador4].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[3]] = disposableList[countList[3]].value(forKeyPath: "toDo") as? String ?? ""
             print(disposableList)
         case 4:
-            posi5 += 1
-            contador5 += 1
+            posiList[4] += 1
+            countList[4] += 1
             entidadeNome = "Space"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            churrascoToDo[sectionNumber][posi5] = spaceList[contador5].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[4]] = spaceList[countList[4]].value(forKeyPath: "toDo") as? String ?? ""
             print(spaceList)
         default:
             print("Erro!")
         }
-                
-        //self.save(task: taskToSave, entityName: entidadeNome)
-        //churrascoToDo[sectionNumber][posi] = foodList[contador].value(forKeyPath: "toDo") as? String ?? ""
-        //print(foodList)
        
         tableViewToDoList.reloadData()
         return  self.view.endEditing(true)
@@ -498,5 +544,7 @@ extension ListaDoQueFazerViewController: UITextFieldDelegate {
     // Apagar Cell = OK
     // Acrescentar em todas as sections = OK
     // Apagar em todas as sections = OK
+    // Cells estarem de acordo com o modelo escolhido = OK
+    // Load de Dados salvos anteriormente = ?
     
 }
