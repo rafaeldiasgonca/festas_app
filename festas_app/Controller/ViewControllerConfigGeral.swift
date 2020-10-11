@@ -23,7 +23,8 @@ class ViewControllerConfigGeral: UIViewController {
     @IBOutlet weak var monthEventLabel: UILabel!
     @IBOutlet weak var timeEventButton: UIButton!
     
-    
+    let calendar = Calendar.current
+    let rightNow = Date()
     var localName = String()
     var typeName = String()
     var dayEvent = String()
@@ -140,5 +141,13 @@ class ViewControllerConfigGeral: UIViewController {
         
         
     }
-    
+    func TimeCount(){
+        let configuredDate = DateComponents(calendar:calendar,year:calendar.component(.year, from: rightNow),month:Int(monthEvent),day:Int(dayEvent))
+        let configuredDateComposed = calendar.date(from: configuredDate)
+        let CalculatedTime = calendar.dateComponents([.minute], from: configuredDateComposed!, to: rightNow).minute
+        print(CalculatedTime)
+        print(dayEvent)
+        print(monthEvent)
+        
+    }
 }
