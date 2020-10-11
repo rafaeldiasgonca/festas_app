@@ -89,7 +89,7 @@ class ModelsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let newVc:SettingsViewController = segue.destination as! SettingsViewController
+        let newVc:LocalDateViewController = segue.destination as! LocalDateViewController
         newVc.tituloRecebido = titulo
     }
     

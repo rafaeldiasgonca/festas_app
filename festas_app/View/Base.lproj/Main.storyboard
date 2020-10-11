@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="1840.5797101449277" y="137.94642857142856"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Local Date View Controller-->
         <scene sceneID="LW6-By-O5M">
             <objects>
-                <viewController id="dxa-ps-tNE" customClass="SettingsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dxa-ps-tNE" customClass="LocalDateViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zek-ye-kwO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,10 +559,10 @@
             </objects>
             <point key="canvasLocation" x="4102.898550724638" y="137.94642857142856"/>
         </scene>
-        <!--View Controller Config Geral-->
+        <!--Settings View Controller-->
         <scene sceneID="FAc-fv-XD8">
             <objects>
-                <viewController id="ixz-w3-HpA" customClass="ViewControllerConfigGeral" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ixz-w3-HpA" customClass="SettingsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSF-9t-Gye">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
