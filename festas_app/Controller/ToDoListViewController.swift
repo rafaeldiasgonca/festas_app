@@ -366,7 +366,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete{
             if indexPath.section == 0{
                 tableView.beginUpdates()
-                if indexPath.row > posiList[0] {
+                if indexPath.row > posiList[0] - countBalance[0] - 1 {
                     self.delete(entity: "Food", toDoTask: toDoList[0][indexPath.row])
                 }
                 posiList[0] -= 1
@@ -377,7 +377,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if indexPath.section == 1{
                 tableView.beginUpdates()
-                if indexPath.row > posiList[1] {
+                if indexPath.row > posiList[1] - countBalance[1] - 1 {
                     self.delete(entity: "Drinks", toDoTask: toDoList[1][indexPath.row])
                 }
                 posiList[1] -= 1
@@ -388,7 +388,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if indexPath.section == 2{
                 tableView.beginUpdates()
-                if indexPath.row > posiList[2] {
+                if indexPath.row > posiList[2] - countBalance[2] - 1 {
                     self.delete(entity: "Utensils", toDoTask: toDoList[2][indexPath.row])
                 }
                 posiList[2] -= 1
@@ -399,7 +399,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if indexPath.section == 3{
                 tableView.beginUpdates()
-                if indexPath.row > posiList[3] {
+                if indexPath.row > posiList[3] - countBalance[3] - 1 {
                     self.delete(entity: "Disposable", toDoTask: toDoList[3][indexPath.row])
                 }
                 posiList[3] -= 1
@@ -410,7 +410,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if indexPath.section == 4{
                 tableView.beginUpdates()
-                if indexPath.row > posiList[4] {
+                if indexPath.row > posiList[4] - countBalance[4] - 1 {
                     self.delete(entity: "Space", toDoTask: toDoList[4][indexPath.row])
                 }
                 posiList[4] -= 1
@@ -547,7 +547,7 @@ extension ToDoListViewController: UITextFieldDelegate {
             countList[1] += 1
             entidadeNome = "Drinks"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            toDoList[sectionNumber][posiList[1]] = drinksList[countList[1]].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[1]] = drinksList[countList[1] - countBalance[1] - 1].value(forKeyPath: "toDo") as? String ?? ""
             print(drinksList)
         case 2:
             posiList[2] += 1
@@ -555,7 +555,7 @@ extension ToDoListViewController: UITextFieldDelegate {
             entidadeNome = "Utensils"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
             print(toDoList[sectionNumber])
-            toDoList[sectionNumber][posiList[2]] = utensilsList[countList[2]].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[2]] = utensilsList[countList[2] - countBalance[2] - 1].value(forKeyPath: "toDo") as? String ?? ""
             print(utensilsList)
         case 3:
             posiList[3] += 1
@@ -563,14 +563,14 @@ extension ToDoListViewController: UITextFieldDelegate {
             entidadeNome = "Disposable"
             print(toDoList[sectionNumber])
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            toDoList[sectionNumber][posiList[3]] = disposableList[countList[3]].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[3]] = disposableList[countList[3] - countBalance[3] - 1].value(forKeyPath: "toDo") as? String ?? ""
             print(disposableList)
         case 4:
             posiList[4] += 1
             countList[4] += 1
             entidadeNome = "Space"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            toDoList[sectionNumber][posiList[4]] = spaceList[countList[4]].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[4]] = spaceList[countList[4] - countBalance[4] - 1].value(forKeyPath: "toDo") as? String ?? ""
             print(spaceList)
         default:
             print("Erro!")
@@ -587,5 +587,5 @@ extension ToDoListViewController: UITextFieldDelegate {
     // Cells estarem de acordo com o modelo escolhido = OK
     // Load de Dados salvos anteriormente = OK
     // Bug 1 de salvar: Não alcançar o range = OK
-    // Bug 2 de salvar: Não deletar = ?
+    // Bug 2 de salvar: Não deletar = 50%
 }
