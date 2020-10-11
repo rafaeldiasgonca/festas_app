@@ -31,6 +31,7 @@ class ToDoListViewController: UIViewController {
     var toDoList:[[String]] = []
     var posiList:[Int] = []
     var countList:[Int] = []
+    var countBalance:[Int] = []
     var churrascoToDo = [["Decidir que Carnes usar","Mensurar quantidade de carnes","Comprar carnes","Decidir que tempero de carne usar","Comprar temperos","Comprar carvão"],["Decidir que bebidas comprar","Comprar bebidas","Comprar gelo"],["Comprar copos","Comprar pratos","Comprar espetinhos","Comprar talheres"],["Verificar se há amoladores","Verificar talheres","Verificar pegadores","Veridicar facas","Verificar tábuas"],["Verificar cadeiras","Alugar cadeiras","Verificar mesas","Alugar mesas","Verificar Local","Alugar local","Preparar local"]]
     var reuniaoToDo = [["Decida como vai ser o bolo","Encomende o bolo com antecedencia","Decida os salgadinhos","Compre os salgadinhos","Decida os docinhos","Compre os docinhos","Monte um cardápio","Compre ingredientes para os pratos(caso não haja buffet)","Decida se vai contratar um buffet","Decida se vai contratar um buffet"],["Defina todas as bebidas","Compre todas as bebidas","Certifique-se de gelar as bebidas no dia anterior"],["Escolha o tema da festa","Defina o preço total da festa","Confirme todos os serviços contratados","Faça uma lista dos profissionais envolvidos","Defina as musicas","Decida os adereços utilizados","Compre os adereços","Compre balões"],["Compre as velas","Compre ou alugue toalhas","adquira pratos","Compre guardanapos","Compre bandejas para doces e salgados","Decida sobre as atividades de festa","adquira copos","adquira talheres","Compre fita dupla face","Compre fósforos","Compre barbante"],["Cheque a estrutura do local","Cheque a disponibilidade das mesas e cadeiras","Garanta a limpeza do local","Prepare os banheiros para os convidados","Defina como organizar o ambiente  de acordo com o tema"]]
     var niverToDo =  [["Defina se cada um trará um prato","Defina se cada um trará uma sobremesa","Defina que prato você fará","Defina os aperitivos e petiscos","Compre os ingredientes para seu prato","Compre o(s) ingredientes para as sobremesa(s)","Compre os ingredientes para preparar os petiscos"],["Defina os tipos de  bebida","Defina se cada um  trará uma bebida","Compre as bebidas","Coloque as bebidas para gelar no dia anterior","Organize as bebidas em um local de facil acesso"],["Defina as músicas","Cheque as restrições alimentícias de seus amigos","Cheque a afinidade entre seus convidados","Compre palitos de dente, guardanapos e outros utilitários","Compre os adereços","Defina o tema da festa"],["Separe pratos","Separe copos","Separe os talheres","Lave todas as louças que serão utilizadas"],["Limpe o local","Limpe o(s) banheiro(s)","Prepare os banheiros para os convidados","Garanta o conforto do local","Defina como organizar o ambiente  de acordo com o tema"]]
@@ -55,6 +56,7 @@ class ToDoListViewController: UIViewController {
         self.loadData(entity: "Space", sectionNumberLoad: 4)
         self.loadData(entity: "Disposable", sectionNumberLoad: 3)
         self.loadData(entity: "Utensils", sectionNumberLoad: 2)
+        countBalance = countList
     }
     
     
@@ -538,7 +540,7 @@ extension ToDoListViewController: UITextFieldDelegate {
             countList[0] += 1
             entidadeNome = "Food"
             self.save(task: taskToSave, entityName: entidadeNome, section: sectionNumber)
-            toDoList[sectionNumber][posiList[0]] = foodList[countList[0]].value(forKeyPath: "toDo") as? String ?? ""
+            toDoList[sectionNumber][posiList[0]] = foodList[countList[0] - countBalance[0] - 1].value(forKeyPath: "toDo") as? String ?? ""
             print(foodList)
         case 1:
             posiList[1] += 1
@@ -584,5 +586,6 @@ extension ToDoListViewController: UITextFieldDelegate {
     // Apagar em todas as sections = OK
     // Cells estarem de acordo com o modelo escolhido = OK
     // Load de Dados salvos anteriormente = OK
-    
+    // Bug 1 de salvar: Não alcançar o range = OK
+    // Bug 2 de salvar: Não deletar = ?
 }
