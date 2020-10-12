@@ -279,7 +279,7 @@ class LocalDateViewController: UIViewController  {
         timeTextView.inputView = timePIcker
         timePIcker.datePickerMode = .time
         timePIcker.preferredDatePickerStyle = .wheels
-        datePicker.locale = Locale(identifier: "pt_BR")
+        timePIcker.locale = Locale(identifier: "pt_BR")
         
     }
     

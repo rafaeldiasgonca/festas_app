@@ -23,12 +23,13 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var monthEventLabel: UILabel!
     @IBOutlet weak var timeEventLabel: UILabel!
     @IBOutlet weak var countTimeLabel: UILabel!
+    @IBOutlet weak var faltamLabel: UILabel!
     
     var releaseDate: NSDate?
     var countdownTimer = Timer()
     var localName = String()
     var typeName = String()
-    var dayEvent = String()
+    var dayEvent = "00"
     var monthEvent = String()
     var hourEvent = String()
     var minuteEvent = String()
@@ -106,13 +107,13 @@ class MainViewController: UIViewController, UITableViewDataSource {
             case "01":
                 monthEventLabel.text = "JAN"
             case "02":
-                monthEventLabel.text = "FEV"
+                monthEventLabel.text = "FEB"
             case "03":
                 monthEventLabel.text = "MAR"
             case "04":
                 monthEventLabel.text = "ABR"
             case "05":
-                monthEventLabel.text = "MAI"
+                monthEventLabel.text = "MAY"
             case "06":
                 monthEventLabel.text = "JUN"
             case "07":
@@ -128,7 +129,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
             case "12":
                 monthEventLabel.text = "DEZ"
             default:
-                print("Erro!!")
+                monthEventLabel.text = "UND"
             }
             
         } catch let error as NSError {
@@ -144,16 +145,22 @@ class MainViewController: UIViewController, UITableViewDataSource {
         let releaseDateFormatter = DateFormatter()
         releaseDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         releaseDate = releaseDateFormatter.date(from: releaseDateString) as NSDate?
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        if releaseDate != nil {
+            countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+            faltamLabel.text = "Faltam"
+        } else {
+            faltamLabel.text = ""
+            countTimeLabel.text = ""
+        }
     }
-
+    
     @objc func updateTime() {
-
+        
         let currentDate = Date()
         let calendar = Calendar.current
-
+        
         let diffDateComponents = calendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: releaseDate! as Date)
-
+        
         let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
         
         countTimeLabel.text = countdown

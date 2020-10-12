@@ -323,6 +323,8 @@ class SettingsViewController: UIViewController {
         //assign datePicker to textField
         dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "pt_BR")
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
@@ -333,8 +335,6 @@ class SettingsViewController: UIViewController {
         let month: String = dateFormatter.string(from: self.datePicker.date)
         dateFormatter.dateFormat = "dd"
         let day: String = dateFormatter.string(from: self.datePicker.date)
-        self.saveDay(dayToEvent: day)
-        self.saveMonth(monthToEvent: month)
         dayEventLabel.text = day
         switch month {
         case "01":
@@ -375,7 +375,8 @@ class SettingsViewController: UIViewController {
         timeEventTextView.inputAccessoryView = toolbar1
         timeEventTextView.inputView = timePIcker
         timePIcker.datePickerMode = .time
-
+        timePIcker.preferredDatePickerStyle = .wheels
+        timePIcker.locale = Locale(identifier: "pt_BR")
     }
 
     @objc func donePressed1(){
@@ -384,8 +385,6 @@ class SettingsViewController: UIViewController {
         let minutes: String = dateFormatter.string(from: self.timePIcker.date)
         dateFormatter.dateFormat = "HH"
         let hour: String = dateFormatter.string(from: self.timePIcker.date)
-        self.saveHour(hourToEvent: hour)
-        self.saveMinute(minuteToEvent: minutes)
         timeEventTextView.text = hour + ":" + minutes
         self.view.endEditing(true)
     }
@@ -395,19 +394,32 @@ class SettingsViewController: UIViewController {
             sender.tag = 2
             typeNameTextField.isEnabled = true
             localNameTextField.isEnabled = true
+            dateTextView.isUserInteractionEnabled = true
         } else {
             sender.tag = 1
+            let dateFormatter = DateFormatter()
+            timeEventTextView.isEditable = false
+            dateFormatter.dateFormat = "mm"
+            let minutes: String = dateFormatter.string(from: self.timePIcker.date)
+            dateFormatter.dateFormat = "HH"
+            let hour: String = dateFormatter.string(from: self.timePIcker.date)
+            dateTextView.isUserInteractionEnabled = false
+            dateFormatter.dateFormat = "MM"
+            let month: String = dateFormatter.string(from: self.datePicker.date)
+            dateFormatter.dateFormat = "dd"
+            let day: String = dateFormatter.string(from: self.datePicker.date)
             typeNameTextField.isEnabled = false
             self.save(newName: typeNameTextField.text ?? "")
             localNameTextField.isEnabled = false
             self.saveLocal(local: localNameTextField.text ?? "")
+            self.saveHour(hourToEvent: hour)
+            self.saveMinute(minuteToEvent: minutes)
+            self.saveDay(dayToEvent: day)
+            self.saveMonth(monthToEvent: month)
         }
         
     }
-    @IBAction func editDateButton(_ sender: UIButton) {
-        
-        
-    }
+    
     //Por para salvar td ao final da edição
     //Talvez trocar pela função de edição
 
