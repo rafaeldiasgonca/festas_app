@@ -33,8 +33,20 @@
                                     <segue destination="twd-YT-NET" kind="show" identifier="goToModelsMenu" id="A62-aY-fk7"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_card_home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="TRv-1b-ahU">
+                                <rect key="frame" x="-94" y="466" width="603" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-2M-B0Z">
                                 <rect key="frame" x="-117" y="452" width="628" height="334"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="abV-rS-l7J">
+                                <rect key="frame" x="-21" y="466" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-mX-Jmx">
+                                <rect key="frame" x="183" y="466" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -366,6 +378,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Pey-uI-Rgi">
                         <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" style="plain" id="pTQ-Yq-caL">
+                            <color key="tintColor" name="plus_button_sup"/>
                             <connections>
                                 <action selector="addGuestPressed:" destination="AL8-w4-EjY" id="hE3-4B-acs"/>
                             </connections>
@@ -512,10 +525,6 @@
                                             <color key="titleColor" name="label_title_home_principal"/>
                                         </state>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_principal" translatesAutoresizingMaskIntoConstraints="NO" id="91i-2H-i08">
-                                        <rect key="frame" x="-207" y="426" width="457" height="243"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suas Tarefas de hoje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-rB-DgH">
                                         <rect key="frame" x="21" y="8" width="284" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -523,6 +532,14 @@
                                         <color key="textColor" name="label_title_home_principal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_card_home_principal" translatesAutoresizingMaskIntoConstraints="NO" id="FYX-Rj-JZc">
+                                        <rect key="frame" x="-49" y="307" width="453" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_principal" translatesAutoresizingMaskIntoConstraints="NO" id="91i-2H-i08">
+                                        <rect key="frame" x="-207" y="426" width="457" height="243"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_home_principal-2"/>
                             </view>
@@ -907,9 +924,13 @@
     </scenes>
     <resources>
         <image name="Ellipse 40" width="201" height="201"/>
+        <image name="brilho_1" width="47.5" height="111"/>
+        <image name="brilho_2" width="48.5" height="114.5"/>
         <image name="card_inicial" width="303" height="616"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="config_chu_reu" width="325" height="554.5"/>
+        <image name="curva_card_home_inicial" width="303" height="323"/>
+        <image name="curva_card_home_principal" width="303" height="206"/>
         <image name="curva_sup_config" width="375" height="290.5"/>
         <image name="curva_sup_convidados" width="375" height="250.5"/>
         <image name="home_inicial" width="429" height="862"/>
@@ -966,6 +987,9 @@
             <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="label_title_home_principal">
+            <color red="0.0078431372549019607" green="0.0" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="plus_button_sup">
             <color red="0.0078431372549019607" green="0.0" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="subtitle_card_color">
