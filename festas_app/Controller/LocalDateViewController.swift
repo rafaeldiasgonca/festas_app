@@ -20,19 +20,31 @@ class LocalDateViewController: UIViewController  {
     var monthEvent:NSManagedObject?
     var hourEvent:NSManagedObject?
     var minuteEvent:NSManagedObject?
+    var yearEvent:NSManagedObject?
     
     let datePicker = UIDatePicker()
     let timePIcker = UIDatePicker()
     
     var tituloRecebido = String()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = tituloRecebido
         localTextField.delegate = self
+        let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
+        gestureOneTapRecognizer.numberOfTapsRequired = 1
+        gestureOneTapRecognizer.numberOfTouchesRequired = 1
+        self.view.addGestureRecognizer(gestureOneTapRecognizer)
         createDatePickerView()
         createTimePickerView()
     }
+    
+    @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+        
+    }
+
     
     func saveLocal(local: String) {
         
@@ -127,6 +139,38 @@ class LocalDateViewController: UIViewController  {
         }
     }
     
+    func saveYear(yearToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let month = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        month.setValue(yearToEvent, forKeyPath: "year")
+        
+        // 4
+        do {
+            try managedContext.save()
+            yearEvent = month
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+
+    
     func saveHour(hourToEvent: String) {
         
         guard let appDelegate =
@@ -204,18 +248,24 @@ class LocalDateViewController: UIViewController  {
         //assign datePicker to textField
         dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "pt_BR")
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
+        formatacao.locale = Locale(identifier: "pt_BR")
         formatacao.dateStyle = .long
         formatacao.timeStyle = .none
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year: String = dateFormatter.string(from: self.datePicker.date)
         dateFormatter.dateFormat = "MM"
         let month: String = dateFormatter.string(from: self.datePicker.date)
         dateFormatter.dateFormat = "dd"
         let day: String = dateFormatter.string(from: self.datePicker.date)
         self.saveDay(dayToEvent: day)
         self.saveMonth(monthToEvent: month)
+        self.saveYear(yearToEvent: year)
         dateTextView.text = formatacao.string(from: datePicker.date)
         self.view.endEditing(true)
         
@@ -228,6 +278,8 @@ class LocalDateViewController: UIViewController  {
         timeTextView.inputAccessoryView = toolbar1
         timeTextView.inputView = timePIcker
         timePIcker.datePickerMode = .time
+        timePIcker.preferredDatePickerStyle = .wheels
+        datePicker.locale = Locale(identifier: "pt_BR")
         
     }
     
@@ -240,8 +292,8 @@ class LocalDateViewController: UIViewController  {
         self.saveHour(hourToEvent: hour)
         self.saveMinute(minuteToEvent: minutes)
         let formatacao1 = DateFormatter()
-        formatacao1.timeStyle = .short
-        timeTextView.text = formatacao1.string(from: timePIcker.date)
+        formatacao1.dateFormat = "HH:mm"
+        timeTextView.text = "Às " + formatacao1.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
@@ -250,11 +302,11 @@ class LocalDateViewController: UIViewController  {
 
 extension LocalDateViewController: UITextFieldDelegate {
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        localTextField.borderStyle = .none
-        localTextField.backgroundColor = #colorLiteral(red: 0.4957505465, green: 0.4904546738, blue: 0.9963564277, alpha: 1)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        //localTextField.borderStyle = .none
         self.saveLocal(local: localTextField.text ?? "")
-        print(localization)
-        return true
+        self.view.endEditing(true)
+
     }
+
 }

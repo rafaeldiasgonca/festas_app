@@ -16,6 +16,7 @@
         <attribute name="minute" optional="YES" attributeType="String"/>
         <attribute name="month" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Guest" representedClassName="Guest" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -30,7 +31,7 @@
         <element name="Disposable" positionX="-18" positionY="27" width="128" height="58"/>
         <element name="Drinks" positionX="-36" positionY="18" width="128" height="58"/>
         <element name="Food" positionX="-45" positionY="9" width="128" height="58"/>
-        <element name="General" positionX="0" positionY="54" width="128" height="133"/>
+        <element name="General" positionX="0" positionY="54" width="128" height="148"/>
         <element name="Guest" positionX="-45" positionY="0" width="128" height="58"/>
         <element name="Space" positionX="27" positionY="72" width="128" height="58"/>
         <element name="Utensils" positionX="9" positionY="54" width="128" height="58"/>

@@ -21,8 +21,16 @@ class GuestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Convidados"
+        let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
+        gestureOneTapRecognizer.numberOfTapsRequired = 1
+        gestureOneTapRecognizer.numberOfTouchesRequired = 1
+        self.view.addGestureRecognizer(gestureOneTapRecognizer)
         ViewConvidados.layer.cornerRadius = 12
         numberOfGuests.text = String(convidados1)
+    }
+    
+    @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
