@@ -101,8 +101,7 @@ class ModelsViewController: UIViewController {
         }
     }
     
-    func savePreToDoListFood(foodArray: [String]) {
-        
+    func saveTask(task: String, entityName: String) {
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -114,150 +113,50 @@ class ModelsViewController: UIViewController {
         
         // 2
         let entity =
-            NSEntityDescription.entity(forEntityName: "Food",
+            NSEntityDescription.entity(forEntityName: entityName,
                                        in: managedContext)!
         
-        let toDoTask = NSManagedObject(entity: entity,
-                                       insertInto: managedContext)
+        let taskToDo = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
         
         // 3
+        taskToDo.setValue(task, forKeyPath: "toDo")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func savePreToDoListFood(foodArray: [String], entityName: String) {
         for i in 0...foodArray.count - 1 {
-            toDoTask.setValue(foodArray[i], forKeyPath: "toDo")
-            // 4
-            do {
-                try managedContext.save()
-                foodToDo.append(toDoTask)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            saveTask(task: foodArray[i], entityName: entityName)
         }
     }
     
-    func savePreToDoListDrinks(drinkArray: [String]) {
-        
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Drinks",
-                                       in: managedContext)!
-        
-        let toDoTask = NSManagedObject(entity: entity,
-                                       insertInto: managedContext)
-        
-        // 3
+    func savePreToDoListDrinks(drinkArray: [String], entityName: String) {
         for i in 0...drinkArray.count - 1 {
-            toDoTask.setValue(drinkArray[i], forKeyPath: "toDo")
-            // 4
-            do {
-                try managedContext.save()
-                drinksToDo.append(toDoTask)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            saveTask(task: drinkArray[i], entityName: entityName)
         }
     }
     
-    func savePreToDoListUtensils(utensilsArray: [String]) {
-        
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Utensils",
-                                       in: managedContext)!
-        
-        let toDoTask = NSManagedObject(entity: entity,
-                                       insertInto: managedContext)
-        
-        // 3
+    func savePreToDoListUtensils(utensilsArray: [String], entityName: String) {
         for i in 0...utensilsArray.count - 1 {
-            toDoTask.setValue(utensilsArray[i], forKeyPath: "toDo")
-            // 4
-            do {
-                try managedContext.save()
-                utensilsToDo.append(toDoTask)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            saveTask(task: utensilsArray[i], entityName: entityName)
         }
     }
     
-    func savePreToDoListDisponsable(disponsableArray: [String]) {
-        
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Disposable",
-                                       in: managedContext)!
-        
-        let toDoTask = NSManagedObject(entity: entity,
-                                       insertInto: managedContext)
-        
-        // 3
+    func savePreToDoListDisponsable(disponsableArray: [String], entityName: String) {
         for i in 0...disponsableArray.count - 1 {
-            toDoTask.setValue(disponsableArray[i], forKeyPath: "toDo")
-            // 4
-            do {
-                try managedContext.save()
-                disponsableToDo.append(toDoTask)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            saveTask(task: disponsableArray[i], entityName: entityName)
         }
     }
     
-    func savePreToDoListSpace(spaceArray: [String]) {
-        
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "Space",
-                                       in: managedContext)!
-        
-        let toDoTask = NSManagedObject(entity: entity,
-                                       insertInto: managedContext)
-        
-        // 3
+    func savePreToDoListSpace(spaceArray: [String], entityName: String) {
         for i in 0...spaceArray.count - 1 {
-            toDoTask.setValue(spaceArray[i], forKeyPath: "toDo")
-            // 4
-            do {
-                try managedContext.save()
-                spaceToDo.append(toDoTask)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
+            saveTask(task: spaceArray[i], entityName: entityName)
         }
     }
     
@@ -266,23 +165,23 @@ class ModelsViewController: UIViewController {
         self.save(model: titulo)
         switch titulo {
         case "Aniversário":
-            self.savePreToDoListFood(foodArray: foodNiver)
-            self.savePreToDoListDrinks(drinkArray: drinksNiver)
-            self.savePreToDoListUtensils(utensilsArray: utensilsNiver)
-            self.savePreToDoListDisponsable(disponsableArray: disponsableNiver)
-            self.savePreToDoListSpace(spaceArray: spaceNiver)
+            self.savePreToDoListFood(foodArray: foodNiver, entityName: "Food")
+            self.savePreToDoListDrinks(drinkArray: drinksNiver, entityName: "Drinks")
+            self.savePreToDoListUtensils(utensilsArray: utensilsNiver, entityName: "Utensils")
+            self.savePreToDoListDisponsable(disponsableArray: disponsableNiver, entityName: "Disposable")
+            self.savePreToDoListSpace(spaceArray: spaceNiver, entityName: "Space")
         case "Churrasco":
-            self.savePreToDoListFood(foodArray: foodChurrasco)
-            self.savePreToDoListDrinks(drinkArray: drinksChurrasco)
-            self.savePreToDoListUtensils(utensilsArray: utensilsChurrasco)
-            self.savePreToDoListDisponsable(disponsableArray: disponsableChurrasco)
-            self.savePreToDoListSpace(spaceArray: spaceChurrasco)
+            self.savePreToDoListFood(foodArray: foodChurrasco, entityName: "Food")
+            self.savePreToDoListDrinks(drinkArray: drinksChurrasco, entityName: "Drinks")
+            self.savePreToDoListUtensils(utensilsArray: utensilsChurrasco, entityName: "Utensils")
+            self.savePreToDoListDisponsable(disponsableArray: disponsableChurrasco, entityName: "Disposable")
+            self.savePreToDoListSpace(spaceArray: spaceChurrasco, entityName: "Space")
         case "Reunião de Amigos":
-            self.savePreToDoListFood(foodArray: foodReuniao)
-            self.savePreToDoListDrinks(drinkArray: drinksReuniao)
-            self.savePreToDoListUtensils(utensilsArray: utensilsReuniao)
-            self.savePreToDoListDisponsable(disponsableArray: disponsableReuniao)
-            self.savePreToDoListSpace(spaceArray: spaceReuniao)
+            self.savePreToDoListFood(foodArray: foodReuniao, entityName: "Food")
+            self.savePreToDoListDrinks(drinkArray: drinksReuniao, entityName: "Drinks")
+            self.savePreToDoListUtensils(utensilsArray: utensilsReuniao, entityName: "Utensils")
+            self.savePreToDoListDisponsable(disponsableArray: disponsableReuniao, entityName: "Disposable")
+            self.savePreToDoListSpace(spaceArray: spaceReuniao, entityName: "Space")
         default:
             print("Erro!")
         }

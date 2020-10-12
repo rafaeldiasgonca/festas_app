@@ -96,7 +96,6 @@ class ToDoListViewController: UIViewController {
         self.loadDataDrinks()
         self.loadDataDisposable()
         self.loadDataUtensils()
-        print(foodList)
     }
     
     
