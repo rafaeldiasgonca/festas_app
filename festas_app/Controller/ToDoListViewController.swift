@@ -20,27 +20,11 @@ class ToDoListViewController: UIViewController {
     var checkSection = 0
     var type:EventType = .none
     var sectionInEdit:Section = .none
-    var foodList:[NSManagedObject] = []
-    var drinksList:[NSManagedObject] = []
-    var disposableList:[NSManagedObject] = []
-    var spaceList:[NSManagedObject] = []
-    var utensilsList:[NSManagedObject] = []
-    static var foodChurrasco = ["Decidir que Carnes usar","Mensurar quantidade de carnes","Comprar carnes","Decidir que tempero de carne usar","Comprar temperos","Comprar carvão"]
-    static var drinksChurrasco = ["Decidir que bebidas comprar","Comprar bebidas","Comprar gelo"]
-    static var utensilsChurrasco = ["Verificar se há amoladores","Verificar talheres","Verificar pegadores","Veridicar facas","Verificar tábuas"]
-    static var disponsableChurrasco = ["Verificar papel"]
-    static var spaceChurrasco = ["Verificar cadeiras","Alugar cadeiras","Verificar mesas","Alugar mesas","Verificar Local","Alugar local","Preparar local"]
-    static var foodNiver = ["Defina se cada um trará um prato","Defina se cada um trará uma sobremesa","Defina que prato você fará","Defina os aperitivos e petiscos","Compre os ingredientes para seu prato","Compre o(s) ingredientes para as sobremesa(s)","Compre os ingredientes para preparar os petiscos"]
-    static var drinksNiver = ["Defina os tipos de  bebida","Defina se cada um  trará uma bebida","Compre as bebidas","Coloque as bebidas para gelar no dia anterior","Organize as bebidas em um local de facil acesso"]
-    static var utensilsNiver = ["Defina as músicas","Cheque as restrições alimentícias de seus amigos","Cheque a afinidade entre seus convidados","Compre palitos de dente, guardanapos e outros utilitários","Compre os adereços","Defina o tema da festa"]
-    static var disponsableNiver = ["Separe pratos","Separe copos","Separe os talheres","Lave todas as louças que serão utilizadas"]
-    static var spaceNiver = ["Limpe o local","Limpe o(s) banheiro(s)","Prepare os banheiros para os convidados","Garanta o conforto do local","Defina como organizar o ambiente  de acordo com o tema"]
-    static var foodReuniao = ["Decida como vai ser o bolo","Encomende o bolo com antecedencia","Decida os salgadinhos","Compre os salgadinhos","Decida os docinhos","Compre os docinhos","Monte um cardápio","Compre ingredientes para os pratos(caso não haja buffet)","Decida se vai contratar um buffet","Decida se vai contratar um buffet"]
-    static var drinksReuniao = ["Defina todas as bebidas","Compre todas as bebidas","Certifique-se de gelar as bebidas no dia anterior"]
-    static var utensilsReuniao = ["Escolha o tema da festa","Defina o preço total da festa","Confirme todos os serviços contratados","Faça uma lista dos profissionais envolvidos","Defina as musicas","Decida os adereços utilizados","Compre os adereços","Compre balões"]
-    static var disponsableReuniao = ["Compre as velas","Compre ou alugue toalhas","adquira pratos","Compre guardanapos","Compre bandejas para doces e salgados","Decida sobre as atividades de festa","adquira copos","adquira talheres","Compre fita dupla face","Compre fósforos","Compre barbante"]
-    static var spaceReuniao = ["Cheque a estrutura do local","Cheque a disponibilidade das mesas e cadeiras","Garanta a limpeza do local","Prepare os banheiros para os convidados","Defina como organizar o ambiente  de acordo com o tema"]
-    
+    var foodList:[String] = []
+    var drinksList:[String] = []
+    var disposableList:[String] = []
+    var spaceList:[String] = []
+    var utensilsList:[String] = []
     
     enum Section:Int {
         case comida = 0
@@ -73,19 +57,19 @@ class ToDoListViewController: UIViewController {
         case churrasco = "Churrasco"
         case reuniao = "Reunião de amigos"
         case none = ""
-        
-        func getArray() -> [[String]] {
-            switch self {
-            case .aniversário:
-                return [foodNiver,drinksNiver,utensilsNiver,disponsableNiver, spaceNiver]
-            case .churrasco:
-                return [foodChurrasco,drinksChurrasco,utensilsChurrasco,disponsableChurrasco, spaceChurrasco]
-            case .reuniao:
-                return [foodReuniao, drinksReuniao, utensilsReuniao, disponsableReuniao,spaceReuniao]
-            case .none:
-                return []
-            }
-        }
+//
+//        func getArray() -> [[String]] {
+//            switch self {
+//            case .aniversário:
+//                return [foodNiver,drinksNiver,utensilsNiver,disponsableNiver, spaceNiver]
+//            case .churrasco:
+//                return [foodChurrasco,drinksChurrasco,utensilsChurrasco,disponsableChurrasco, spaceChurrasco]
+//            case .reuniao:
+//                return [foodReuniao, drinksReuniao, utensilsReuniao, disponsableReuniao,spaceReuniao]
+//            case .none:
+//                return []
+//            }
+//        }
         
 
 
@@ -107,17 +91,18 @@ class ToDoListViewController: UIViewController {
         self.deleteBlankSpace(entity: "Space")
         self.deleteBlankSpace(entity: "Disposable")
         self.deleteBlankSpace(entity: "Utensils")
-        self.loadData(entity: "Food")
-        self.loadData(entity: "Drinks")
-        self.loadData(entity: "Space")
-        self.loadData(entity: "Disposable")
-        self.loadData(entity: "Utensils")
+        self.loadDataFood()
+        self.loadDataSpace()
+        self.loadDataDrinks()
+        self.loadDataDisposable()
+        self.loadDataUtensils()
+        print(foodList)
     }
     
     
     //MARK: - Core Data Functions
     
-    func loadData(entity: String) {
+    func loadDataFood() {
         //1
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -129,22 +114,124 @@ class ToDoListViewController: UIViewController {
         
         //2
         let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: entity)
+            NSFetchRequest<NSManagedObject>(entityName: "Food")
         
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            if results.count > 0 {
-                for i in 0...results.count - 1 {
-                    if results[i].value(forKey: "toDo") != nil {
-                        print(results[i])
-                    }
-                }
+            for i in 0...results.count - 1 {
+                let element = results[i].value(forKey: "toDo") as? String ?? ""
+                foodList.append(element)
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    func loadDataDrinks() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Drinks")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                let element = results[i].value(forKey: "toDo") as? String ?? ""
+                drinksList.append(element)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataUtensils() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Utensils")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                let element = results[i].value(forKey: "toDo") as? String ?? ""
+                utensilsList.append(element)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataDisposable() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Disposable")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                let element = results[i].value(forKey: "toDo") as? String ?? ""
+                disposableList.append(element)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataSpace() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Space")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for i in 0...results.count - 1 {
+                let element = results[i].value(forKey: "toDo") as? String ?? ""
+                spaceList.append(element)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     
     
@@ -203,20 +290,20 @@ class ToDoListViewController: UIViewController {
         // 4
         do {
             try managedContext.save()
-            switch section {
-            case 0:
-                foodList.append(toDoTask)
-            case 1:
-                drinksList.append(toDoTask)
-            case 2:
-                utensilsList.append(toDoTask)
-            case 3:
-                disposableList.append(toDoTask)
-            case 4:
-                spaceList.append(toDoTask)
-            default:
-                print("Erro!")
-            }
+//            switch section {
+//            case 0:
+//                foodList.append(toDoTask)
+//            case 1:
+//                drinksList.append(toDoTask)
+//            case 2:
+//                utensilsList.append(toDoTask)
+//            case 3:
+//                disposableList.append(toDoTask)
+//            case 4:
+//                spaceList.append(toDoTask)
+//            default:
+//                print("Erro!")
+//            }
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -277,30 +364,30 @@ class ToDoListViewController: UIViewController {
     }
     
     
-    func edit(entity: String, index: Int, toDoTask: String, entityNumber: Int){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-        requestDel.returnsObjectsAsFaults = false
-        
-        
-        do {
-            let arrUsrObj = try context.fetch(requestDel)
-            let usrObj = arrUsrObj as! [NSManagedObject]
-            usrObj[index].setValue(toDoTask, forKey: "toDo")
-            foodList[index] = usrObj[index]
-            
-        } catch {
-            print("Failed")
-        }
-        
-        // Saving the Delete operation
-        do {
-            try context.save()
-        } catch {
-            print("Failed saving")
-        }
-    }
+//    func edit(entity: String, index: Int, toDoTask: String, entityNumber: Int){
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+//        requestDel.returnsObjectsAsFaults = false
+//
+//
+//        do {
+//            let arrUsrObj = try context.fetch(requestDel)
+//            let usrObj = arrUsrObj as! [NSManagedObject]
+//            usrObj[index].setValue(toDoTask, forKey: "toDo")
+//            foodList[index] = usrObj[index]
+//
+//        } catch {
+//            print("Failed")
+//        }
+//
+//        // Saving the Delete operation
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Failed saving")
+//        }
+//    }
     
     func deleteAllData(entity: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -336,16 +423,39 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let sectionType = Section.init(rawValue: section) else { return 0 }
-        let array = type.getArray()
-        return array[sectionType.rawValue].count
+        switch sectionType {
+        case .comida:
+            return foodList.count-1
+        case .bebidas:
+            return drinksList.count-1
+        case .utensílios:
+            return utensilsList.count-1
+        case .descartáveis:
+            return disposableList.count-1
+        case .espaço:
+            return spaceList.count-1
+        case .none:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         guard let sectionType = Section.init(rawValue: indexPath.section) else { return .init() }
-        let array = type.getArray()
-        let elementArray = array[sectionType.rawValue]
-        cell.textFieldToDo.text = elementArray[indexPath.row]
+        switch sectionType {
+        case .comida:
+            cell.textFieldToDo.text = foodList[indexPath.row]
+        case .bebidas:
+            cell.textFieldToDo.text = drinksList[indexPath.row]
+        case .utensílios:
+            cell.textFieldToDo.text = utensilsList[indexPath.row]
+        case .descartáveis:
+            cell.textFieldToDo.text = disposableList[indexPath.row]
+        case .espaço:
+            cell.textFieldToDo.text = spaceList[indexPath.row]
+        case .none:
+            print("Erro!")
+        }
         cell.selectionStyle = .none
         cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
@@ -404,11 +514,22 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard let sectionType = Section.init(rawValue: indexPath.section) else { return }
-        let array = type.getArray()
-        var arrayElement = array[sectionType.rawValue]
         if editingStyle == .delete {
             tableView.beginUpdates()
-            arrayElement.remove(at: indexPath.row)
+            switch sectionType {
+            case .comida:
+                foodList.remove(at: indexPath.row)
+            case .bebidas:
+                drinksList.remove(at: indexPath.row)
+            case .utensílios:
+                utensilsList.remove(at: indexPath.row)
+            case .descartáveis:
+                disposableList.remove(at: indexPath.row)
+            case .espaço:
+                spaceList.remove(at: indexPath.row)
+            case .none:
+                print("Erro!")
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -425,7 +546,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     @objc func comidaBut(sender:UIButton) {
         sectionInEdit = .comida
-        let array = type.getArray()
+        let array = foodList
         let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
 //        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -439,7 +560,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func bebidasBut(sender:UIButton) {
         sectionInEdit = .bebidas
-        let array = type.getArray()
+        let array = drinksList
         let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
 //        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -452,7 +573,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func utensiliosBut(sender:UIButton) {
         sectionInEdit = .utensílios
-        let array = type.getArray()
+        let array = utensilsList
         let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
 //        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -465,7 +586,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func descartaveisBut(sender:UIButton) {
         sectionInEdit = .descartáveis
-        let array = type.getArray()
+        let array = disposableList
         let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
 //        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -478,7 +599,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func espacosBut(sender:UIButton) {
         sectionInEdit = .espaço
-        let array = type.getArray()
+        let array = spaceList
         let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
 //        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
@@ -497,9 +618,21 @@ extension ToDoListViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let taskToSave = textField.text else { return }
-        let array = type.getArray()
-        var elementArray = array[sectionInEdit.rawValue]
-        elementArray.append(taskToSave)
+        switch sectionInEdit {
+        case .comida:
+            foodList.append(taskToSave)
+            print(foodList)
+        case .bebidas:
+            drinksList.append(taskToSave)
+        case .utensílios:
+            utensilsList.append(taskToSave)
+        case .descartáveis:
+            disposableList.append(taskToSave)
+        case .espaço:
+            spaceList.append(taskToSave)
+        case .none:
+            print("Erro!")
+        }
         tableViewToDoList.reloadData()
     }
     
