@@ -25,38 +25,82 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" image="square.and.pencil" catalog="system"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuZ-hc-3sq">
-                                <rect key="frame" x="56" y="170" width="303" height="616"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="card_inicial"/>
-                                <connections>
-                                    <segue destination="twd-YT-NET" kind="show" identifier="goToModelsMenu" id="A62-aY-fk7"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="curva_card_home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="TRv-1b-ahU">
-                                <rect key="frame" x="-94" y="466" width="603" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-2M-B0Z">
-                                <rect key="frame" x="-117" y="452" width="628" height="334"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="abV-rS-l7J">
-                                <rect key="frame" x="-21" y="466" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-mX-Jmx">
-                                <rect key="frame" x="183" y="466" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJJ-dA-OC8">
+                                <rect key="frame" x="35" y="161" width="344" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vamos criar uma festa?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6V-p9-boW">
+                                        <rect key="frame" x="43" y="33" width="264" height="72"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Você ainda não tem nada por aqui:(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-kg-rK2">
+                                        <rect key="frame" x="11" y="113" width="328" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_card_home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="TRv-1b-ahU">
+                                        <rect key="frame" x="0.0" y="344" width="353" height="323"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" image="home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-2M-B0Z">
+                                        <rect key="frame" x="57" y="254" width="231" height="405"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-cC-M39">
+                                        <rect key="frame" x="43" y="187" width="269" height="48"/>
+                                        <color key="backgroundColor" name="plus_button_sup"/>
+                                        <state key="normal" title="Adicionar Festa">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="twd-YT-NET" kind="show" id="Qlu-0d-Bwd"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="abV-rS-l7J">
+                                        <rect key="frame" x="8" y="322.5" width="126" height="111"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brilho_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-mX-Jmx">
+                                        <rect key="frame" x="227" y="322.5" width="112" height="114.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Zcj-kg-rK2" secondAttribute="trailing" constant="5" id="4pb-UO-feE"/>
+                                    <constraint firstItem="JKP-cC-M39" firstAttribute="top" secondItem="Zcj-kg-rK2" secondAttribute="bottom" constant="53" id="6Xo-Rd-08q"/>
+                                    <constraint firstItem="JKP-cC-M39" firstAttribute="leading" secondItem="NJJ-dA-OC8" secondAttribute="leading" constant="43" id="8br-o1-fvJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="TRv-1b-ahU" secondAttribute="bottom" id="DBd-SO-MIP"/>
+                                    <constraint firstItem="Zcj-kg-rK2" firstAttribute="leading" secondItem="NJJ-dA-OC8" secondAttribute="leading" constant="11" id="HTC-k1-WaL"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vz2-2M-B0Z" secondAttribute="bottom" constant="8" id="Nh2-D3-oix"/>
+                                    <constraint firstAttribute="trailing" secondItem="JKP-cC-M39" secondAttribute="trailing" constant="32" id="QSO-Uv-8OM"/>
+                                    <constraint firstItem="Vz2-2M-B0Z" firstAttribute="width" secondItem="NJJ-dA-OC8" secondAttribute="height" multiplier="231:667" id="T5u-C8-Qe9"/>
+                                    <constraint firstItem="Zcj-kg-rK2" firstAttribute="width" secondItem="NJJ-dA-OC8" secondAttribute="height" multiplier="328:667" id="ZlY-m3-c2z"/>
+                                    <constraint firstAttribute="width" secondItem="NJJ-dA-OC8" secondAttribute="height" multiplier="344:667" id="eKt-7D-Mlu"/>
+                                    <constraint firstItem="Vz2-2M-B0Z" firstAttribute="top" secondItem="JKP-cC-M39" secondAttribute="bottom" constant="19" id="fYT-9A-jZ1"/>
+                                    <constraint firstAttribute="trailing" secondItem="TRv-1b-ahU" secondAttribute="trailing" constant="-9" id="i2w-eB-7Yk"/>
+                                    <constraint firstItem="Zcj-kg-rK2" firstAttribute="top" secondItem="r6V-p9-boW" secondAttribute="bottom" constant="31" id="nMr-Ev-HMM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vz2-2M-B0Z" secondAttribute="trailing" constant="56" id="rFK-Co-sax"/>
+                                    <constraint firstItem="JKP-cC-M39" firstAttribute="width" secondItem="NJJ-dA-OC8" secondAttribute="height" multiplier="269:667" id="t5W-4Y-R15"/>
+                                    <constraint firstItem="Vz2-2M-B0Z" firstAttribute="leading" secondItem="NJJ-dA-OC8" secondAttribute="leading" constant="57" id="y8U-6G-wkD"/>
+                                    <constraint firstItem="TRv-1b-ahU" firstAttribute="leading" secondItem="NJJ-dA-OC8" secondAttribute="leading" id="yXT-23-1mf"/>
+                                    <constraint firstItem="r6V-p9-boW" firstAttribute="top" secondItem="NJJ-dA-OC8" secondAttribute="top" constant="54" id="zBk-71-QYr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="fundo_home_inicial"/>
+                        <constraints>
+                            <constraint firstItem="r6V-p9-boW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="33:112" id="C0I-od-DQB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r6V-p9-boW" secondAttribute="trailing" constant="72" id="F8E-kQ-gBQ"/>
+                            <constraint firstItem="NJJ-dA-OC8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="FiX-Jc-1af"/>
+                            <constraint firstItem="r6V-p9-boW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="KWY-B4-AW6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NJJ-dA-OC8" secondAttribute="trailing" constant="35" id="TaC-7z-qaH"/>
+                            <constraint firstItem="NJJ-dA-OC8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="nqc-r9-jQc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NJJ-dA-OC8" secondAttribute="bottom" constant="34" id="qx6-tx-0Jc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Olá, novato" id="ZlR-0M-OXD" colorLabel="IBBuiltInLabel-Orange"/>
-                    <connections>
-                        <outlet property="stardCardButton" destination="uuZ-hc-3sq" id="o3t-cl-7vd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -926,7 +970,6 @@
         <image name="Ellipse 40" width="201" height="201"/>
         <image name="brilho_1" width="47.5" height="111"/>
         <image name="brilho_2" width="48.5" height="114.5"/>
-        <image name="card_inicial" width="303" height="616"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="config_chu_reu" width="325" height="554.5"/>
         <image name="curva_card_home_inicial" width="303" height="323"/>
