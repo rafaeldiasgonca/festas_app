@@ -54,10 +54,12 @@ class GuestsViewController: UIViewController {
         inserirNovoConvidado()
     }
     
-    @IBAction func ProsseguirButton(_ sender: Any) {
-        print(guestList)
-        self.deleteBlankSpace()
+    @IBAction func completedButtonPressed(_ sender: UIButton) {
+        for person in convidados {
+            self.save(name: person)
+        }
     }
+    
     
     //MARK: - CoreData Functions
     
@@ -86,7 +88,6 @@ class GuestsViewController: UIViewController {
         // 4
         do {
             try managedContext.save()
-            guestList.append(guest)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -205,9 +206,12 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
-        self.save(name: "")
-        let person = guestList[indexPath.row]
-        cell.nameGuests.text =  person.value(forKeyPath: "name") as? String
+        if convidados.count > indexPath.row {
+            let person = convidados[indexPath.row]
+            cell.nameGuests.text = person
+        } else {
+            cell.nameGuests.text = ""
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -216,13 +220,16 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
-            guard let nameToDelete = cell.nameGuests.text else {return}
-            self.delete(name: nameToDelete)
+            if convidados.count > indexPath.row {
+                convidados.remove(at: indexPath.row)
+            }
+            
             if cell.nameGuests.text != "" {
                 cell.nameGuests.text = ""
                 cell.nameGuests.isEnabled = true
                 cell.backgroundColor = .white
             }
+            
             convidados1 = convidados1 - 1
             numberOfGuests.text = String(convidados1)
             tableView.beginUpdates()
@@ -237,9 +244,6 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
-        for names in 0..<(convidados1-1) {
-            print(guestList[names].value(forKeyPath: "name") as? String)
-        }
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
     }
@@ -251,24 +255,11 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        var aux = 0
-        let indexPath = IndexPath.init(row: convidados1, section: 0)
-        tableView.cellForRow(at: indexPath)?.backgroundColor = .purple
-        guard let nameToSave = textField.text else { return false }
-        for empty in 0..<guestList.count {
-            if aux == 0 {
-                if guestList[empty].value(forKeyPath: "name") as? String == "" {
-                    if empty < convidados1 {
-                        self.edit(index: empty, nome: nameToSave)
-                        aux = 1
-                    }
-                }
-            }
-        }
-        aux = 0
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
+        convidados.append(nameToSave)
+        print(convidados)
         tableView.reloadData()
-        return  self.view.endEditing(true)
     }
     
 }
