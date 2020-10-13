@@ -25,6 +25,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var countTimeLabel: UILabel!
     @IBOutlet weak var faltamLabel: UILabel!
     @IBOutlet weak var overView: UIView!
+    @IBOutlet weak var sharedButton: UIButton!
     
     var releaseDate: NSDate?
     var countdownTimer = Timer()
@@ -48,8 +49,9 @@ class MainViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func sharedButtonPressed(_ sender: UIButton) {
+        sharedButton.alpha = 0
         let image = overView.getImage()
-
+        sharedButton.alpha = 1
         // set up activity view controller
         let imageToShare = [ image ]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
