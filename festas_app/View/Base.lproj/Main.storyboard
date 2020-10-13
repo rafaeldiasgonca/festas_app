@@ -1280,11 +1280,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_sup_tarefas" translatesAutoresizingMaskIntoConstraints="NO" id="rp9-2A-1QO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="314.33333333333331"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="TaT-gL-tCQ">
-                                <rect key="frame" x="20" y="331.33333333333331" width="374" height="520.66666666666674"/>
+                                <rect key="frame" x="20" y="273" width="374" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rUq-FC-lj8" customClass="ToDoTableViewCell" customModule="festas_app" customModuleProvider="target">
@@ -1326,15 +1323,19 @@
                                     <outlet property="delegate" destination="FvP-iU-QKI" id="nYq-KY-rZ4"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_sup_tarefas" translatesAutoresizingMaskIntoConstraints="NO" id="rp9-2A-1QO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cPz-km-vU5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TaT-gL-tCQ" firstAttribute="top" secondItem="rp9-2A-1QO" secondAttribute="bottom" constant="17" id="0Ae-hP-AG2"/>
-                            <constraint firstAttribute="trailing" secondItem="rp9-2A-1QO" secondAttribute="trailing" id="5gf-ta-22G"/>
+                            <constraint firstItem="rp9-2A-1QO" firstAttribute="top" secondItem="Zw5-2k-2In" secondAttribute="top" id="08h-uI-aKc"/>
+                            <constraint firstItem="TaT-gL-tCQ" firstAttribute="top" secondItem="rp9-2A-1QO" secondAttribute="bottom" constant="40" id="1n5-0E-kIz"/>
+                            <constraint firstItem="rp9-2A-1QO" firstAttribute="width" secondItem="Zw5-2k-2In" secondAttribute="width" id="7TV-NJ-l3x"/>
                             <constraint firstItem="cPz-km-vU5" firstAttribute="bottom" secondItem="TaT-gL-tCQ" secondAttribute="bottom" constant="10" id="AqK-N9-uEg"/>
-                            <constraint firstItem="rp9-2A-1QO" firstAttribute="leading" secondItem="Zw5-2k-2In" secondAttribute="leading" id="FBw-6K-q4j"/>
-                            <constraint firstItem="rp9-2A-1QO" firstAttribute="top" secondItem="Zw5-2k-2In" secondAttribute="top" id="R39-Xy-i3v"/>
+                            <constraint firstItem="rp9-2A-1QO" firstAttribute="centerX" secondItem="Zw5-2k-2In" secondAttribute="centerX" id="At4-Pn-vrp"/>
+                            <constraint firstItem="rp9-2A-1QO" firstAttribute="height" secondItem="Zw5-2k-2In" secondAttribute="height" multiplier="0.26" id="VME-U8-znP"/>
                             <constraint firstItem="cPz-km-vU5" firstAttribute="trailing" secondItem="TaT-gL-tCQ" secondAttribute="trailing" constant="20" id="ef0-GA-jXO"/>
                             <constraint firstItem="TaT-gL-tCQ" firstAttribute="leading" secondItem="cPz-km-vU5" secondAttribute="leading" constant="20" id="rtA-F5-P74"/>
                         </constraints>
