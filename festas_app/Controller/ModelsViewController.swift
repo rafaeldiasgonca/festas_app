@@ -49,6 +49,7 @@ class ModelsViewController: UIViewController {
         ViewChurrasco.layer.cornerRadius = 12
         ViewReuniaoDeAmigos.layer.cornerRadius = 12
         ViewAniversario.layer.cornerRadius = 12
+        
     }
     
     func deleteAllData(entity: String) {

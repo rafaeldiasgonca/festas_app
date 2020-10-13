@@ -38,6 +38,7 @@ class LocalDateViewController: UIViewController  {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         createDatePickerView()
         createTimePickerView()
+        
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
