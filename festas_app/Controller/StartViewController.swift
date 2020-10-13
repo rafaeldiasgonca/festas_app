@@ -16,9 +16,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.set(false, forKey: "ALLREADY_REGISTER")
-        //.layer.cornerRadius = 12
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController!.navigationBar.isTranslucent = true
+        UIAccessibility.post(notification: .announcement, argument: "Olá, novato. Vamos criar uma festa?")
     }
 
 }

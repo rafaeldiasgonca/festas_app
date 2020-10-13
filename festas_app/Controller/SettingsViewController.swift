@@ -44,7 +44,6 @@ class SettingsViewController: UIViewController {
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
         self.viewDetalhesConvidados.layer.cornerRadius = 12
-     
         createDatePickerView()
         createTimePickerView()
         typeNameTextField.isEnabled = false
@@ -93,6 +92,9 @@ class SettingsViewController: UIViewController {
                 }
             }
             localNameTextField.text = localName
+            if localName == "" {
+                localNameTextField.text = "Sem Local Definido"
+            }
             typeNameTextField.text = typeName
             if dayEvent != "" {
                 dayEventLabel.text = dayEvent
@@ -422,10 +424,17 @@ class SettingsViewController: UIViewController {
         if sender.tag == 1 {
             sender.tag = 2
             typeNameTextField.isEnabled = true
-            typeNameTextField.backgroundColor = #colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
-            localNameTextField.backgroundColor = #colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
+//            typeNameTextField.backgroundColor =  colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
+//            localNameTextField.backgroundColor =  colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
+            localNameTextField.alpha = 1
             localNameTextField.isEnabled = true
             dateTextView.isUserInteractionEnabled = true
+            if typeNameTextField.text == "Sem Nome Definido" {
+                typeNameTextField.text = ""
+            }
+            if localNameTextField.text == "Sem Local Definido" {
+                localNameTextField.text = ""
+            }
         } else {
             sender.tag = 1
             let dateFormatter = DateFormatter()
@@ -442,8 +451,14 @@ class SettingsViewController: UIViewController {
             dateFormatter.dateFormat = "dd"
             let day: String = dateFormatter.string(from: self.datePicker.date)
             typeNameTextField.isEnabled = false
+            if typeNameTextField.text == "" {
+                typeNameTextField.text = "Sem Nome Definido"
+            }
             self.save(newName: typeNameTextField.text ?? "")
             localNameTextField.isEnabled = false
+            if localNameTextField.text == "" {
+                localNameTextField.text = "Sem Local Definido"
+            }
             self.saveLocal(local: localNameTextField.text ?? "")
             self.saveHour(hourToEvent: hour)
             self.saveMinute(minuteToEvent: minutes)

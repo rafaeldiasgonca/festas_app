@@ -679,16 +679,25 @@ extension ToDoListViewController: UITextFieldDelegate {
         guard let taskToSave = textField.text else { return }
         switch sectionInEdit {
         case .comida:
-            foodList.append(taskToSave)
-            print(foodList)
+            if textField.text == "" {
+                foodList.append(taskToSave)
+            }
         case .bebidas:
-            drinksList.append(taskToSave)
+            if textField.text == "" {
+                drinksList.append(taskToSave)
+            }
         case .utensílios:
-            utensilsList.append(taskToSave)
+            if textField.text == "" {
+                utensilsList.append(taskToSave)
+            }
         case .descartáveis:
-            disposableList.append(taskToSave)
+            if textField.text == "" {
+                disposableList.append(taskToSave)
+            }
         case .espaço:
-            spaceList.append(taskToSave)
+            if textField.text == "" {
+                spaceList.append(taskToSave)
+            }
         case .none:
             print("Erro!")
         }

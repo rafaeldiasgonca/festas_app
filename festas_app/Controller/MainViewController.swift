@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var timeEventLabel: UILabel!
     @IBOutlet weak var countTimeLabel: UILabel!
     @IBOutlet weak var faltamLabel: UILabel!
+    @IBOutlet weak var overView: UIView!
     
     var releaseDate: NSDate?
     var countdownTimer = Timer()
@@ -44,6 +45,21 @@ class MainViewController: UIViewController, UITableViewDataSource {
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewPrincipal.layer.cornerRadius = 12
         self.viewDetalhesData.layer.cornerRadius = 12
+    }
+    
+    @IBAction func sharedButtonPressed(_ sender: UIButton) {
+        let image = overView.getImage()
+
+        // set up activity view controller
+        let imageToShare = [ image ]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,13 +112,20 @@ class MainViewController: UIViewController, UITableViewDataSource {
                     minuteEvent = results[i].value(forKey: "minute") as! String
                 }
             }
-            localNameLabel.text = localName
+            startTimer(day: dayEvent, hour: hourEvent, minute: minuteEvent, month: monthEvent)
+            if localName == "" {
+                localNameLabel.text = "Local indefinido"
+            } else {
+                localNameLabel.text = localName
+            }
             typeNameLabel.text = typeName
             dayEventLabel.text = dayEvent
-            let timeEvent = hourEvent + ":" + minuteEvent
-            startTimer(day: dayEvent, hour: hourEvent, minute: minuteEvent, month: monthEvent)
-            
-            timeEventLabel.text = timeEvent
+            if hourEvent == "" && minuteEvent == "" {
+                timeEventLabel.text = "Horario Indefinido"
+            } else {
+                let timeEvent = hourEvent + ":" + minuteEvent
+                timeEventLabel.text = timeEvent
+            }
             switch monthEvent {
             case "01":
                 monthEventLabel.text = "JAN"
@@ -164,18 +187,44 @@ class MainViewController: UIViewController, UITableViewDataSource {
         let intDays = Int(diffDateComponents.day ?? 0)
         let intMinutes = Int(diffDateComponents.minute ?? 0)
         let intHours = Int(diffDateComponents.hour ?? 0)
-        if intDays == 0, intHours == 0, intMinutes == 0 {
+        if intDays == 0, intHours == 0, intMinutes >= -30, intMinutes <= 0 {
             faltamLabel.text = ""
             countTimeLabel.text = "O evento está marcado para agora!"
-        } else if intDays < 0, intHours < 1, intMinutes < 0 {
+        }
+        
+        if (intDays <= 0 && intHours <= 0 && intMinutes < -30) || (intDays <= 0 && intHours <= 0 && intMinutes < 0) {
             faltamLabel.text = ""
             countTimeLabel.text = "O evento já aconteceu"
-        } else {
+        }
+        if intDays >= 0 && intHours >= 0 && intMinutes > 0 {
             let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
             countTimeLabel.text = countdown
         }
     }
     
-    
-    
+}
+
+extension UIView {
+    func scale(by scale: CGFloat) {
+        self.contentScaleFactor = scale
+        for subview in self.subviews {
+            subview.scale(by: scale)
+        }
+    }
+
+    func getImage(scale: CGFloat? = nil) -> UIImage {
+        let newScale = scale ?? UIScreen.main.scale
+        self.scale(by: newScale)
+
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = newScale
+
+        let renderer = UIGraphicsImageRenderer(size: self.bounds.size, format: format)
+
+        let image = renderer.image { rendererContext in
+            self.layer.render(in: rendererContext.cgContext)
+        }
+
+        return image
+    }
 }

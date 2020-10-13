@@ -245,7 +245,9 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
-        convidados.append(nameToSave)
+        if textField.text == "" {
+            convidados.append(nameToSave)
+        } 
         print(convidados)
         tableView.reloadData()
     }
