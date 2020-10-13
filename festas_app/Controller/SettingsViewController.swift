@@ -44,8 +44,7 @@ class SettingsViewController: UIViewController {
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
         self.viewDetalhesConvidados.layer.cornerRadius = 12
-        self.ButtonExcluir.layer.cornerRadius = 12
-        self.ButtonFinalizar.layer.cornerRadius = 12
+     
         createDatePickerView()
         createTimePickerView()
         typeNameTextField.isEnabled = false
