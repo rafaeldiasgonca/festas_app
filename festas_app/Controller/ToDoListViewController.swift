@@ -1,4 +1,4 @@
-//
+///
 //  ListaDoQueFazerViewController.swift
 //  festas_app
 //
@@ -20,11 +20,17 @@ class ToDoListViewController: UIViewController {
     var checkSection = 0
     var type:EventType = .none
     var sectionInEdit:Section = .none
+    
     var foodList:[String] = []
     var drinksList:[String] = []
     var disposableList:[String] = []
     var spaceList:[String] = []
     var utensilsList:[String] = []
+    var foodRows = 0
+    var drinkRows = 0
+    var spaceRows = 0
+    var utiRows = 0
+    var desRows = 0
     
     enum Section:Int {
         case comida = 0
@@ -57,21 +63,6 @@ class ToDoListViewController: UIViewController {
         case churrasco = "Churrasco"
         case reuniao = "Reunião de amigos"
         case none = ""
-//
-//        func getArray() -> [[String]] {
-//            switch self {
-//            case .aniversário:
-//                return [foodNiver,drinksNiver,utensilsNiver,disponsableNiver, spaceNiver]
-//            case .churrasco:
-//                return [foodChurrasco,drinksChurrasco,utensilsChurrasco,disponsableChurrasco, spaceChurrasco]
-//            case .reuniao:
-//                return [foodReuniao, drinksReuniao, utensilsReuniao, disponsableReuniao,spaceReuniao]
-//            case .none:
-//                return []
-//            }
-//        }
-        
-
 
         
     }
@@ -80,7 +71,15 @@ class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
+        let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
+        gestureOneTapRecognizer.numberOfTapsRequired = 1
+        gestureOneTapRecognizer.numberOfTouchesRequired = 1
+        self.view.addGestureRecognizer(gestureOneTapRecognizer)
         
+    }
+    
+    @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,10 +95,87 @@ class ToDoListViewController: UIViewController {
         self.loadDataDrinks()
         self.loadDataDisposable()
         self.loadDataUtensils()
+        foodRows = foodList.count
+        drinkRows = drinksList.count
+        spaceRows = spaceList.count
+        utiRows = utensilsList.count
+        desRows = disposableList.count
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.deleteAllData(entity: "Food")
+        self.savePreToDoListFood(foodArray: foodList, entityName: "Food")
+        self.deleteAllData(entity: "Drinks")
+        self.savePreToDoListDrinks(drinkArray: drinksList, entityName: "Drinks")
+        self.deleteAllData(entity: "Space")
+        self.savePreToDoListSpace(spaceArray: spaceList, entityName: "Space")
+        self.deleteAllData(entity: "Disposable")
+        self.savePreToDoListDisponsable(disponsableArray: disposableList, entityName: "Disposable")
+        self.deleteAllData(entity: "Utensils")
+        self.savePreToDoListUtensils(utensilsArray: utensilsList, entityName: "Utensils")
     }
     
     
     //MARK: - Core Data Functions
+    
+    func saveTask(task: String, entityName: String) {
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: entityName,
+                                       in: managedContext)!
+        
+        let taskToDo = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        taskToDo.setValue(task, forKeyPath: "toDo")
+        
+        // 4
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func savePreToDoListFood(foodArray: [String], entityName: String) {
+        for i in 0...foodArray.count - 1 {
+            saveTask(task: foodArray[i], entityName: entityName)
+        }
+    }
+    
+    func savePreToDoListDrinks(drinkArray: [String], entityName: String) {
+        for i in 0...drinkArray.count - 1 {
+            saveTask(task: drinkArray[i], entityName: entityName)
+        }
+    }
+    
+    func savePreToDoListUtensils(utensilsArray: [String], entityName: String) {
+        for i in 0...utensilsArray.count - 1 {
+            saveTask(task: utensilsArray[i], entityName: entityName)
+        }
+    }
+    
+    func savePreToDoListDisponsable(disponsableArray: [String], entityName: String) {
+        for i in 0...disponsableArray.count - 1 {
+            saveTask(task: disponsableArray[i], entityName: entityName)
+        }
+    }
+    
+    func savePreToDoListSpace(spaceArray: [String], entityName: String) {
+        for i in 0...spaceArray.count - 1 {
+            saveTask(task: spaceArray[i], entityName: entityName)
+        }
+    }
     
     func loadDataFood() {
         //1
@@ -363,31 +439,6 @@ class ToDoListViewController: UIViewController {
     }
     
     
-//    func edit(entity: String, index: Int, toDoTask: String, entityNumber: Int){
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-//        requestDel.returnsObjectsAsFaults = false
-//
-//
-//        do {
-//            let arrUsrObj = try context.fetch(requestDel)
-//            let usrObj = arrUsrObj as! [NSManagedObject]
-//            usrObj[index].setValue(toDoTask, forKey: "toDo")
-//            foodList[index] = usrObj[index]
-//
-//        } catch {
-//            print("Failed")
-//        }
-//
-//        // Saving the Delete operation
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Failed saving")
-//        }
-//    }
-    
     func deleteAllData(entity: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -424,15 +475,15 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let sectionType = Section.init(rawValue: section) else { return 0 }
         switch sectionType {
         case .comida:
-            return foodList.count-1
+            return foodRows
         case .bebidas:
-            return drinksList.count-1
+            return drinkRows
         case .utensílios:
-            return utensilsList.count-1
+            return utiRows
         case .descartáveis:
-            return disposableList.count-1
+            return desRows
         case .espaço:
-            return spaceList.count-1
+            return spaceRows
         case .none:
             return 0
         }
@@ -443,15 +494,39 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let sectionType = Section.init(rawValue: indexPath.section) else { return .init() }
         switch sectionType {
         case .comida:
-            cell.textFieldToDo.text = foodList[indexPath.row]
+            if foodList.count > indexPath.row {
+                cell.textFieldToDo.text = foodList[indexPath.row]
+            } else {
+                cell.textFieldToDo.text = ""
+            }
         case .bebidas:
-            cell.textFieldToDo.text = drinksList[indexPath.row]
+            if drinksList.count > indexPath.row {
+                cell.textFieldToDo.text = drinksList[indexPath.row]
+            } else {
+                cell.textFieldToDo.text = ""
+            }
+            
         case .utensílios:
-            cell.textFieldToDo.text = utensilsList[indexPath.row]
+            if utensilsList.count > indexPath.row {
+                cell.textFieldToDo.text = utensilsList[indexPath.row]
+            } else {
+                cell.textFieldToDo.text = ""
+            }
+            
         case .descartáveis:
-            cell.textFieldToDo.text = disposableList[indexPath.row]
+            if disposableList.count > indexPath.row {
+                cell.textFieldToDo.text = disposableList[indexPath.row]
+            } else {
+                cell.textFieldToDo.text = ""
+            }
+            
         case .espaço:
-            cell.textFieldToDo.text = spaceList[indexPath.row]
+            if spaceList.count > indexPath.row {
+                cell.textFieldToDo.text = spaceList[indexPath.row]
+            } else {
+                cell.textFieldToDo.text = ""
+            }
+            
         case .none:
             print("Erro!")
         }
@@ -518,14 +593,19 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             switch sectionType {
             case .comida:
                 foodList.remove(at: indexPath.row)
+                foodRows -= 1
             case .bebidas:
                 drinksList.remove(at: indexPath.row)
+                drinkRows -= 1
             case .utensílios:
                 utensilsList.remove(at: indexPath.row)
+                utiRows -= 1
             case .descartáveis:
                 disposableList.remove(at: indexPath.row)
+                desRows -= 1
             case .espaço:
                 spaceList.remove(at: indexPath.row)
+                spaceRows -= 1
             case .none:
                 print("Erro!")
             }
@@ -544,69 +624,49 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     @objc func comidaBut(sender:UIButton) {
+        foodRows += 1
         sectionInEdit = .comida
-        let array = foodList
-        let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
+        let indexPath = IndexPath.init(row:foodRows-1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
-//        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-//        print("comidaButClicked")
-//        cell.itensTF.tag = sectionNumber
-//        cell.tag = cellTag
     }
     
     
     @objc func bebidasBut(sender:UIButton) {
+        drinkRows += 1
         sectionInEdit = .bebidas
-        let array = drinksList
-        let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
+        let indexPath = IndexPath.init(row:drinkRows - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
-//        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-//        print("comidaButClicked")
-//        cell.itensTF.tag = sectionNumber
-//        cell.tag = cellTag
     }
     
     @objc func utensiliosBut(sender:UIButton) {
+        utiRows += 1
         sectionInEdit = .utensílios
-        let array = utensilsList
-        let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
+        let indexPath = IndexPath.init(row:utiRows - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
-//        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-//        print("comidaButClicked")
-//        cell.itensTF.tag = sectionNumber
-//        cell.tag = cellTag
     }
     
     @objc func descartaveisBut(sender:UIButton) {
+        desRows += 1
         sectionInEdit = .descartáveis
-        let array = disposableList
-        let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
+        let indexPath = IndexPath.init(row:desRows - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
-//        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-//        print("comidaButClicked")
-//        cell.itensTF.tag = sectionNumber
-//        cell.tag = cellTag
     }
     
     @objc func espacosBut(sender:UIButton) {
+        spaceRows += 1
         sectionInEdit = .espaço
-        let array = spaceList
-        let indexPath = IndexPath.init(row:array[sectionInEdit.rawValue].count - 1, section: Section.comida.rawValue)
+        let indexPath = IndexPath.init(row:spaceRows - 1, section: Section.comida.rawValue)
         tableViewToDoList.beginUpdates()
-//        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableViewToDoList.insertRows(at: [indexPath], with: .none)
         tableViewToDoList.endUpdates()
-//        print("comidaButClicked")
-//        cell.itensTF.tag = sectionNumber
-//        cell.tag = cellTag
     }
     
 }

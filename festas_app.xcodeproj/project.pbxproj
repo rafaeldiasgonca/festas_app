@@ -32,7 +32,7 @@
 		DF23B993251A6DBE00F7E57B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF23B991251A6DBE00F7E57B /* LaunchScreen.storyboard */; };
 		DF23B99B251A96E700F7E57B /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99A251A96E700F7E57B /* ModelsViewController.swift */; };
 		DF23B99D251AA0DE00F7E57B /* LocalDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B99C251AA0DE00F7E57B /* LocalDateViewController.swift */; };
-		DF364F282527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F272527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift */; };
+		DF364F282527BE7600BD9FAB /* EditGuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F272527BE7600BD9FAB /* EditGuestListViewController.swift */; };
 		DF364F2B2527C54400BD9FAB /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F2A2527C54400BD9FAB /* ToDoListViewController.swift */; };
 		DF364F47252D232700BD9FAB /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF364F46252D232700BD9FAB /* ToDoTableViewCell.swift */; };
 		DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */; };
@@ -70,7 +70,7 @@
 		DF23B994251A6DBE00F7E57B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF23B99A251A96E700F7E57B /* ModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsViewController.swift; sourceTree = "<group>"; };
 		DF23B99C251AA0DE00F7E57B /* LocalDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDateViewController.swift; sourceTree = "<group>"; };
-		DF364F272527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListaDeConvidados.swift; sourceTree = "<group>"; };
+		DF364F272527BE7600BD9FAB /* EditGuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGuestListViewController.swift; sourceTree = "<group>"; };
 		DF364F2A2527C54400BD9FAB /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		DF364F46252D232700BD9FAB /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				DF23B99A251A96E700F7E57B /* ModelsViewController.swift */,
 				DF23B99C251AA0DE00F7E57B /* LocalDateViewController.swift */,
 				DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */,
-				DF364F272527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift */,
+				DF364F272527BE7600BD9FAB /* EditGuestListViewController.swift */,
 				DFEBF6062525222600205D6A /* MainViewController.swift */,
 				DF52533E252681F2001C72D0 /* SettingsViewController.swift */,
 				DF364F2A2527C54400BD9FAB /* ToDoListViewController.swift */,
@@ -278,7 +278,7 @@
 				DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */,
 				DF364F47252D232700BD9FAB /* ToDoTableViewCell.swift in Sources */,
 				DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */,
-				DF364F282527BE7600BD9FAB /* ViewControllerListaDeConvidados.swift in Sources */,
+				DF364F282527BE7600BD9FAB /* EditGuestListViewController.swift in Sources */,
 				5C67C67D251D2BB000421657 /* PartyData.swift in Sources */,
 				DF52533F252681F2001C72D0 /* SettingsViewController.swift in Sources */,
 				DF23B99B251A96E700F7E57B /* ModelsViewController.swift in Sources */,
