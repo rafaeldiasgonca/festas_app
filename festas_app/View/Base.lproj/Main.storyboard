@@ -762,13 +762,13 @@
                                                 <rect key="frame" x="12" y="0.0" width="34.666666666666664" height="63.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-cc-QGf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="15.666666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="38.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="32"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTp-w7-mi0">
-                                                        <rect key="frame" x="0.0" y="15.666666666666657" width="34.666666666666664" height="30"/>
+                                                        <rect key="frame" x="0.0" y="38.333333333333343" width="34.666666666666664" height="7.3333333333333357"/>
                                                         <connections>
                                                             <segue destination="ixz-w3-HpA" kind="show" id="OLQ-lp-PPH"/>
                                                         </connections>
@@ -803,13 +803,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-q0-ysQ">
-                                        <rect key="frame" x="109" y="110.33333333333331" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="100" y="110.33333333333331" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hMf-z9-wxh">
-                                        <rect key="frame" x="102" y="71.666666666666657" width="44.333333333333343" height="18"/>
+                                        <rect key="frame" x="101.99999999999999" y="71.666666666666657" width="52.333333333333329" height="18"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -826,9 +826,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Ky-1uR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Ky-1uR">
                                         <rect key="frame" x="335" y="8" width="23" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <imageReference key="image" image="square.and.arrow.up.fill" catalog="system" symbolScale="large"/>
@@ -849,8 +848,9 @@
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" constant="8" id="OgV-6t-bFI"/>
                                     <constraint firstItem="3Wa-pT-Syj" firstAttribute="top" secondItem="hMf-z9-wxh" secondAttribute="bottom" id="OwT-wf-naL"/>
                                     <constraint firstAttribute="trailing" secondItem="VpT-Rp-7aN" secondAttribute="trailing" constant="126" id="Qeo-Kt-FLp"/>
+                                    <constraint firstAttribute="trailing" secondItem="EZq-Ky-1uR" secondAttribute="trailing" constant="16" id="Tdd-z3-9Rc"/>
                                     <constraint firstItem="VpT-Rp-7aN" firstAttribute="leading" secondItem="tTT-qZ-TxX" secondAttribute="trailing" constant="21" id="VOJ-NK-zIe"/>
-                                    <constraint firstItem="fJs-q0-ysQ" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="109" id="WeF-h8-GYZ"/>
+                                    <constraint firstItem="fJs-q0-ysQ" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="100" id="WeF-h8-GYZ"/>
                                     <constraint firstItem="fJs-q0-ysQ" firstAttribute="top" secondItem="3Wa-pT-Syj" secondAttribute="bottom" constant="-7" id="XVs-FO-Psc"/>
                                     <constraint firstItem="VpT-Rp-7aN" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" constant="8" id="YUe-mg-odb"/>
                                     <constraint firstItem="SAt-BG-Gn8" firstAttribute="top" secondItem="VpT-Rp-7aN" secondAttribute="bottom" constant="-15" id="YuQ-ve-keG"/>
@@ -860,10 +860,11 @@
                                     <constraint firstItem="hMf-z9-wxh" firstAttribute="top" secondItem="VpT-Rp-7aN" secondAttribute="bottom" constant="13" id="jOs-Lm-Vis"/>
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="19" id="lGL-OI-iEU"/>
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="height" secondItem="dbB-EB-C2E" secondAttribute="height" multiplier="0.40625" id="lb7-Ug-Bbg"/>
+                                    <constraint firstItem="EZq-Ky-1uR" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" constant="8" id="rOV-Yx-03V"/>
                                     <constraint firstAttribute="trailing" secondItem="3Wa-pT-Syj" secondAttribute="trailing" constant="180" id="rQe-0f-6df"/>
                                     <constraint firstAttribute="trailing" secondItem="LyD-Jv-GfF" secondAttribute="trailing" id="rm9-8T-uVo"/>
                                     <constraint firstItem="3Wa-pT-Syj" firstAttribute="top" secondItem="hMf-z9-wxh" secondAttribute="bottom" constant="2" id="t3s-rt-yn3"/>
-                                    <constraint firstItem="hMf-z9-wxh" firstAttribute="width" secondItem="SAt-BG-Gn8" secondAttribute="width" multiplier="0.49" id="x4k-uw-MCT"/>
+                                    <constraint firstItem="hMf-z9-wxh" firstAttribute="width" secondItem="SAt-BG-Gn8" secondAttribute="width" multiplier="0.58" id="x4k-uw-MCT"/>
                                     <constraint firstAttribute="trailing" secondItem="SAt-BG-Gn8" secondAttribute="trailing" constant="181.5" id="yLM-R9-flS"/>
                                 </constraints>
                             </view>
@@ -1369,7 +1370,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
         <segue reference="OLQ-lp-PPH"/>
     </inferredMetricsTieBreakers>
     <resources>
