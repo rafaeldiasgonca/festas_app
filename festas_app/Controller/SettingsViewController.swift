@@ -23,6 +23,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var monthEventLabel: UILabel!
     @IBOutlet weak var timeEventTextView: UITextView!
     @IBOutlet weak var dateTextView: UITextView!
+    @IBOutlet weak var numberOfGuestLabel: UILabel!
+    var convidados = 0
     
     let calendar = Calendar.current
     let rightNow = Date()
@@ -53,6 +55,7 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        updateNumberOfGuests()
         //1
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -92,7 +95,11 @@ class SettingsViewController: UIViewController {
             }
             localNameTextField.text = localName
             typeNameTextField.text = typeName
-            dayEventLabel.text = dayEvent
+            if dayEvent != "" {
+                dayEventLabel.text = dayEvent
+            } else {
+                dayEventLabel.text = "00"
+            }
             let timeEvent = hourEvent + ":" + minuteEvent
             timeEventTextView.text = timeEvent
             switch monthEvent {
@@ -121,9 +128,32 @@ class SettingsViewController: UIViewController {
             case "12":
                 monthEventLabel.text = "DEZ"
             default:
-                print("Erro!!")
+                monthEventLabel.text = "UND"
             }
             
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func updateNumberOfGuests() {
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Guest")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            convidados = results.count
+            numberOfGuestLabel.text = "\(convidados)"
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -393,12 +423,16 @@ class SettingsViewController: UIViewController {
         if sender.tag == 1 {
             sender.tag = 2
             typeNameTextField.isEnabled = true
+            typeNameTextField.backgroundColor = #colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
+            localNameTextField.backgroundColor = #colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
             localNameTextField.isEnabled = true
             dateTextView.isUserInteractionEnabled = true
         } else {
             sender.tag = 1
             let dateFormatter = DateFormatter()
             timeEventTextView.isEditable = false
+            typeNameTextField.backgroundColor = UIColor(named: "card_color-1")
+            localNameTextField.backgroundColor = UIColor(named: "card_color-1")
             dateFormatter.dateFormat = "mm"
             let minutes: String = dateFormatter.string(from: self.timePIcker.date)
             dateFormatter.dateFormat = "HH"

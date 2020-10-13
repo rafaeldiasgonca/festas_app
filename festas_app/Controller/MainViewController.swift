@@ -137,6 +137,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    
     func startTimer(day: String, hour:String, minute:String, month:String) {
         let year = calendar.component(.year, from: date)
         let stringYear = String(year)
@@ -160,10 +161,19 @@ class MainViewController: UIViewController, UITableViewDataSource {
         let calendar = Calendar.current
         
         let diffDateComponents = calendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: releaseDate! as Date)
-        
-        let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
-        
-        countTimeLabel.text = countdown
+        let intDays = Int(diffDateComponents.day ?? 0)
+        let intMinutes = Int(diffDateComponents.minute ?? 0)
+        let intHours = Int(diffDateComponents.hour ?? 0)
+        if intDays == 0, intHours == 0, intMinutes == 0 {
+            faltamLabel.text = ""
+            countTimeLabel.text = "O evento está marcado para agora!"
+        } else if intDays < 0, intHours < 1, intMinutes < 0 {
+            faltamLabel.text = ""
+            countTimeLabel.text = "O evento já aconteceu"
+        } else {
+            let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
+            countTimeLabel.text = countdown
+        }
     }
     
     

@@ -52,9 +52,11 @@ class EditGuestListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                if results[i].value(forKey: "name") as? String != nil {
-                    convidados.append((results[i].value(forKey: "name") as? String)!)
+            if results.count > 0 {
+                for i in 0...results.count - 1 {
+                    if results[i].value(forKey: "name") as? String != nil {
+                        convidados.append((results[i].value(forKey: "name") as? String)!)
+                    }
                 }
             }
             convidados1 = results.count
