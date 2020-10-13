@@ -762,13 +762,13 @@
                                                 <rect key="frame" x="12" y="0.0" width="34.666666666666664" height="63.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-cc-QGf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="38.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="15.666666666666666"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="32"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTp-w7-mi0">
-                                                        <rect key="frame" x="0.0" y="38.333333333333343" width="34.666666666666664" height="7.3333333333333357"/>
+                                                        <rect key="frame" x="0.0" y="15.666666666666657" width="34.666666666666664" height="30"/>
                                                         <connections>
                                                             <segue destination="ixz-w3-HpA" kind="show" id="OLQ-lp-PPH"/>
                                                         </connections>
@@ -809,7 +809,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hMf-z9-wxh">
-                                        <rect key="frame" x="101.99999999999999" y="71.666666666666657" width="52.333333333333329" height="18"/>
+                                        <rect key="frame" x="100" y="71.666666666666657" width="52.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -842,7 +842,7 @@
                                     <constraint firstItem="LyD-Jv-GfF" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" id="0Qj-l5-bI5"/>
                                     <constraint firstItem="LyD-Jv-GfF" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" id="0ap-HH-XtZ"/>
                                     <constraint firstItem="3Wa-pT-Syj" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="100" id="0ks-7W-lyt"/>
-                                    <constraint firstItem="hMf-z9-wxh" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="102" id="5PV-lJ-l86"/>
+                                    <constraint firstItem="hMf-z9-wxh" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="100" id="5PV-lJ-l86"/>
                                     <constraint firstItem="SAt-BG-Gn8" firstAttribute="leading" secondItem="tTT-qZ-TxX" secondAttribute="trailing" constant="20" id="CqJ-VK-iSt"/>
                                     <constraint firstItem="VpT-Rp-7aN" firstAttribute="height" secondItem="dbB-EB-C2E" secondAttribute="height" multiplier="0.322115" id="LNY-F4-Q8e"/>
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" constant="8" id="OgV-6t-bFI"/>
