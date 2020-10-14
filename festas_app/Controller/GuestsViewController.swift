@@ -20,7 +20,7 @@ class GuestsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Convidados"
+        self.title = "Guests"
         let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
         gestureOneTapRecognizer.numberOfTapsRequired = 1
         gestureOneTapRecognizer.numberOfTouchesRequired = 1

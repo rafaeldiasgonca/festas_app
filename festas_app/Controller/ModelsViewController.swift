@@ -16,7 +16,7 @@ class ModelsViewController: UIViewController {
     @IBOutlet weak var ViewReuniaoDeAmigos: UIView!
     var modelName: NSManagedObject?
     
-    let models = [3:"Reunião de amigos", 2:"Churrasco", 1:"Aniversário"]
+    let models = [3:"Friends Reunion", 2:"Barbecue", 1:"Birthday party"]
     var foodChurrasco = ["Decide which Meat to use", "Measure the quantity of meat", "Buy meat", "Decide which meat seasoning to use", "Buy seasoning", "Buy charcoal"]
     var drinksChurrasco = ["Deciding which drinks to buy", "Buying drinks", "Buying ice"]
     var utensilsChurrasco = ["Check for sharpeners", "Check cutlery", "Check handles", "Check knives", "Check planks"]
@@ -165,19 +165,19 @@ class ModelsViewController: UIViewController {
         titulo = models[sender.tag]!
         self.save(model: titulo)
         switch titulo {
-        case "Aniversário":
+        case "Birthday party":
             self.savePreToDoListFood(foodArray: foodNiver, entityName: "Food")
             self.savePreToDoListDrinks(drinkArray: drinksNiver, entityName: "Drinks")
             self.savePreToDoListUtensils(utensilsArray: utensilsNiver, entityName: "Utensils")
             self.savePreToDoListDisponsable(disponsableArray: disponsableNiver, entityName: "Disposable")
             self.savePreToDoListSpace(spaceArray: spaceNiver, entityName: "Space")
-        case "Churrasco":
+        case "Barbecue":
             self.savePreToDoListFood(foodArray: foodChurrasco, entityName: "Food")
             self.savePreToDoListDrinks(drinkArray: drinksChurrasco, entityName: "Drinks")
             self.savePreToDoListUtensils(utensilsArray: utensilsChurrasco, entityName: "Utensils")
             self.savePreToDoListDisponsable(disponsableArray: disponsableChurrasco, entityName: "Disposable")
             self.savePreToDoListSpace(spaceArray: spaceChurrasco, entityName: "Space")
-        case "Reunião de Amigos":
+        case "Friends Reunion":
             self.savePreToDoListFood(foodArray: foodReuniao, entityName: "Food")
             self.savePreToDoListDrinks(drinkArray: drinksReuniao, entityName: "Drinks")
             self.savePreToDoListUtensils(utensilsArray: utensilsReuniao, entityName: "Utensils")
