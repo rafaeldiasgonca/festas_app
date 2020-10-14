@@ -359,7 +359,7 @@ class SettingsViewController: UIViewController {
         dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.locale = Locale(identifier: "pt_BR")
+        
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
@@ -411,7 +411,7 @@ class SettingsViewController: UIViewController {
         timeEventTextView.inputView = timePIcker
         timePIcker.datePickerMode = .time
         timePIcker.preferredDatePickerStyle = .wheels
-        timePIcker.locale = Locale(identifier: "pt_BR")
+        timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
     }
 
     @objc func donePressed1(){
