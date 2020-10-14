@@ -93,7 +93,7 @@ class SettingsViewController: UIViewController {
             }
             localNameTextField.text = localName
             if localName == "" {
-                localNameTextField.text = "Sem Local Definido"
+                localNameTextField.text = "No location set"
             }
             typeNameTextField.text = typeName
             if dayEvent != "" {
@@ -101,33 +101,37 @@ class SettingsViewController: UIViewController {
             } else {
                 dayEventLabel.text = "00"
             }
-            let timeEvent = hourEvent + ":" + minuteEvent
-            timeEventTextView.text = timeEvent
+            if hourEvent == "" && minuteEvent == "" {
+                timeEventTextView.text =  "Undefined Schedule"
+            } else {
+                let timeEvent = hourEvent + ":" + minuteEvent
+                timeEventTextView.text = timeEvent
+            }
             switch monthEvent {
             case "01":
                 monthEventLabel.text = "JAN"
             case "02":
-                monthEventLabel.text = "FEV"
+                monthEventLabel.text = "FEB"
             case "03":
                 monthEventLabel.text = "MAR"
             case "04":
-                monthEventLabel.text = "ABR"
+                monthEventLabel.text = "APR"
             case "05":
-                monthEventLabel.text = "MAI"
+                monthEventLabel.text = "MAY"
             case "06":
                 monthEventLabel.text = "JUN"
             case "07":
                 monthEventLabel.text = "JUL"
             case "08":
-                monthEventLabel.text = "AGO"
+                monthEventLabel.text = "AUG"
             case "09":
-                monthEventLabel.text = "SET"
+                monthEventLabel.text = "SEP"
             case "10":
-                monthEventLabel.text = "OUT"
+                monthEventLabel.text = "OCT"
             case "11":
                 monthEventLabel.text = "NOV"
             case "12":
-                monthEventLabel.text = "DEZ"
+                monthEventLabel.text = "DEC"
             default:
                 monthEventLabel.text = "UND"
             }

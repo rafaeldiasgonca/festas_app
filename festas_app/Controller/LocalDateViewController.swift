@@ -250,11 +250,9 @@ class LocalDateViewController: UIViewController  {
         dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
         datePicker.preferredDatePickerStyle = .wheels
-        datePicker.locale = Locale(identifier: "pt_BR")
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
-        formatacao.locale = Locale(identifier: "pt_BR")
         formatacao.dateStyle = .long
         formatacao.timeStyle = .none
         let dateFormatter = DateFormatter()
@@ -278,9 +276,9 @@ class LocalDateViewController: UIViewController  {
         toolbar1.setItems([doneBtn1], animated: true)
         timeTextView.inputAccessoryView = toolbar1
         timeTextView.inputView = timePIcker
+        timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timePIcker.datePickerMode = .time
         timePIcker.preferredDatePickerStyle = .wheels
-        timePIcker.locale = Locale(identifier: "pt_BR")
         
     }
     
@@ -294,7 +292,7 @@ class LocalDateViewController: UIViewController  {
         self.saveMinute(minuteToEvent: minutes)
         let formatacao1 = DateFormatter()
         formatacao1.dateFormat = "HH:mm"
-        timeTextView.text = "Às " + formatacao1.string(from: datePicker.date)
+        timeTextView.text = formatacao1.string(from: timePIcker.date)
         self.view.endEditing(true)
     }
     

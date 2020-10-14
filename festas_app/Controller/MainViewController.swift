@@ -283,14 +283,14 @@ class MainViewController: UIViewController, UITableViewDataSource {
             }
             startTimer(day: dayEvent, hour: hourEvent, minute: minuteEvent, month: monthEvent)
             if localName == "" {
-                localNameLabel.text = "Local indefinido"
+                localNameLabel.text = "No location set"
             } else {
                 localNameLabel.text = localName
             }
             typeNameLabel.text = typeName
             dayEventLabel.text = dayEvent
             if hourEvent == "" && minuteEvent == "" {
-                timeEventLabel.text = "Horario Indefinido"
+                timeEventLabel.text = "Undefined Schedule"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
                 timeEventLabel.text = timeEvent
@@ -303,7 +303,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
             case "03":
                 monthEventLabel.text = "MAR"
             case "04":
-                monthEventLabel.text = "ABR"
+                monthEventLabel.text = "APR"
             case "05":
                 monthEventLabel.text = "MAY"
             case "06":
@@ -311,15 +311,15 @@ class MainViewController: UIViewController, UITableViewDataSource {
             case "07":
                 monthEventLabel.text = "JUL"
             case "08":
-                monthEventLabel.text = "AGO"
+                monthEventLabel.text = "AUG"
             case "09":
-                monthEventLabel.text = "SET"
+                monthEventLabel.text = "SEP"
             case "10":
-                monthEventLabel.text = "OUT"
+                monthEventLabel.text = "OCT"
             case "11":
                 monthEventLabel.text = "NOV"
             case "12":
-                monthEventLabel.text = "DEZ"
+                monthEventLabel.text = "DEC"
             default:
                 monthEventLabel.text = "UND"
             }
