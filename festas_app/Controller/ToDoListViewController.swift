@@ -571,7 +571,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let button = UIButton(frame: CGRect(x: 360, y: 10, width: 10, height: 11))
         button.tag = section
-        button.setImage(UIImage(named: "remove_button"), for: UIControl.State.normal)
+        button.setImage(UIImage(named: "remove_button"), for: .normal)
         button.backgroundColor = .blue
         headerView.addSubview(button)
         

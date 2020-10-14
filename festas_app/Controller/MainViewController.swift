@@ -225,19 +225,8 @@ class MainViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         randomList = foodList + drinksList + spaceList + utensilsList + disposableList
         let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as! PartySummaryTableViewCell
-        if randomList.count >= 3 {
             let random = Int.random(in: 0..<randomList.count)
             cell.LabelItens.text = randomList[random]
-        } else if randomList.count == 2 {
-                rowsNumber = 2
-            cell.LabelItens.text = randomList[indexPath.row]
-        } else if randomList.count == 1 {
-            rowsNumber = 1
-            cell.LabelItens.text = randomList[indexPath.row]
-        } else {
-            rowsNumber = 1
-            cell.LabelItens.text = "Seus afazeres estão completos!"
-        }
         return cell
     }
     
