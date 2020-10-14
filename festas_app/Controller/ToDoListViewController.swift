@@ -530,6 +530,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         case .none:
             print("Erro!")
         }
+    
         cell.selectionStyle = .none
         cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
@@ -623,6 +624,9 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
+    
+    
+    
     @objc func comidaBut(sender:UIButton) {
         foodRows += 1
         sectionInEdit = .comida

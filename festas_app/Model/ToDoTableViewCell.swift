@@ -28,6 +28,7 @@ class ToDoTableViewCell: UITableViewCell {
         if sender.isSelected{
             sender.isSelected = false
             textFieldToDo.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            
         }
         else{
             sender.isSelected = true
