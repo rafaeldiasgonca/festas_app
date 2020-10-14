@@ -63,11 +63,11 @@ class ToDoListViewController: UIViewController {
         case churrasco = "Churrasco"
         case reuniao = "Reunião de amigos"
         case none = ""
-
+        
         
     }
-
-     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Oque Fazer"
@@ -84,7 +84,7 @@ class ToDoListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadModelType()
+        //self.loadModelType()
         self.deleteBlankSpace(entity: "Food")
         self.deleteBlankSpace(entity: "Drinks")
         self.deleteBlankSpace(entity: "Space")
@@ -134,7 +134,7 @@ class ToDoListViewController: UIViewController {
                                        in: managedContext)!
         
         let taskToDo = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                       insertInto: managedContext)
         
         // 3
         taskToDo.setValue(task, forKeyPath: "toDo")
@@ -148,32 +148,42 @@ class ToDoListViewController: UIViewController {
     }
     
     func savePreToDoListFood(foodArray: [String], entityName: String) {
-        for i in 0...foodArray.count - 1 {
-            saveTask(task: foodArray[i], entityName: entityName)
+        if (foodArray.count > 0) {
+            for i in 0...foodArray.count - 1 {
+                saveTask(task: foodArray[i], entityName: entityName)
+            }
         }
     }
     
     func savePreToDoListDrinks(drinkArray: [String], entityName: String) {
-        for i in 0...drinkArray.count - 1 {
-            saveTask(task: drinkArray[i], entityName: entityName)
+        if (drinkArray.count>0) {
+            for i in 0...drinkArray.count - 1 {
+                saveTask(task: drinkArray[i], entityName: entityName)
+            }
         }
     }
     
     func savePreToDoListUtensils(utensilsArray: [String], entityName: String) {
-        for i in 0...utensilsArray.count - 1 {
-            saveTask(task: utensilsArray[i], entityName: entityName)
+        if (utensilsArray.count > 0) {
+            for i in 0...utensilsArray.count - 1 {
+                saveTask(task: utensilsArray[i], entityName: entityName)
+            }
         }
     }
     
     func savePreToDoListDisponsable(disponsableArray: [String], entityName: String) {
-        for i in 0...disponsableArray.count - 1 {
-            saveTask(task: disponsableArray[i], entityName: entityName)
+        if (disponsableArray.count > 0) {
+            for i in 0...disponsableArray.count - 1 {
+                saveTask(task: disponsableArray[i], entityName: entityName)
+            }
         }
     }
     
     func savePreToDoListSpace(spaceArray: [String], entityName: String) {
-        for i in 0...spaceArray.count - 1 {
-            saveTask(task: spaceArray[i], entityName: entityName)
+        if (spaceArray.count > 0) {
+            for i in 0...spaceArray.count - 1 {
+                saveTask(task: spaceArray[i], entityName: entityName)
+            }
         }
     }
     
@@ -194,9 +204,11 @@ class ToDoListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                let element = results[i].value(forKey: "toDo") as? String ?? ""
-                foodList.append(element)
+            if(results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    foodList.append(element)
+                }
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -220,9 +232,11 @@ class ToDoListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                let element = results[i].value(forKey: "toDo") as? String ?? ""
-                drinksList.append(element)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    drinksList.append(element)
+                }
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -246,9 +260,11 @@ class ToDoListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                let element = results[i].value(forKey: "toDo") as? String ?? ""
-                utensilsList.append(element)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    utensilsList.append(element)
+                }
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -272,9 +288,11 @@ class ToDoListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                let element = results[i].value(forKey: "toDo") as? String ?? ""
-                disposableList.append(element)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    disposableList.append(element)
+                }
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -298,47 +316,46 @@ class ToDoListViewController: UIViewController {
         //3
         do {
             let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                let element = results[i].value(forKey: "toDo") as? String ?? ""
-                spaceList.append(element)
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-    }
-    
-    
-    
-    
-    func loadModelType() {
-        //1
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        //2
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "General")
-        
-        //3
-        var typeName = String()
-        do {
-            let results = try managedContext.fetch(fetchRequest)
-            for i in 0...results.count - 1 {
-                if results[i].value(forKey: "type") != nil {
-                    typeName = results[i].value(forKey: "type") as! String
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    spaceList.append(element)
                 }
             }
-            guard let type = EventType.init(rawValue: typeName) else {return}
-            self.type = type
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    
+    
+    //
+    //    func loadModelType() {
+    //        //1
+    //        guard let appDelegate =
+    //                UIApplication.shared.delegate as? AppDelegate else {
+    //            return
+    //        }
+    //
+    //        let managedContext =
+    //            appDelegate.persistentContainer.viewContext
+    //
+    //        //2
+    //        let fetchRequest =
+    //            NSFetchRequest<NSManagedObject>(entityName: "General")
+    //
+    //        //3
+    //        do {
+    //            let results = try managedContext.fetch(fetchRequest)
+    //            for i in 0...results.count - 1 {
+    //                if results[i].value(forKey: "type") != nil {
+    //                    typeName = results[i].value(forKey: "type") as! String
+    //                }
+    //            }
+    //        } catch let error as NSError {
+    //            print("Could not fetch. \(error), \(error.userInfo)")
+    //        }
+    //    }
     
     func save(task: String, entityName: String, section: Int) {
         
@@ -365,20 +382,20 @@ class ToDoListViewController: UIViewController {
         // 4
         do {
             try managedContext.save()
-//            switch section {
-//            case 0:
-//                foodList.append(toDoTask)
-//            case 1:
-//                drinksList.append(toDoTask)
-//            case 2:
-//                utensilsList.append(toDoTask)
-//            case 3:
-//                disposableList.append(toDoTask)
-//            case 4:
-//                spaceList.append(toDoTask)
-//            default:
-//                print("Erro!")
-//            }
+            //            switch section {
+            //            case 0:
+            //                foodList.append(toDoTask)
+            //            case 1:
+            //                drinksList.append(toDoTask)
+            //            case 2:
+            //                utensilsList.append(toDoTask)
+            //            case 3:
+            //                disposableList.append(toDoTask)
+            //            case 4:
+            //                spaceList.append(toDoTask)
+            //            default:
+            //                print("Erro!")
+            //            }
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -530,7 +547,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         case .none:
             print("Erro!")
         }
-    
+        
         cell.selectionStyle = .none
         cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self

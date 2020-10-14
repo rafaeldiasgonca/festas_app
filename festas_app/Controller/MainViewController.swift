@@ -27,6 +27,13 @@ class MainViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var overView: UIView!
     @IBOutlet weak var sharedButton: UIButton!
     
+    var foodList:[String] = []
+    var drinksList:[String] = []
+    var disposableList:[String] = []
+    var spaceList:[String] = []
+    var utensilsList:[String] = []
+    var randomList:[String] = []
+    var rowsNumber = 3
     var releaseDate: NSDate?
     var countdownTimer = Timer()
     var localName = String()
@@ -46,7 +53,154 @@ class MainViewController: UIViewController, UITableViewDataSource {
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewPrincipal.layer.cornerRadius = 12
         self.viewDetalhesData.layer.cornerRadius = 12
+        self.loadDataFood()
+        self.loadDataSpace()
+        self.loadDataDrinks()
+        self.loadDataDisposable()
+        self.loadDataUtensils()
     }
+    
+    func loadDataFood() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Food")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if(results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    foodList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataDrinks() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Drinks")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    drinksList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataUtensils() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Utensils")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    utensilsList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataDisposable() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Disposable")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    disposableList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadDataSpace() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Space")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    spaceList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    
     
     @IBAction func sharedButtonPressed(_ sender: UIButton) {
         sharedButton.alpha = 0
@@ -65,12 +219,25 @@ class MainViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return rowsNumber
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        randomList = foodList + drinksList + spaceList + utensilsList + disposableList
         let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as! PartySummaryTableViewCell
-        cell.LabelItens.text = itens[indexPath.row]
+        if randomList.count >= 3 {
+            let random = Int.random(in: 0..<randomList.count)
+            cell.LabelItens.text = randomList[random]
+        } else if randomList.count == 2 {
+                rowsNumber = 2
+            cell.LabelItens.text = randomList[indexPath.row]
+        } else if randomList.count == 1 {
+            rowsNumber = 1
+            cell.LabelItens.text = randomList[indexPath.row]
+        } else {
+            rowsNumber = 1
+            cell.LabelItens.text = "Seus afazeres estão completos!"
+        }
         return cell
     }
     
