@@ -11,7 +11,7 @@ import CoreData
 
 
 class LocalDateViewController: UIViewController  {
-    
+   
     @IBOutlet weak var dateTextView: UITextView!
     @IBOutlet weak var timeTextView: UITextView!
     @IBOutlet weak var localTextField: UITextField!
@@ -21,6 +21,8 @@ class LocalDateViewController: UIViewController  {
     var hourEvent:NSManagedObject?
     var minuteEvent:NSManagedObject?
     var yearEvent:NSManagedObject?
+    @IBOutlet weak var EditButdate: UIButton!
+    @IBOutlet weak var EdiButHour: UIButton!
     
     let datePicker = UIDatePicker()
     let timePIcker = UIDatePicker()
@@ -38,14 +40,27 @@ class LocalDateViewController: UIViewController  {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         createDatePickerView()
         createTimePickerView()
+        timeTextView.isUserInteractionEnabled = false
+        dateTextView.isUserInteractionEnabled = false
+        
+      
+    
         
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
-        
+       
     }
 
+    @IBAction func EditButDate(_ sender: Any) {
+        self.dateTextView.becomeFirstResponder()
+        
+    }
+    
+    @IBAction func EditHourBut(_ sender: Any) {
+        self.timeTextView.becomeFirstResponder()
+    }
     
     func saveLocal(local: String) {
         
@@ -300,6 +315,9 @@ class LocalDateViewController: UIViewController  {
 }
 
 extension LocalDateViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+    }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         //localTextField.borderStyle = .none
