@@ -73,10 +73,10 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="abV-rS-l7J">
-                                        <rect key="frame" x="19.999999999999996" y="253" width="47.666666666666657" height="147"/>
+                                        <rect key="frame" x="20" y="253" width="48" height="147"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brilho_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ryf-mX-Jmx">
-                                        <rect key="frame" x="305.66666666666669" y="338.66666666666669" width="48.333333333333314" height="114.33333333333331"/>
+                                        <rect key="frame" x="305" y="338.66666666666669" width="49" height="114.33333333333331"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got nothing hear:(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-kg-rK2">
                                         <rect key="frame" x="56" y="167.33333333333331" width="262" height="18"/>
@@ -427,7 +427,7 @@
                                 <rect key="frame" x="20" y="152" width="166" height="199.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-iL-HHd">
-                                        <rect key="frame" x="9" y="8" width="148" height="156.66666666666666"/>
+                                        <rect key="frame" x="9" y="8" width="148.33333333333334" height="156.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-r2-eLv">
                                                 <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="44.666666666666664"/>
@@ -436,7 +436,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="01 January 2020" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-BT-HgW">
-                                                <rect key="frame" x="0.0" y="44.666666666666657" width="148" height="112"/>
+                                                <rect key="frame" x="0.0" y="44.666666666666657" width="148.33333333333334" height="112"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -543,17 +543,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 40" translatesAutoresizingMaskIntoConstraints="NO" id="V29-cB-rP1">
-                                                    <rect key="frame" x="20" y="7" width="37" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-C9-x94">
                                                     <rect key="frame" x="65" y="5" width="297" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" name="celulas_convidados_textfield"/>
                                                     <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="V29-cB-rP1">
+                                                    <rect key="frame" x="20" y="13.666666666666742" width="22" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="icon_convidados_celula"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" name="celulas_convidados"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="fundo_telas"/>
                                         <connections>
@@ -1208,14 +1212,18 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-wd-IaB">
                                                     <rect key="frame" x="65" y="4" width="297" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" name="celulas_convidados_textfield"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 40" translatesAutoresizingMaskIntoConstraints="NO" id="dMF-zo-ZyU">
-                                                    <rect key="frame" x="20" y="7" width="37" height="30"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dMF-zo-ZyU">
+                                                    <rect key="frame" x="20" y="12.666666666666742" width="22" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" name="icon_convidados_celula"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" name="celulas_convidados"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameGuests" destination="hr8-wd-IaB" id="wgE-Hc-kvq"/>
@@ -1382,6 +1390,7 @@
         <image name="modelo_churrasco" width="374.33334350585938" height="332.66665649414062"/>
         <image name="modelo_reuniao" width="325.33334350585938" height="291.33334350585938"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <namedColor name="button_edicao">
@@ -1417,6 +1426,12 @@
         <namedColor name="card_tarefas">
             <color red="0.50196078431372548" green="0.49019607843137253" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="celulas_convidados">
+            <color red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="celulas_convidados_textfield">
+            <color red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="fundo_home_inicial">
             <color red="1" green="0.7839999794960022" blue="0.37299999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1428,6 +1443,9 @@
         </namedColor>
         <namedColor name="fundo_textfield_local">
             <color red="0.77600002288818359" green="0.77300000190734863" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="icon_convidados_celula">
+            <color red="0.36470588235294116" green="0.34901960784313724" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="label_button_unico">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
