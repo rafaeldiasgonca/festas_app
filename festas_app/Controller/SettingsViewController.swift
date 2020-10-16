@@ -39,6 +39,7 @@ class SettingsViewController: UIViewController {
     let timePIcker = UIDatePicker()
     
     override func viewDidLoad() {
+       // self.title = typeName
         super.viewDidLoad()
         self.ViewDetalhesData.layer.cornerRadius = 12
         self.viewDetalhes.layer.cornerRadius = 12

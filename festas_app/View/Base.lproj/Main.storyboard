@@ -167,7 +167,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="0G7-Rd-XIc"/>
                                                 </constraints>
-                                                <string key="text">Lets eat a cake to celebrate more onde year without mistake
+                                                <string key="text">Lets eat a cake to celebrate more one year without mistake
 </string>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="17"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
@@ -559,7 +559,7 @@
                                                     <rect key="frame" x="20" y="7" width="37" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Convidado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-C9-x94">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-C9-x94">
                                                     <rect key="frame" x="65" y="5" width="297" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
@@ -671,7 +671,7 @@
             </objects>
             <point key="canvasLocation" x="3350.7246376811595" y="137.94642857142856"/>
         </scene>
-        <!--Olá Festeiro-->
+        <!--Hey,party animal!-->
         <scene sceneID="M4H-f3-15K">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ryu-CG-i1T" customClass="MainViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -895,7 +895,7 @@
                             <constraint firstItem="nCG-XP-3iQ" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="bottom" constant="20" id="zFX-RJ-fEj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Olá Festeiro" id="TKE-aH-ArB"/>
+                    <navigationItem key="navigationItem" title="Hey,party animal!" id="TKE-aH-ArB"/>
                     <connections>
                         <outlet property="countTimeLabel" destination="fJs-q0-ysQ" id="KpD-Xu-h4N"/>
                         <outlet property="dayEventLabel" destination="7X2-cc-QGf" id="auX-Qn-GmB"/>
@@ -916,7 +916,7 @@
             </objects>
             <point key="canvasLocation" x="4101.449275362319" y="137.27678571428569"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--aaaaaa-->
         <scene sceneID="FAc-fv-XD8">
             <objects>
                 <viewController id="ixz-w3-HpA" customClass="SettingsViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -1149,7 +1149,7 @@
                             <constraint firstItem="Gn7-2D-rg0" firstAttribute="trailing" secondItem="bFt-HQ-gfY" secondAttribute="trailing" constant="20" id="vsK-tr-oUp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8xd-Tz-5Pu"/>
+                    <navigationItem key="navigationItem" title="aaaaaa" id="8xd-Tz-5Pu"/>
                     <connections>
                         <outlet property="ViewDetalhesData" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
                         <outlet property="dateTextView" destination="CgW-WJ-ecm" id="0em-9v-GPz"/>
@@ -1217,7 +1217,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="368.66666666666674" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Convidado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-wd-IaB">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guest" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-wd-IaB">
                                                     <rect key="frame" x="65" y="4" width="297" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1375,7 +1375,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Ellipse 40" width="201" height="201"/>

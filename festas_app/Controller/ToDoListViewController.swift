@@ -70,7 +70,7 @@ class ToDoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Oque Fazer"
+        self.title = "To do"
         let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
         gestureOneTapRecognizer.numberOfTapsRequired = 1
         gestureOneTapRecognizer.numberOfTouchesRequired = 1
@@ -578,23 +578,23 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             button.addTarget(self,action:#selector(comidaBut),for:.touchUpInside)
-            label.text = "Comidas"
+            label.text = "Food"
             return headerView
         case 1:
             button.addTarget(self,action:#selector(bebidasBut),for:.touchUpInside)
-            label.text = "Bebidas"
+            label.text = "Drinkss"
             return headerView
         case 2:
             button.addTarget(self,action:#selector(utensiliosBut),for:.touchUpInside)
-            label.text = "Utensilios"
+            label.text = "Utensils"
             return headerView
         case 3:
             button.addTarget(self,action:#selector(descartaveisBut),for:.touchUpInside)
-            label.text = "Descartaveis"
+            label.text = "Disposable"
             return headerView
         case 4:
             button.addTarget(self,action:#selector(espacosBut),for:.touchUpInside)
-            label.text = "Espaços"
+            label.text = "Place"
             return headerView
         default:
             return headerView

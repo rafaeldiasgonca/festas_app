@@ -47,7 +47,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Ola,festeiro"
+        self.title = "Hey,Party Animal"
         UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
         navigationItem.largeTitleDisplayMode = .always
         self.viewDetalhes.layer.cornerRadius = 12
