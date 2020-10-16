@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var ButtonExcluir: UIButton!
     @IBOutlet weak var ButtonFinalizar: UIButton!
@@ -39,7 +39,10 @@ class SettingsViewController: UIViewController {
     let timePIcker = UIDatePicker()
     
     override func viewDidLoad() {
-       // self.title = typeName
+        typeNameTextField.delegate = self
+        localNameTextField.delegate = self
+        
+       //self.title = typeName
         super.viewDidLoad()
         self.ViewDetalhesData.layer.cornerRadius = 12
         self.viewDetalhes.layer.cornerRadius = 12
@@ -471,6 +474,9 @@ class SettingsViewController: UIViewController {
             self.saveMonth(monthToEvent: month)
         }
         
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
     }
     
     //Por para salvar td ao final da edição
