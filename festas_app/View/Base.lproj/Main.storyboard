@@ -56,22 +56,6 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" image="home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-2M-B0Z">
                                         <rect key="frame" x="52" y="307" width="241" height="438"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-cC-M39">
-                                        <rect key="frame" x="52" y="245" width="270" height="33"/>
-                                        <color key="backgroundColor" name="button_unico"/>
-                                        <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
-                                        <state key="normal" title="Add a party">
-                                            <color key="titleColor" name="label_button_unico"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="twd-YT-NET" kind="show" id="Qlu-0d-Bwd"/>
-                                        </connections>
-                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brilho_1" translatesAutoresizingMaskIntoConstraints="NO" id="abV-rS-l7J">
                                         <rect key="frame" x="28" y="340" width="48" height="147"/>
                                     </imageView>
@@ -90,6 +74,22 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-cC-M39">
+                                        <rect key="frame" x="52" y="234" width="270" height="50"/>
+                                        <color key="backgroundColor" name="button_unico"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
+                                        <state key="normal" title="Add a party">
+                                            <color key="titleColor" name="label_button_unico"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="twd-YT-NET" kind="show" id="Qlu-0d-Bwd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="card_home_inicial"/>
                                 <constraints>
@@ -706,7 +706,7 @@
                                                             <rect key="frame" x="39" y="11" width="275" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 40" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-uZ-IwL">
@@ -714,10 +714,8 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="card_home_principal-2"/>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" name="card_home_principal-2"/>
-                                                <color key="tintColor" name="card_home_principal-2"/>
+                                                <color key="backgroundColor" name="celulas_checklist"/>
                                                 <connections>
                                                     <outlet property="LabelItens" destination="S3i-Ac-Onj" id="NVd-TF-m45"/>
                                                 </connections>
@@ -1388,7 +1386,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Ellipse 40" width="201" height="201"/>
