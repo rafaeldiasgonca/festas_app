@@ -709,13 +709,20 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ellipse 40" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-uZ-IwL">
-                                                            <rect key="frame" x="0.0" y="12" width="37" height="30"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circlebadge" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-uZ-IwL">
+                                                            <rect key="frame" x="11" y="18.000000000000114" width="20" height="15.999999999999998"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                         </imageView>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" name="celulas_checklist"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="LabelItens" destination="S3i-Ac-Onj" id="NVd-TF-m45"/>
                                                 </connections>
@@ -1325,7 +1332,7 @@
                                         <color key="backgroundColor" name="celulas_checklist"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="12"/>
+                                                <integer key="value" value="8"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -1389,10 +1396,10 @@
         <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Ellipse 40" width="201" height="201"/>
         <image name="brilho_1" width="47.666667938232422" height="111.33333587646484"/>
         <image name="brilho_2" width="48.666667938232422" height="114.66666412353516"/>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="circlebadge" catalog="system" width="128" height="120"/>
         <image name="config" width="457" height="530"/>
         <image name="curva_card_home_inicial" width="303" height="323"/>
         <image name="curva_card_home_principal" width="303" height="206"/>
