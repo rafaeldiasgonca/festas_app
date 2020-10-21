@@ -43,10 +43,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJJ-dA-OC8">
-                                <rect key="frame" x="20" y="152" width="374" height="700"/>
+                                <rect key="frame" x="20" y="154.66666666666669" width="374" height="697.33333333333326"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_card_home_inicial" translatesAutoresizingMaskIntoConstraints="NO" id="TRv-1b-ahU">
-                                        <rect key="frame" x="0.0" y="382" width="374" height="323"/>
+                                        <rect key="frame" x="0.0" y="379.33333333333337" width="374" height="323"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="12"/>
@@ -152,19 +152,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6X-mK-Zn7" userLabel="View Aniversário">
-                                <rect key="frame" x="20" y="152" width="374" height="221.66666666666663"/>
+                                <rect key="frame" x="20" y="154.66666666666663" width="374" height="221"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Nz-A6-bn9">
-                                        <rect key="frame" x="20" y="20" width="200" height="116"/>
+                                        <rect key="frame" x="20" y="20" width="200" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday party" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-LR-D3n">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="183.66666666666666" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="title_card_color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="tlT-1e-Z4E">
-                                                <rect key="frame" x="0.0" y="36.66666666666665" width="200" height="79.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="48.666666666666679" width="200" height="81.333333333333314"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="0G7-Rd-XIc"/>
                                                 </constraints>
@@ -195,7 +195,7 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-vR-exf" userLabel="View Reunião de amigos">
-                                <rect key="frame" x="20" y="629.33333333333337" width="374" height="221.66666666666663"/>
+                                <rect key="frame" x="20" y="630.33333333333337" width="374" height="221"/>
                                 <subviews>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLk-zH-Nlj">
                                         <rect key="frame" x="-0.66666666666665719" y="0.0" width="381" height="228"/>
@@ -205,16 +205,16 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="U06-ia-TzW">
-                                        <rect key="frame" x="20" y="20" width="201.33333333333334" height="136"/>
+                                        <rect key="frame" x="20" y="20" width="204.66666666666666" height="150.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-MK-uLV">
-                                                <rect key="frame" x="0.0" y="0.0" width="201.33333333333334" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="204.66666666666666" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="title_card_color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="7Fj-T3-iJp">
-                                                <rect key="frame" x="0.0" y="36.666666666666622" width="200" height="99.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="48.666666666666636" width="200" height="101.66666666666669"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="lNN-Ln-FYG"/>
                                                 </constraints>
@@ -238,7 +238,7 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAP-BZ-GFQ" userLabel="View Churrasco">
-                                <rect key="frame" x="20" y="390.66666666666669" width="374" height="221.66666666666669"/>
+                                <rect key="frame" x="20" y="392.66666666666669" width="374" height="220.66666666666669"/>
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8U-lV-vUu">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="204"/>
@@ -248,16 +248,16 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-Qv-gJl">
-                                        <rect key="frame" x="20" y="20" width="200" height="116"/>
+                                        <rect key="frame" x="20" y="20" width="200" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Barbecue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="y5E-4x-0bc">
-                                                <rect key="frame" x="0.0" y="0.0" width="121" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120.33333333333333" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="title_card_color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="X7Z-Tz-lnP">
-                                                <rect key="frame" x="0.0" y="36.666666666666622" width="200" height="79.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="48.666666666666622" width="200" height="81.333333333333314"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Lix-Tf-C6o"/>
                                                 </constraints>
@@ -314,27 +314,27 @@
         <scene sceneID="LW6-By-O5M">
             <objects>
                 <viewController id="dxa-ps-tNE" customClass="LocalDateViewController" customModule="festas_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zek-ye-kwO">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="zek-ye-kwO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_sup_config" translatesAutoresizingMaskIntoConstraints="NO" id="QsO-JL-Q1R">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="328.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="327.33333333333331"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7x-dd-0NA" userLabel="View Hora">
-                                <rect key="frame" x="223.33333333333337" y="152" width="170.66666666666663" height="199.33333333333337"/>
+                                <rect key="frame" x="223.33333333333337" y="154.66666666666663" width="170.66666666666663" height="198.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QQM-LL-yCJ">
-                                        <rect key="frame" x="8" y="8" width="153" height="156.66666666666666"/>
+                                        <rect key="frame" x="8" y="8" width="153" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1o-ll-Wn9">
-                                                <rect key="frame" x="0.0" y="0.0" width="61.333333333333336" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="62.666666666666664" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="title_card_color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="00:00" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ffy-ol-Eua">
-                                                <rect key="frame" x="0.0" y="32.666666666666657" width="153" height="124"/>
+                                                <rect key="frame" x="0.0" y="44.666666666666679" width="153" height="111.33333333333331"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -346,7 +346,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhd-SV-lio">
-                                        <rect key="frame" x="137.33333333333334" y="167.66666666666669" width="24.333333333333343" height="23.666666666666657"/>
+                                        <rect key="frame" x="137.33333333333334" y="166.66666666666666" width="24.333333333333343" height="23.666666666666657"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
@@ -374,16 +374,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHy-1v-oi7" userLabel="View Local">
-                                <rect key="frame" x="22.666666666666657" y="391.66666666666669" width="368.66666666666674" height="85.333333333333314"/>
+                                <rect key="frame" x="22.666666666666657" y="393.66666666666669" width="368.66666666666674" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5l-z3-d1h">
-                                        <rect key="frame" x="29.999999999999993" y="26.333333333333311" width="69.666666666666657" height="32.666666666666657"/>
+                                        <rect key="frame" x="29.999999999999993" y="19.999999999999996" width="67.666666666666657" height="44.666666666666657"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <color key="textColor" name="title_card_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKK-pL-aDX">
-                                        <rect key="frame" x="122.66666666666669" y="25.666666666666629" width="230" height="34"/>
+                                        <rect key="frame" x="120.66666666666669" y="25.333333333333314" width="232" height="34"/>
                                         <color key="backgroundColor" name="fundo_textfield_local"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -424,19 +424,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWS-bt-Lb4" userLabel="View Data">
-                                <rect key="frame" x="20" y="152" width="166" height="199.33333333333337"/>
+                                <rect key="frame" x="20" y="154.66666666666663" width="166" height="198.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-iL-HHd">
-                                        <rect key="frame" x="9" y="8" width="148" height="156.66666666666666"/>
+                                        <rect key="frame" x="9" y="8" width="148.33333333333334" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-r2-eLv">
-                                                <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="title_card_color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="01 January 2020" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-BT-HgW">
-                                                <rect key="frame" x="0.0" y="32.666666666666657" width="148" height="124"/>
+                                                <rect key="frame" x="0.0" y="44.666666666666679" width="148.33333333333334" height="111.33333333333331"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -448,7 +448,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgx-mg-Xfd">
-                                        <rect key="frame" x="132.66666666666666" y="167.66666666666669" width="24.333333333333343" height="23.666666666666657"/>
+                                        <rect key="frame" x="132.66666666666666" y="166.66666666666666" width="24.333333333333343" height="23.666666666666657"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
@@ -475,7 +475,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="config" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-3M-cHz">
-                                <rect key="frame" x="-236" y="511" width="499" height="265"/>
+                                <rect key="frame" x="-101" y="516" width="235" height="273"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -531,7 +531,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="267"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qjj-yj-c8r">
-                                <rect key="frame" x="20" y="235" width="374" height="530"/>
+                                <rect key="frame" x="20" y="237.66666666666663" width="374" height="530"/>
                                 <color key="backgroundColor" name="fundo_telas"/>
                                 <color key="sectionIndexBackgroundColor" name="fundo_telas"/>
                                 <color key="sectionIndexTrackingBackgroundColor" name="fundo_telas"/>
@@ -589,19 +589,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAB-mE-Qce">
-                                <rect key="frame" x="20.666666666666657" y="152" width="372.66666666666674" height="64"/>
+                                <rect key="frame" x="20.666666666666657" y="154.66666666666666" width="372.66666666666674" height="64"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="OO6-8z-Bwh">
-                                        <rect key="frame" x="30" y="15.666666666666657" width="300" height="32.666666666666664"/>
+                                        <rect key="frame" x="30" y="9.6666666666666821" width="303.66666666666669" height="44.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxu-vU-dO9">
-                                                <rect key="frame" x="0.0" y="0.0" width="224.33333333333334" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="label_quantidade"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlC-is-FpJ">
-                                                <rect key="frame" x="284.33333333333331" y="0.0" width="15.666666666666686" height="32.666666666666664"/>
+                                                <rect key="frame" x="286" y="0.0" width="17.666666666666686" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="28"/>
                                                 <color key="textColor" name="label_quantidade"/>
                                                 <nil key="highlightedColor"/>
@@ -677,7 +677,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCG-XP-3iQ">
-                                <rect key="frame" x="20" y="329" width="374" height="523"/>
+                                <rect key="frame" x="20" y="331" width="374" height="521"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v97-bY-ww4">
                                         <rect key="frame" x="270" y="389" width="0.0" height="0.0"/>
@@ -690,7 +690,7 @@
                                         <rect key="frame" x="-63" y="285" width="447" height="246"/>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="33P-GX-yaC">
-                                        <rect key="frame" x="20" y="87.333333333333314" width="334" height="267.33333333333331"/>
+                                        <rect key="frame" x="20" y="86.333333333333314" width="334" height="266.33333333333331"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" name="fundo_telas"/>
@@ -733,13 +733,13 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tasks for today:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-rB-DgH">
-                                        <rect key="frame" x="20" y="19.999999999999996" width="258" height="32.666666666666657"/>
+                                        <rect key="frame" x="20" y="19.999999999999996" width="262" height="44.666666666666657"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <color key="textColor" name="label_title_home_principal"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW6-4z-vLf">
-                                        <rect key="frame" x="264" y="465" width="90" height="30"/>
+                                        <rect key="frame" x="264" y="463" width="90" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Mais Tarefas">
                                             <color key="titleColor" name="label_title_home_principal"/>
@@ -771,22 +771,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbB-EB-C2E">
-                                <rect key="frame" x="20" y="152" width="374" height="157"/>
+                                <rect key="frame" x="20" y="154.66666666666663" width="374" height="156.33333333333337"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTT-qZ-TxX">
                                         <rect key="frame" x="19.000000000000004" y="12.999999999999996" width="63.333333333333343" height="63.666666666666657"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fac-dp-b8V">
-                                                <rect key="frame" x="12" y="0.0" width="35.666666666666664" height="63.666666666666664"/>
+                                                <rect key="frame" x="12" y="0.0" width="34.666666666666664" height="63.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sZf-au-rb4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.666666666666664" height="26.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="25.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7X2-cc-QGf">
-                                                        <rect key="frame" x="0.0" y="26.333333333333346" width="35.666666666666664" height="37.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333346" width="34.666666666666664" height="38.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="32"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
@@ -803,31 +803,31 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Churrascao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="VpT-Rp-7aN">
-                                        <rect key="frame" x="103.33333333333333" y="7.9999999999999964" width="144.66666666666669" height="50.666666666666657"/>
+                                        <rect key="frame" x="103.33333333333333" y="8.0000000000000036" width="144.66666666666669" height="50.333333333333343"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaing Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-pT-Syj">
-                                        <rect key="frame" x="100" y="91.333333333333343" width="114" height="18.666666666666671"/>
+                                        <rect key="frame" x="100" y="91.333333333333343" width="114" height="25.666666666666671"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Medium" family="Baloo Bhai 2" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-q0-ysQ">
-                                        <rect key="frame" x="100" y="103" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="100" y="110.00000000000003" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hMf-z9-wxh">
-                                        <rect key="frame" x="100" y="71.666666666666657" width="52.333333333333343" height="17.666666666666671"/>
+                                        <rect key="frame" x="100" y="71.333333333333343" width="52.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyD-Jv-GfF">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="157"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="156.33333333333334"/>
                                         <connections>
                                             <segue destination="ixz-w3-HpA" kind="show" id="MfU-K2-BsZ"/>
                                         </connections>
@@ -843,7 +843,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alphaville" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-BG-Gn8">
-                                        <rect key="frame" x="102.33333333333334" y="43.666666666666657" width="90.333333333333343" height="23.333333333333329"/>
+                                        <rect key="frame" x="102.33333333333334" y="43.333333333333343" width="90.333333333333343" height="32"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -927,16 +927,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2A-1L-ska">
-                                <rect key="frame" x="20" y="328.33333333333331" width="374" height="72.333333333333314"/>
+                                <rect key="frame" x="20" y="330.33333333333331" width="374" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p7-rw-lpP">
-                                        <rect key="frame" x="30" y="19.666666666666682" width="89" height="32.666666666666657"/>
+                                        <rect key="frame" x="30" y="13.666666666666682" width="88" height="44.666666666666657"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34g-8M-nqc">
+                                        <rect key="frame" x="221.33333333333334" y="21" width="25.333333333333343" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWW-r9-ssy">
-                                        <rect key="frame" x="341.66666666666669" y="8.0000000000000018" width="24.333333333333314" height="23.666666666666671"/>
+                                        <rect key="frame" x="329.66666666666669" y="25" width="24.333333333333314" height="23.666666666666671"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -946,34 +952,28 @@
                                             <segue destination="MPs-5N-RF1" kind="show" id="ENv-fE-0G5"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34g-8M-nqc">
-                                        <rect key="frame" x="222.33333333333334" y="21.333333333333371" width="28" height="29.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-2"/>
                                 <constraints>
-                                    <constraint firstItem="SWW-r9-ssy" firstAttribute="top" secondItem="K2A-1L-ska" secondAttribute="top" constant="8" id="8qR-eR-QDC"/>
+                                    <constraint firstItem="SWW-r9-ssy" firstAttribute="top" secondItem="K2A-1L-ska" secondAttribute="top" constant="25" id="8qR-eR-QDC"/>
                                     <constraint firstItem="0p7-rw-lpP" firstAttribute="centerY" secondItem="K2A-1L-ska" secondAttribute="centerY" id="B5g-Rm-OQv"/>
                                     <constraint firstItem="34g-8M-nqc" firstAttribute="centerY" secondItem="K2A-1L-ska" secondAttribute="centerY" id="J0L-Sd-t5u"/>
                                     <constraint firstItem="0p7-rw-lpP" firstAttribute="leading" secondItem="K2A-1L-ska" secondAttribute="leading" constant="30" id="jcc-W9-vVu"/>
-                                    <constraint firstAttribute="trailing" secondItem="SWW-r9-ssy" secondAttribute="trailing" constant="8" id="jlD-Yu-ESb"/>
+                                    <constraint firstAttribute="trailing" secondItem="SWW-r9-ssy" secondAttribute="trailing" constant="20" id="jlD-Yu-ESb"/>
                                     <constraint firstItem="34g-8M-nqc" firstAttribute="leading" secondItem="0p7-rw-lpP" secondAttribute="trailing" constant="103.33333333333334" id="ncA-f7-u3U"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frI-js-trv">
-                                <rect key="frame" x="20" y="420.66666666666674" width="374" height="358.33333333333326"/>
+                                <rect key="frame" x="20" y="422.33333333333337" width="374" height="358.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGc-Q8-rMb">
-                                        <rect key="frame" x="30" y="15.999999999999996" width="130.33333333333334" height="32.666666666666657"/>
+                                        <rect key="frame" x="30" y="15.999999999999996" width="132" height="44.666666666666657"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPz-Hm-2Xh">
-                                        <rect key="frame" x="341.66666666666669" y="8.0000000000000018" width="24.333333333333314" height="23.666666666666671"/>
+                                        <rect key="frame" x="324.66666666666669" y="20" width="24.333333333333314" height="23.666666666666671"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -992,8 +992,8 @@
                                     <constraint firstItem="kGc-Q8-rMb" firstAttribute="top" secondItem="frI-js-trv" secondAttribute="top" constant="16" id="1ca-ps-aiO"/>
                                     <constraint firstItem="bhp-pU-vfO" firstAttribute="top" secondItem="kGc-Q8-rMb" secondAttribute="bottom" constant="115.33" id="1xj-6M-DR7"/>
                                     <constraint firstItem="kGc-Q8-rMb" firstAttribute="leading" secondItem="frI-js-trv" secondAttribute="leading" constant="30" id="T5n-FF-d9J"/>
-                                    <constraint firstAttribute="trailing" secondItem="HPz-Hm-2Xh" secondAttribute="trailing" constant="8" id="cum-pU-7eV"/>
-                                    <constraint firstItem="HPz-Hm-2Xh" firstAttribute="top" secondItem="frI-js-trv" secondAttribute="top" constant="8" id="wvZ-de-geE"/>
+                                    <constraint firstAttribute="trailing" secondItem="HPz-Hm-2Xh" secondAttribute="trailing" constant="25" id="cum-pU-7eV"/>
+                                    <constraint firstItem="HPz-Hm-2Xh" firstAttribute="top" secondItem="frI-js-trv" secondAttribute="top" constant="20" id="wvZ-de-geE"/>
                                     <constraint firstItem="bhp-pU-vfO" firstAttribute="leading" secondItem="frI-js-trv" secondAttribute="leading" constant="-63" id="xu3-Kr-Tea"/>
                                 </constraints>
                             </view>
@@ -1001,10 +1001,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="320.33333333333331"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Y8-rye">
-                                <rect key="frame" x="20" y="152" width="374" height="156.33333333333337"/>
+                                <rect key="frame" x="20" y="154.66666666666669" width="374" height="155.66666666666669"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alphaville" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Eb-Dyt">
-                                        <rect key="frame" x="103.33333333333331" y="26" width="110.66666666666669" height="25"/>
+                                        <rect key="frame" x="103.33333333333331" y="38" width="110.66666666666669" height="33.666666666666657"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1015,7 +1015,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Churrasco" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-PM-SfB">
-                                        <rect key="frame" x="103.33333333333331" y="8" width="129" height="33"/>
+                                        <rect key="frame" x="103.33333333333331" y="8" width="129" height="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1026,25 +1026,25 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-Gf-54p">
-                                        <rect key="frame" x="19.000000000000004" y="8" width="63.333333333333343" height="75"/>
+                                        <rect key="frame" x="19.000000000000004" y="8" width="63.333333333333343" height="74.666666666666671"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-WJ-ecm">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="75"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="74.666666666666671"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jZQ-Nr-fZc">
-                                                <rect key="frame" x="12.666666666666664" y="10" width="35.666666666666664" height="55"/>
+                                                <rect key="frame" x="12.666666666666664" y="9.3333333333333464" width="34.666666666666664" height="56.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm6-br-1Ez">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.666666666666664" height="17.666666666666668"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="18"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKp-Ap-DNp">
-                                                        <rect key="frame" x="0.0" y="17.666666666666661" width="35.666666666666664" height="37.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="18.000000000000004" width="34.666666666666664" height="38.333333333333343"/>
                                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="32"/>
                                                         <color key="textColor" systemColor="systemIndigoColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1063,7 +1063,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSP-Gz-MOk">
-                                        <rect key="frame" x="341.66666666666669" y="8.0000000000000018" width="24.333333333333314" height="23.666666666666671"/>
+                                        <rect key="frame" x="324.66666666666669" y="20" width="24.333333333333314" height="23.666666666666671"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1074,7 +1074,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="18:30" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-AK-kI9">
-                                        <rect key="frame" x="103" y="58.333333333333343" width="77" height="23"/>
+                                        <rect key="frame" x="103" y="79" width="77" height="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1082,7 +1082,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-1"/>
                                 <constraints>
-                                    <constraint firstItem="NSP-Gz-MOk" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="8" id="2bQ-3E-UOJ"/>
+                                    <constraint firstItem="NSP-Gz-MOk" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="20" id="2bQ-3E-UOJ"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="top" secondItem="p7p-Eb-Dyt" secondAttribute="bottom" constant="7.3300000000000001" id="FhQ-DX-ubo"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="leading" secondItem="eV9-Y8-rye" secondAttribute="leading" constant="19" id="JIZ-uD-79f"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="8" id="Kaz-tF-oGP"/>
@@ -1094,7 +1094,7 @@
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="8" id="e7M-Hg-QUs"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="width" secondItem="eV9-Y8-rye" secondAttribute="width" multiplier="0.169492" id="gZs-9C-fl9"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="height" secondItem="p7p-Eb-Dyt" secondAttribute="height" multiplier="0.920792" id="hOT-g5-0Q9"/>
-                                    <constraint firstAttribute="trailing" secondItem="NSP-Gz-MOk" secondAttribute="trailing" constant="8" id="jIl-2W-fag"/>
+                                    <constraint firstAttribute="trailing" secondItem="NSP-Gz-MOk" secondAttribute="trailing" constant="25" id="jIl-2W-fag"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="20.670000000000002" id="lFr-ab-I0k"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="21" id="xc7-J8-hU7"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="height" secondItem="eV9-Y8-rye" secondAttribute="height" multiplier="0.48" id="yhs-Sx-YpE"/>
@@ -1182,19 +1182,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="267"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpm-T8-40m">
-                                <rect key="frame" x="20.666666666666657" y="152" width="373" height="64"/>
+                                <rect key="frame" x="20.666666666666657" y="154.66666666666666" width="373" height="63.666666666666657"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="t7Z-cc-eFK">
-                                        <rect key="frame" x="30" y="8" width="300" height="32.666666666666664"/>
+                                        <rect key="frame" x="30" y="8" width="303.66666666666669" height="44.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jab-5v-hKz">
-                                                <rect key="frame" x="0.0" y="0.0" width="224.33333333333334" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="226" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                                 <color key="textColor" name="label_quantidade"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-QK-nFF">
-                                                <rect key="frame" x="284.33333333333331" y="0.0" width="15.666666666666686" height="32.666666666666664"/>
+                                                <rect key="frame" x="286" y="0.0" width="17.666666666666686" height="44.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="28"/>
                                                 <color key="textColor" name="label_quantidade"/>
                                                 <nil key="highlightedColor"/>
@@ -1214,7 +1214,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-vN-Gdn">
-                                <rect key="frame" x="22.666666666666657" y="239" width="368.66666666666674" height="613"/>
+                                <rect key="frame" x="22.666666666666657" y="241.33333333333331" width="368.66666666666674" height="610.66666666666674"/>
                                 <color key="backgroundColor" name="fundo_telas"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Convidados" id="zOE-UF-A1Q" customClass="GuestsNamesTableViewCell" customModule="festas_app" customModuleProvider="target">
@@ -1399,7 +1399,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Iyb-6G-pNK"/>
+        <segue reference="vXy-Po-5Qg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.666667938232422" height="111.33333587646484"/>
