@@ -18,6 +18,7 @@ class GuestsViewController: UIViewController {
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Guests"
@@ -194,12 +195,15 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
+        cell.nameGuests.tag = indexPath.row
+        
         if convidados.count > indexPath.row {
             let person = convidados[indexPath.row]
             cell.nameGuests.text = person
         } else {
             cell.nameGuests.text = ""
         }
+      
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -210,6 +214,8 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
             if convidados.count > indexPath.row {
                 convidados.remove(at: indexPath.row)
+                //print(cell.nameGuests.tag)
+                print(indexPath.row)
             }
             
             if cell.nameGuests.text != "" {
@@ -242,6 +248,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - TextField Controller
 
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }

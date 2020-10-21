@@ -427,7 +427,7 @@
                                 <rect key="frame" x="20" y="152" width="166" height="199.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-iL-HHd">
-                                        <rect key="frame" x="9" y="8" width="148.33333333333334" height="156.66666666666666"/>
+                                        <rect key="frame" x="9" y="8" width="148" height="156.66666666666666"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-r2-eLv">
                                                 <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="32.666666666666664"/>
@@ -436,7 +436,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="01 January 2020" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-BT-HgW">
-                                                <rect key="frame" x="0.0" y="32.666666666666657" width="148.33333333333334" height="124"/>
+                                                <rect key="frame" x="0.0" y="32.666666666666657" width="148" height="124"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -808,8 +808,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faltam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-pT-Syj">
-                                        <rect key="frame" x="100" y="91.333333333333343" width="94" height="18.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaing Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="3Wa-pT-Syj">
+                                        <rect key="frame" x="100" y="91.333333333333343" width="114" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Medium" family="Baloo Bhai 2" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -873,7 +873,7 @@
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="leading" secondItem="dbB-EB-C2E" secondAttribute="leading" constant="19" id="lGL-OI-iEU"/>
                                     <constraint firstItem="tTT-qZ-TxX" firstAttribute="height" secondItem="dbB-EB-C2E" secondAttribute="height" multiplier="0.40625" id="lb7-Ug-Bbg"/>
                                     <constraint firstItem="EZq-Ky-1uR" firstAttribute="top" secondItem="dbB-EB-C2E" secondAttribute="top" constant="8" id="rOV-Yx-03V"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Wa-pT-Syj" secondAttribute="trailing" constant="180" id="rQe-0f-6df"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Wa-pT-Syj" secondAttribute="trailing" constant="160" id="rQe-0f-6df"/>
                                     <constraint firstAttribute="trailing" secondItem="LyD-Jv-GfF" secondAttribute="trailing" id="rm9-8T-uVo"/>
                                     <constraint firstItem="3Wa-pT-Syj" firstAttribute="top" secondItem="hMf-z9-wxh" secondAttribute="bottom" constant="2" id="t3s-rt-yn3"/>
                                     <constraint firstItem="hMf-z9-wxh" firstAttribute="width" secondItem="SAt-BG-Gn8" secondAttribute="width" multiplier="0.58" id="x4k-uw-MCT"/>
