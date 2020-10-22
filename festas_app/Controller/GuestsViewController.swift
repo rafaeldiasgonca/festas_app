@@ -15,6 +15,7 @@ class GuestsViewController: UIViewController {
     var convidados1 = 1
     var convidados:[String] = []
     var guestList:[NSManagedObject] = []
+    var a  = 0
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
     
@@ -196,6 +197,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
         cell.nameGuests.tag = indexPath.row
+        a = cell.nameGuests.tag
         
         if convidados.count > indexPath.row {
             let person = convidados[indexPath.row]
@@ -249,12 +251,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
   
-    func textViewDidBeginEditing(_ textView: UITextView) {
-      //  let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
-       // let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
-        //     print(cell.nameGuests.tag)
-        print("a")
-    }
+   
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -263,7 +260,7 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
             convidados.append(nameToSave)
         } 
         print(convidados)
-       // print("a")
+        print(a)
         tableView.reloadData()
     }
     
