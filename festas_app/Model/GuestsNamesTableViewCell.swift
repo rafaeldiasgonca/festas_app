@@ -8,13 +8,14 @@
 
 import UIKit
 
-class GuestsNamesTableViewCell: UITableViewCell {
+class GuestsNamesTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     
     
     @IBOutlet weak var nameGuests: UITextField!
     
     override func awakeFromNib() {
+        self.nameGuests.delegate = self
         super.awakeFromNib()
         
     }
@@ -23,6 +24,9 @@ class GuestsNamesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("a")
     }
 
 }

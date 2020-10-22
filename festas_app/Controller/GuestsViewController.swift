@@ -248,14 +248,22 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - TextField Controller
 
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
-    
+  
+    func textViewDidBeginEditing(_ textView: UITextView) {
+      //  let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+       // let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
+        //     print(cell.nameGuests.tag)
+        print("a")
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
         if textField.text == "" {
             convidados.append(nameToSave)
         } 
         print(convidados)
+       // print("a")
         tableView.reloadData()
     }
     

@@ -329,7 +329,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
         releaseDate = releaseDateFormatter.date(from: releaseDateString) as NSDate?
         if releaseDate != nil {
             countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-            faltamLabel.text = "Faltam"
+            faltamLabel.text = "Remaning Time"
         } else {
             faltamLabel.text = ""
             countTimeLabel.text = ""
@@ -347,15 +347,15 @@ class MainViewController: UIViewController, UITableViewDataSource {
         let intHours = Int(diffDateComponents.hour ?? 0)
         if intDays == 0, intHours == 0, intMinutes >= -30, intMinutes <= 0 {
             faltamLabel.text = ""
-            countTimeLabel.text = "O evento está marcado para agora!"
+            countTimeLabel.text = "The party is set for now!"
         }
         
         if (intDays <= 0 && intHours <= 0 && intMinutes < -30) || (intDays <= 0 && intHours <= 0 && intMinutes < 0) {
             faltamLabel.text = ""
-            countTimeLabel.text = "O evento já aconteceu"
+            countTimeLabel.text = "The party already happend"
         }
         if intDays >= 0 && intHours >= 0 && intMinutes > 0 {
-            let countdown = "\(diffDateComponents.day ?? 0) dias, \(diffDateComponents.hour ?? 0) horas, \(diffDateComponents.minute ?? 0) minutos"
+            let countdown = "\(diffDateComponents.day ?? 0) days, \(diffDateComponents.hour ?? 0) hours, \(diffDateComponents.minute ?? 0) minutes"
             countTimeLabel.text = countdown
         }
     }
