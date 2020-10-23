@@ -1004,7 +1004,7 @@
                                 <rect key="frame" x="20" y="154.66666666666669" width="374" height="155.66666666666669"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alphaville" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Eb-Dyt">
-                                        <rect key="frame" x="103.33333333333331" y="38" width="110.66666666666669" height="33.666666666666657"/>
+                                        <rect key="frame" x="105.33333333333333" y="38" width="148.66666666666669" height="33.666666666666657"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1015,7 +1015,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Churrasco" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-PM-SfB">
-                                        <rect key="frame" x="103.33333333333331" y="8" width="129" height="45"/>
+                                        <rect key="frame" x="105.33333333333333" y="8" width="133.66666666666669" height="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1026,16 +1026,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-Gf-54p">
-                                        <rect key="frame" x="19.000000000000004" y="8" width="63.333333333333343" height="74.666666666666671"/>
+                                        <rect key="frame" x="19" y="8" width="65.333333333333329" height="65.333333333333329"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-WJ-ecm">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="74.666666666666671"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jZQ-Nr-fZc">
-                                                <rect key="frame" x="12.666666666666664" y="9.3333333333333464" width="34.666666666666664" height="56.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jZQ-Nr-fZc">
+                                                <rect key="frame" x="15.333333333333339" y="4.6666666666666892" width="34.666666666666657" height="56.333333333333336"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm6-br-1Ez">
                                                         <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="18"/>
@@ -1051,15 +1045,20 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CgW-WJ-ecm">
+                                                <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="65.333333333333329"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" name="card_data_config"/>
                                         <constraints>
                                             <constraint firstItem="CgW-WJ-ecm" firstAttribute="centerX" secondItem="fxh-Gf-54p" secondAttribute="centerX" id="3Km-2w-IPj"/>
                                             <constraint firstItem="CgW-WJ-ecm" firstAttribute="width" secondItem="fxh-Gf-54p" secondAttribute="width" id="Dm0-Fz-hbo"/>
-                                            <constraint firstItem="jZQ-Nr-fZc" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="leading" constant="12.67" id="HaH-cC-6v7"/>
                                             <constraint firstItem="CgW-WJ-ecm" firstAttribute="height" secondItem="fxh-Gf-54p" secondAttribute="height" id="Z78-bE-wwe"/>
                                             <constraint firstItem="CgW-WJ-ecm" firstAttribute="centerY" secondItem="fxh-Gf-54p" secondAttribute="centerY" id="e5g-Te-LDo"/>
-                                            <constraint firstItem="jZQ-Nr-fZc" firstAttribute="centerY" secondItem="fxh-Gf-54p" secondAttribute="centerY" id="z4U-5v-Td9"/>
+                                            <constraint firstItem="jZQ-Nr-fZc" firstAttribute="centerX" secondItem="fxh-Gf-54p" secondAttribute="centerX" id="qiO-tk-91U"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSP-Gz-MOk">
@@ -1074,7 +1073,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="18:30" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-AK-kI9">
-                                        <rect key="frame" x="103" y="79" width="77" height="31"/>
+                                        <rect key="frame" x="105" y="79" width="103.33333333333331" height="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1086,18 +1085,18 @@
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="top" secondItem="p7p-Eb-Dyt" secondAttribute="bottom" constant="7.3300000000000001" id="FhQ-DX-ubo"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="leading" secondItem="eV9-Y8-rye" secondAttribute="leading" constant="19" id="JIZ-uD-79f"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="8" id="Kaz-tF-oGP"/>
-                                    <constraint firstAttribute="trailing" secondItem="W7K-PM-SfB" secondAttribute="trailing" constant="141.66999999999999" id="R1U-6Z-88e"/>
+                                    <constraint firstAttribute="trailing" secondItem="W7K-PM-SfB" secondAttribute="trailing" constant="135" id="R1U-6Z-88e"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="width" secondItem="p7p-Eb-Dyt" secondAttribute="width" multiplier="0.695783" id="R6Y-hO-li4"/>
-                                    <constraint firstAttribute="trailing" secondItem="p7p-Eb-Dyt" secondAttribute="trailing" constant="160" id="The-Xr-rwa"/>
+                                    <constraint firstAttribute="trailing" secondItem="p7p-Eb-Dyt" secondAttribute="trailing" constant="120" id="The-Xr-rwa"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="21" id="c5j-dg-3Rg"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="-15" id="c7g-5d-lmP"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="8" id="e7M-Hg-QUs"/>
-                                    <constraint firstItem="fxh-Gf-54p" firstAttribute="width" secondItem="eV9-Y8-rye" secondAttribute="width" multiplier="0.169492" id="gZs-9C-fl9"/>
+                                    <constraint firstItem="fxh-Gf-54p" firstAttribute="width" secondItem="eV9-Y8-rye" secondAttribute="width" multiplier="0.175" id="gZs-9C-fl9"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="height" secondItem="p7p-Eb-Dyt" secondAttribute="height" multiplier="0.920792" id="hOT-g5-0Q9"/>
                                     <constraint firstAttribute="trailing" secondItem="NSP-Gz-MOk" secondAttribute="trailing" constant="20" id="jIl-2W-fag"/>
                                     <constraint firstItem="BgR-AK-kI9" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="20.670000000000002" id="lFr-ab-I0k"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="21" id="xc7-J8-hU7"/>
-                                    <constraint firstItem="fxh-Gf-54p" firstAttribute="height" secondItem="eV9-Y8-rye" secondAttribute="height" multiplier="0.48" id="yhs-Sx-YpE"/>
+                                    <constraint firstItem="fxh-Gf-54p" firstAttribute="height" secondItem="eV9-Y8-rye" secondAttribute="height" multiplier="0.42" id="yhs-Sx-YpE"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFt-HQ-gfY">
@@ -1399,7 +1398,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Iyb-6G-pNK"/>
+        <segue reference="vXy-Po-5Qg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.666667938232422" height="111.33333587646484"/>
