@@ -85,58 +85,58 @@ class GuestsViewController: UIViewController {
     
     func deleteBlankSpace(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "name = %@", "")
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "name = %@", "")
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
     
     func delete(name: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             let context = appDelegate.persistentContainer.viewContext
-             let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
-             requestDel.returnsObjectsAsFaults = false
-          // If you want to delete data on basis of some condition then you can use NSPredicate
-             let predicateDel = NSPredicate(format: "name = %@", name)
-             requestDel.predicate = predicateDel
-
-
-             do {
-                  let arrUsrObj = try context.fetch(requestDel)
-                  for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
-                      context.delete(usrObj) // Deleting Object
-                 }
-             } catch {
-                  print("Failed")
-             }
-
-            // Saving the Delete operation
-             do {
-                 try context.save()
-             } catch {
-                 print("Failed saving")
-             }
+        let context = appDelegate.persistentContainer.viewContext
+        let requestDel = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+        requestDel.returnsObjectsAsFaults = false
+        // If you want to delete data on basis of some condition then you can use NSPredicate
+        let predicateDel = NSPredicate(format: "name = %@", name)
+        requestDel.predicate = predicateDel
+        
+        
+        do {
+            let arrUsrObj = try context.fetch(requestDel)
+            for usrObj in arrUsrObj as! [NSManagedObject] { // Fetching Object
+                context.delete(usrObj) // Deleting Object
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        // Saving the Delete operation
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
     }
-
+    
     
     func edit(index: Int, nome: String){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -205,7 +205,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.nameGuests.text = ""
         }
-      
+        
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -250,15 +250,25 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - TextField Controller
 
 extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
-  
-   
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
-        if textField.text == "" {
+        if convidados.count > 0 {
+            for i in 0...convidados.count - 1 {
+                print(a)
+                let previousName = convidados[i]
+                if convidados[a] == previousName {
+                    convidados[a] = nameToSave
+                } else if textField.text != "" && previousName != convidados[a] && i == convidados.count - 1 {
+                    convidados.append(nameToSave)
+                }
+            }
+        } else {
             convidados.append(nameToSave)
-        } 
+        }
         print(convidados)
         print(a)
         tableView.reloadData()
