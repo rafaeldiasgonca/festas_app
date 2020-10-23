@@ -42,6 +42,7 @@ class GuestsViewController: UIViewController {
     
     @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
         inserirNovoConvidado()
+       
     }
     
     @IBAction func completedButtonPressed(_ sender: UIButton) {
@@ -197,7 +198,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
         cell.nameGuests.tag = indexPath.row
-        a = cell.nameGuests.tag
+        
         
         if convidados.count > indexPath.row {
             let person = convidados[indexPath.row]
@@ -217,7 +218,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
             if convidados.count > indexPath.row {
                 convidados.remove(at: indexPath.row)
                 //print(cell.nameGuests.tag)
-                print(indexPath.row)
+               // print(indexPath.row)
             }
             
             if cell.nameGuests.text != "" {
@@ -231,17 +232,21 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
-            print(convidados1)
+            //print(convidados1)
         }
     }
     
     func inserirNovoConvidado(){
         convidados1 = convidados1 + 1
         let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
+        cell.nameGuests.tag = indexPath.row
+        
         tableView.beginUpdates()
         tableView.insertRows(at:[indexPath], with:.automatic)
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
+        
     }
 }
 
@@ -254,11 +259,11 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+       
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
         if convidados.count > 0 {
             for i in 0...convidados.count - 1 {
-                print(a)
+                
                 let previousName = convidados[i]
                 if convidados[a] == previousName {
                     convidados[a] = nameToSave
@@ -269,9 +274,15 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
         } else {
             convidados.append(nameToSave)
         }
-        print(convidados)
-        print(a)
+      //  print(convidados)
+        
         tableView.reloadData()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(textField.tag)
+        
+        
     }
     
 }
