@@ -264,7 +264,7 @@ class LocalDateViewController: UIViewController  {
         //assign datePicker to textField
         dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
-        datePicker.preferredDatePickerStyle = .wheels
+        
     }
     @objc func donePressed(){
         let formatacao = DateFormatter()
@@ -293,7 +293,7 @@ class LocalDateViewController: UIViewController  {
         timeTextView.inputView = timePIcker
         timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timePIcker.datePickerMode = .time
-        timePIcker.preferredDatePickerStyle = .wheels
+       
         
     }
     
