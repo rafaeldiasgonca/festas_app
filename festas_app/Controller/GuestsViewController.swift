@@ -16,6 +16,7 @@ class GuestsViewController: UIViewController {
     var convidados:[String] = []
     var guestList:[NSManagedObject] = []
     var a  = 0
+    var haveName = false
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
     
@@ -42,7 +43,7 @@ class GuestsViewController: UIViewController {
     
     @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
         inserirNovoConvidado()
-       
+        
     }
     
     @IBAction func completedButtonPressed(_ sender: UIButton) {
@@ -218,7 +219,7 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
             if convidados.count > indexPath.row {
                 convidados.remove(at: indexPath.row)
                 //print(cell.nameGuests.tag)
-               // print(indexPath.row)
+                // print(indexPath.row)
             }
             
             if cell.nameGuests.text != "" {
@@ -259,22 +260,28 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-       
+        
         guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
         if convidados.count > 0 {
-            for i in 0...convidados.count - 1 {
-                
-                let previousName = convidados[i]
-                if convidados[a] == previousName {
+            if textField.tag <= convidados.count - 1 && textField.text != "" {
+                print(textField.tag)
+                for i in 0...convidados.count - 1 {
+                    if convidados[a] == convidados[i] {
+                        haveName = true
+                    }
+                }
+                if haveName {
                     convidados[a] = nameToSave
-                } else if textField.text != "" && previousName != convidados[a] && i == convidados.count - 1 {
+                } else {
                     convidados.append(nameToSave)
                 }
+                
             }
-        } else {
+        }
+        if haveName == false {
             convidados.append(nameToSave)
         }
-      //  print(convidados)
+        print(convidados)
         
         tableView.reloadData()
     }

@@ -24,6 +24,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeEventTextView: UITextView!
     @IBOutlet weak var dateTextView: UITextView!
     @IBOutlet weak var numberOfGuestLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     var convidados = 0
     
     let calendar = Calendar.current
@@ -443,6 +444,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             if localNameTextField.text == "Sem Local Definido" {
                 localNameTextField.text = ""
             }
+            let image = UIImage(systemName: "checkmark.circle.fill")
+            editButton.setImage(image, for: .normal)
         } else {
             sender.tag = 1
             let dateFormatter = DateFormatter()
@@ -472,6 +475,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             self.saveMinute(minuteToEvent: minutes)
             self.saveDay(dayToEvent: day)
             self.saveMonth(monthToEvent: month)
+            let image = UIImage(systemName: "pencil.circle.fill")
+            editButton.setImage(image, for: .normal)
         }
         
     }
