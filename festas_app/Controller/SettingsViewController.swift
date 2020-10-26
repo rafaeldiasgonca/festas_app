@@ -42,7 +42,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         typeNameTextField.delegate = self
         localNameTextField.delegate = self
-        
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BalooBhai2-ExtraBold", size: 34) as Any]
+
        //self.title = typeName
         super.viewDidLoad()
         self.ViewDetalhesData.layer.cornerRadius = 12
