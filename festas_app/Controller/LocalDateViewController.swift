@@ -251,8 +251,7 @@ class LocalDateViewController: UIViewController  {
     
     
     func createDatePickerView(){
-        let datePicker = UIDatePicker(frame:CGRect(x: 50, y: 50, width:     self.view.frame.size.width, height: 216))
-        datePicker.datePickerMode  = .date
+        let datePicker = UIDatePicker()
         datePicker.tintColor = .white
         self.dateView.addSubview(datePicker)
         //dateTextView.inputView = datePicker
