@@ -40,7 +40,7 @@ class LocalDateViewController: UIViewController  {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         timeTextView.isUserInteractionEnabled = false
         dateTextView.isUserInteractionEnabled = true
-        
+       
       
     
         
@@ -253,7 +253,10 @@ class LocalDateViewController: UIViewController  {
     func createDatePickerView(){
         let datePicker = UIDatePicker()
         datePicker.tintColor = .white
-        self.dateView.addSubview(datePicker)
+        dateTextView.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
+        
+        
         //dateTextView.inputView = datePicker
         
         
@@ -289,6 +292,7 @@ class LocalDateViewController: UIViewController  {
         timeTextView.inputView = timePicker
         timePicker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
         timePicker.addTarget(self, action: #selector(self.timeValueChanged), for: .valueChanged)
+        timePicker.preferredDatePickerStyle = .wheels
        
         
     }
