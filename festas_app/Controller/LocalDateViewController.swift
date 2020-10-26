@@ -23,6 +23,7 @@ class LocalDateViewController: UIViewController  {
     var yearEvent:NSManagedObject?
     @IBOutlet weak var EditButdate: UIButton!
     @IBOutlet weak var EdiButHour: UIButton!
+    @IBOutlet weak var dateView: UIView!
     
     
     
@@ -250,9 +251,11 @@ class LocalDateViewController: UIViewController  {
     
     
     func createDatePickerView(){
-        let datePicker = UIDatePicker()
+        let datePicker = UIDatePicker(frame:CGRect(x: 50, y: 50, width:     self.view.frame.size.width, height: 216))
         datePicker.datePickerMode  = .date
-        dateTextView.inputView = datePicker
+        datePicker.tintColor = .white
+        self.dateView.addSubview(datePicker)
+        //dateTextView.inputView = datePicker
         
         
         datePicker.addTarget(self, action: #selector(self.dateValueChanged), for: .valueChanged)

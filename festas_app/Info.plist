@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Festeje!</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -11,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Festeje!</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
@@ -20,6 +22,23 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BalooBhai2-Bold.ttf</string>
+		<string>BalooBhai2-ExtraBold.ttf</string>
+		<string>BalooBhai2-Medium.ttf</string>
+		<string>BalooBhai2-Regular.ttf</string>
+		<string>BalooBhai2-SemiBold.ttf</string>
+		<string>SF-Pro-Rounded-Black.otf</string>
+		<string>SF-Pro-Rounded-Bold.otf</string>
+		<string>SF-Pro-Rounded-Heavy.otf</string>
+		<string>SF-Pro-Rounded-Light.otf</string>
+		<string>SF-Pro-Rounded-Medium.otf</string>
+		<string>SF-Pro-Rounded-Regular.otf</string>
+		<string>SF-Pro-Rounded-Semibold.otf</string>
+		<string>SF-Pro-Rounded-Thin.otf</string>
+		<string>SF-Pro-Rounded-Ultralight.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -52,23 +71,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>BalooBhai2-Bold.ttf</string>
-		<string>BalooBhai2-ExtraBold.ttf</string>
-		<string>BalooBhai2-Medium.ttf</string>
-		<string>BalooBhai2-Regular.ttf</string>
-		<string>BalooBhai2-SemiBold.ttf</string>
-		<string>SF-Pro-Rounded-Black.otf</string>
-		<string>SF-Pro-Rounded-Bold.otf</string>
-		<string>SF-Pro-Rounded-Heavy.otf</string>
-		<string>SF-Pro-Rounded-Light.otf</string>
-		<string>SF-Pro-Rounded-Medium.otf</string>
-		<string>SF-Pro-Rounded-Regular.otf</string>
-		<string>SF-Pro-Rounded-Semibold.otf</string>
-		<string>SF-Pro-Rounded-Thin.otf</string>
-		<string>SF-Pro-Rounded-Ultralight.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
