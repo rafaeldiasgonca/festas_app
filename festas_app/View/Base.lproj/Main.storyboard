@@ -981,7 +981,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWW-r9-ssy">
-                                        <rect key="frame" x="329" y="25" width="25" height="24"/>
+                                        <rect key="frame" x="329" y="20" width="25" height="24"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -994,7 +994,7 @@
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-2"/>
                                 <constraints>
-                                    <constraint firstItem="SWW-r9-ssy" firstAttribute="top" secondItem="K2A-1L-ska" secondAttribute="top" constant="25" id="8qR-eR-QDC"/>
+                                    <constraint firstItem="SWW-r9-ssy" firstAttribute="top" secondItem="K2A-1L-ska" secondAttribute="top" constant="20" id="8qR-eR-QDC"/>
                                     <constraint firstItem="0p7-rw-lpP" firstAttribute="centerY" secondItem="K2A-1L-ska" secondAttribute="centerY" id="B5g-Rm-OQv"/>
                                     <constraint firstItem="34g-8M-nqc" firstAttribute="centerY" secondItem="K2A-1L-ska" secondAttribute="centerY" id="J0L-Sd-t5u"/>
                                     <constraint firstItem="0p7-rw-lpP" firstAttribute="leading" secondItem="K2A-1L-ska" secondAttribute="leading" constant="30" id="jcc-W9-vVu"/>
