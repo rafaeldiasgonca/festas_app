@@ -15,6 +15,7 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BalooBhai2-ExtraBold", size: 34) as Any]
         UserDefaults.standard.set(false, forKey: "ALLREADY_REGISTER")
         UIAccessibility.post(notification: .announcement, argument: "Olá, novato. Vamos criar uma festa?")
     }

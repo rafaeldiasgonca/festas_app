@@ -255,7 +255,7 @@ class LocalDateViewController: UIViewController  {
         datePicker.tintColor = .white
         dateTextView.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
-        
+        datePicker.datePickerMode = .date
         
         //dateTextView.inputView = datePicker
         
