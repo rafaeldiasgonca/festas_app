@@ -44,9 +44,11 @@ class MainViewController: UIViewController, UITableViewDataSource {
     var minuteEvent = String()
     let calendar = Calendar.current
     let date = Date()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //nav.navigationBar.prefersLargeTitles = true
         self.title = "Hey,Party Animal"
         UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
         navigationItem.largeTitleDisplayMode = .always
@@ -232,7 +234,10 @@ class MainViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
+        //self.navigationController?.setNavigationBarHidden(true, animated: true)
         //1
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
