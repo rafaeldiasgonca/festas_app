@@ -72,7 +72,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKP-cC-M39">
-                                        <rect key="frame" x="20" y="223.5" width="334" height="33"/>
+                                        <rect key="frame" x="20" y="223.5" width="334" height="43.5"/>
                                         <color key="backgroundColor" name="button_unico"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
                                         <state key="normal" title="Add a party">
@@ -105,6 +105,7 @@
                                     <constraint firstItem="JKP-cC-M39" firstAttribute="centerX" secondItem="NJJ-dA-OC8" secondAttribute="centerX" id="Ifw-xt-Akf"/>
                                     <constraint firstAttribute="bottom" secondItem="Vz2-2M-B0Z" secondAttribute="bottom" constant="-35" id="KmR-1D-i6J"/>
                                     <constraint firstItem="Zcj-kg-rK2" firstAttribute="centerX" secondItem="NJJ-dA-OC8" secondAttribute="centerX" id="OIm-Gy-PvA"/>
+                                    <constraint firstItem="Vz2-2M-B0Z" firstAttribute="top" secondItem="JKP-cC-M39" secondAttribute="bottom" constant="40" id="Oxw-h3-MUE"/>
                                     <constraint firstItem="r6V-p9-boW" firstAttribute="centerX" secondItem="NJJ-dA-OC8" secondAttribute="centerX" id="Pgu-zb-Jbi"/>
                                     <constraint firstItem="JKP-cC-M39" firstAttribute="leading" secondItem="NJJ-dA-OC8" secondAttribute="leading" constant="20" id="Pzs-5A-9Tf"/>
                                     <constraint firstItem="JKP-cC-M39" firstAttribute="top" secondItem="Zcj-kg-rK2" secondAttribute="bottom" constant="12" id="W9S-KD-PN8"/>
@@ -173,22 +174,25 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_aniversario" translatesAutoresizingMaskIntoConstraints="NO" id="RQi-sv-Lfk">
-                                        <rect key="frame" x="192" y="30" width="222" height="237"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgl-0k-T1t">
-                                        <rect key="frame" x="0.0" y="-0.66666666666662877" width="374" height="221"/>
+                                        <rect key="frame" x="0.0" y="-1" width="184" height="221"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="4Ne-wg-IEy"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="modelo_aniversario" translatesAutoresizingMaskIntoConstraints="NO" id="RQi-sv-Lfk">
+                                        <rect key="frame" x="206" y="14" width="220" height="265"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-1"/>
                                 <constraints>
+                                    <constraint firstItem="RQi-sv-Lfk" firstAttribute="leading" secondItem="t6X-mK-Zn7" secondAttribute="leading" constant="206" id="GEq-59-tLK"/>
                                     <constraint firstItem="1Nz-A6-bn9" firstAttribute="top" secondItem="t6X-mK-Zn7" secondAttribute="top" constant="20" id="OeV-jJ-gEf"/>
+                                    <constraint firstItem="RQi-sv-Lfk" firstAttribute="height" secondItem="t6X-mK-Zn7" secondAttribute="height" multiplier="1.2" id="RGs-Zb-z5k"/>
                                     <constraint firstItem="1Nz-A6-bn9" firstAttribute="leading" secondItem="t6X-mK-Zn7" secondAttribute="leading" constant="20" id="aCl-AJ-1v6"/>
+                                    <constraint firstItem="RQi-sv-Lfk" firstAttribute="top" secondItem="t6X-mK-Zn7" secondAttribute="top" constant="14" id="xAl-m4-fEN"/>
+                                    <constraint firstItem="RQi-sv-Lfk" firstAttribute="width" secondItem="t6X-mK-Zn7" secondAttribute="width" multiplier="0.588235" id="yQI-vM-W81"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-vR-exf" userLabel="View Reunião de amigos">
@@ -216,17 +220,17 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_reuniao" translatesAutoresizingMaskIntoConstraints="NO" id="Uc1-iV-m7y">
-                                        <rect key="frame" x="127" y="87" width="387" height="206"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLk-zH-Nlj">
-                                        <rect key="frame" x="-1" y="-0.33333333333337123" width="381" height="228"/>
+                                        <rect key="frame" x="-1" y="0.0" width="175" height="228"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="nRu-j5-Ng3"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_reuniao" translatesAutoresizingMaskIntoConstraints="NO" id="Uc1-iV-m7y">
+                                        <rect key="frame" x="193" y="73" width="173" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-3"/>
                                 <constraints>
@@ -259,17 +263,17 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_churrasco" translatesAutoresizingMaskIntoConstraints="NO" id="zjt-cN-lzc">
-                                        <rect key="frame" x="177" y="84" width="240" height="228"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8U-lV-vUu">
-                                        <rect key="frame" x="0.0" y="-0.66666666666668561" width="380" height="204"/>
+                                        <rect key="frame" x="0.0" y="-1" width="220" height="214"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="raT-MY-kKu"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_churrasco" translatesAutoresizingMaskIntoConstraints="NO" id="zjt-cN-lzc">
+                                        <rect key="frame" x="177" y="69" width="197" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-2"/>
                                 <constraints>
