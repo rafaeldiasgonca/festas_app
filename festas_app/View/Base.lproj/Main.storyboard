@@ -175,7 +175,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgl-0k-T1t">
-                                        <rect key="frame" x="0.0" y="-1" width="184" height="221"/>
+                                        <rect key="frame" x="0.0" y="-1" width="374" height="221"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="4Ne-wg-IEy"/>
