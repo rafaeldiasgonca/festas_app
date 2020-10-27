@@ -82,7 +82,7 @@ class ToDoListViewController: UIViewController {
        // let navItem = UINavigationItem(title: "SomeTitle")
         let backButton = UIBarButtonItem()
         backButton.title = "Something Else"
-        let button = UIBarButtonItem(title: "Your Event", style: UIBarButtonItem.Style.bordered, target: self, action: #selector(self.goBack))
+        let button = UIBarButtonItem(title: "Your Event", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.goBack))
         self.navigationItem.backBarButtonItem = button
     }
     
