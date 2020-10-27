@@ -76,7 +76,18 @@ class ToDoListViewController: UIViewController {
         gestureOneTapRecognizer.numberOfTapsRequired = 1
         gestureOneTapRecognizer.numberOfTouchesRequired = 1
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
-        
+        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
+        view.addSubview(navBar)
+
+       // let navItem = UINavigationItem(title: "SomeTitle")
+        let backButton = UIBarButtonItem()
+        backButton.title = "Something Else"
+        let button = UIBarButtonItem(title: "Your Event", style: UIBarButtonItem.Style.bordered, target: self, action: #selector(self.goBack))
+        self.navigationItem.backBarButtonItem = button
+    }
+    
+    @objc func goBack(){
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
