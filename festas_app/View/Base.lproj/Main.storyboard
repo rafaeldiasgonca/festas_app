@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -316,10 +316,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curva_sup_config" translatesAutoresizingMaskIntoConstraints="NO" id="QsO-JL-Q1R">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
+                                <rect key="frame" x="0.0" y="0.0" width="415" height="327"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7x-dd-0NA" userLabel="View Hora">
-                                <rect key="frame" x="223" y="155" width="171" height="198.5"/>
+                                <rect key="frame" x="224" y="155" width="171" height="198.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QQM-LL-yCJ">
                                         <rect key="frame" x="8" y="8" width="153.5" height="156"/>
@@ -371,7 +371,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHy-1v-oi7" userLabel="View Local">
-                                <rect key="frame" x="23" y="394" width="368" height="84.5"/>
+                                <rect key="frame" x="23" y="394" width="369.5" height="84.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5l-z3-d1h">
                                         <rect key="frame" x="30" y="20" width="67.5" height="45"/>
@@ -380,7 +380,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rKK-pL-aDX">
-                                        <rect key="frame" x="120.5" y="25.5" width="231.5" height="34"/>
+                                        <rect key="frame" x="120.5" y="25.5" width="233" height="34"/>
                                         <color key="backgroundColor" name="fundo_textfield_local"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -401,7 +401,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-7T-Y1U">
-                                <rect key="frame" x="20" y="808" width="374" height="44"/>
+                                <rect key="frame" x="20" y="808" width="375" height="44"/>
                                 <color key="backgroundColor" name="button_unico"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="g95-Yq-Cv0"/>
@@ -421,10 +421,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWS-bt-Lb4" userLabel="View Data">
-                                <rect key="frame" x="20" y="155" width="166" height="198.5"/>
+                                <rect key="frame" x="20" y="155" width="166.5" height="198.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7xv-iL-HHd">
-                                        <rect key="frame" x="9" y="8" width="148" height="156"/>
+                                        <rect key="frame" x="9" y="8" width="148.5" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-r2-eLv">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="45"/>
@@ -433,7 +433,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="01 January 2020" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rVV-BT-HgW">
-                                                <rect key="frame" x="0.0" y="45" width="148" height="111"/>
+                                                <rect key="frame" x="0.0" y="45" width="148.5" height="111"/>
                                                 <color key="textColor" name="subtitle_card_color"/>
                                                 <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -445,7 +445,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgx-mg-Xfd">
-                                        <rect key="frame" x="132" y="166.5" width="25" height="24"/>
+                                        <rect key="frame" x="132.5" y="166.5" width="25" height="24"/>
                                         <color key="tintColor" name="button_edicao"/>
                                         <state key="normal">
                                             <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
@@ -1348,15 +1348,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="0SZ-Xt-84s">
-                                                    <rect key="frame" x="40" y="2" width="282" height="39"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="0SZ-Xt-84s">
+                                                    <rect key="frame" x="52" y="11" width="270" height="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-28-OSe">
-                                                    <rect key="frame" x="10" y="9" width="20" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-28-OSe">
+                                                    <rect key="frame" x="16" y="11" width="20" height="22"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="circle" catalog="system"/>
@@ -1365,7 +1364,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="0SZ-Xt-84s" secondAttribute="trailing" constant="12" id="0jI-gb-RP4"/>
-                                                <constraint firstItem="0SZ-Xt-84s" firstAttribute="leading" secondItem="A24-EP-36M" secondAttribute="leading" constant="15" id="M3Q-e2-uOK"/>
+                                                <constraint firstItem="0SZ-Xt-84s" firstAttribute="leading" secondItem="NKf-28-OSe" secondAttribute="trailing" constant="16" id="5cF-oe-m3z"/>
+                                                <constraint firstItem="NKf-28-OSe" firstAttribute="centerY" secondItem="A24-EP-36M" secondAttribute="centerY" id="ExK-yf-YEX"/>
+                                                <constraint firstItem="NKf-28-OSe" firstAttribute="leading" secondItem="A24-EP-36M" secondAttribute="leading" constant="16" id="Fk2-62-c72"/>
+                                                <constraint firstItem="0SZ-Xt-84s" firstAttribute="centerY" secondItem="A24-EP-36M" secondAttribute="centerY" id="TuR-vH-hUU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="celulas_checklist"/>

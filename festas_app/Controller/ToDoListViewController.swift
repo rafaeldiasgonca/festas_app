@@ -561,7 +561,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.selectionStyle = .none
-        cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
+        //cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textFieldToDo.delegate = self
         return cell
     }
