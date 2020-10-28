@@ -273,14 +273,17 @@
                                             <action selector="modelTypePressed:" destination="twd-YT-NET" eventType="touchUpInside" id="raT-MY-kKu"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="modelo_churrasco" translatesAutoresizingMaskIntoConstraints="NO" id="zjt-cN-lzc">
-                                        <rect key="frame" x="165" y="72" width="224" height="205"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="modelo_churrasco" translatesAutoresizingMaskIntoConstraints="NO" id="zjt-cN-lzc">
+                                        <rect key="frame" x="160" y="100" width="251" height="190"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-2"/>
                                 <constraints>
+                                    <constraint firstItem="zjt-cN-lzc" firstAttribute="height" secondItem="oAP-BZ-GFQ" secondAttribute="height" multiplier="0.86" id="4sn-ul-8Yw"/>
+                                    <constraint firstItem="zjt-cN-lzc" firstAttribute="leading" secondItem="oAP-BZ-GFQ" secondAttribute="leading" constant="160" id="DAJ-26-NeH"/>
                                     <constraint firstItem="Mye-Qv-gJl" firstAttribute="leading" secondItem="oAP-BZ-GFQ" secondAttribute="leading" constant="20" id="Msz-ie-RPY"/>
+                                    <constraint firstItem="zjt-cN-lzc" firstAttribute="top" secondItem="oAP-BZ-GFQ" secondAttribute="top" constant="100" id="bYE-qE-2x4"/>
+                                    <constraint firstItem="zjt-cN-lzc" firstAttribute="width" secondItem="oAP-BZ-GFQ" secondAttribute="width" multiplier="0.671123" id="c5q-e4-Vc6"/>
                                     <constraint firstItem="Mye-Qv-gJl" firstAttribute="top" secondItem="oAP-BZ-GFQ" secondAttribute="top" constant="20" id="laf-Wf-3NR"/>
                                 </constraints>
                             </view>
