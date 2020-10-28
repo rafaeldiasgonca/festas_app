@@ -40,8 +40,8 @@ class LocalDateViewController: UIViewController  {
         gestureOneTapRecognizer.numberOfTouchesRequired = 1
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         timeTextView.isUserInteractionEnabled = false
-        dateTextView.isUserInteractionEnabled = true
-       
+        dateTextView.isUserInteractionEnabled = false
+        
       
     
         
@@ -53,6 +53,7 @@ class LocalDateViewController: UIViewController  {
     }
 
     @IBAction func EditButDate(_ sender: Any) {
+        dateTextView.isEditable = true
         createDatePickerView()
         self.dateTextView.becomeFirstResponder()
         
