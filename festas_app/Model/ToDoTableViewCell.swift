@@ -15,6 +15,7 @@ class ToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var textFieldToDo: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
+        itensTF.isUserInteractionEnabled = false
         // Initialization code
     }
 
