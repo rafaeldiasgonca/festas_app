@@ -16,7 +16,6 @@ class GuestsViewController: UIViewController {
     var convidados:[String] = []
     var guestList:[NSManagedObject] = []
     var nameIndex:Int? = nil
-    var haveName = false
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
     
@@ -294,7 +293,8 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
         
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if convidados.count > 0 {
+        self.view.endEditing(true)
+        if convidados.count >= 0 {
             if textField.text != "" {
                 for i in 0...convidados.count - 1 {
                     if convidados[i] == textField.text {

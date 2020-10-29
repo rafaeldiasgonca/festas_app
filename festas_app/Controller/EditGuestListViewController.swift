@@ -16,6 +16,8 @@ class EditGuestListViewController: UIViewController {
     var convidados:[String] = []
     var guestList:[NSManagedObject] = []
     var numDeConvidados = Int()
+    var nameIndex:Int? = nil
+    var createCell = true
     @IBOutlet weak var numberOfGuestsLabel: UILabel!
     
     override func viewDidLoad() {
@@ -29,11 +31,7 @@ class EditGuestListViewController: UIViewController {
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
-    
-    @IBAction func addGuestPressed(_ sender: UIBarButtonItem) {
-        self.inserirNovoConvidado()
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //1
@@ -71,6 +69,7 @@ class EditGuestListViewController: UIViewController {
         for person in convidados {
             self.save(name: person)
         }
+        view.endEditing(true)
     }
     
     //MARK: - CoreData Functions
@@ -212,25 +211,97 @@ class EditGuestListViewController: UIViewController {
 extension EditGuestListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if convidados1 == 0 {
+            convidados1 = 1
+            return convidados1
+        }
         return convidados1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier:"Convidados", for: indexPath) as! GuestsNamesTableViewCell
         cell.nameGuests.delegate = self
         cell.layer.cornerRadius = 12
+        cell.nameGuests.tag = indexPath.row
+        
+        if indexPath.row >= convidados.count {
+            if cell.nameGuests.text == "" {
+                cell.nameGuests.becomeFirstResponder()
+            }
+        }
+        
+        
         if convidados.count > indexPath.row {
             let person = convidados[indexPath.row]
             cell.nameGuests.text = person
         } else {
             cell.nameGuests.text = ""
         }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
+        if editingStyle == .delete {
+            let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
+            if convidados.count > indexPath.row {
+                convidados.remove(at: indexPath.row)
+                
+            }
+            
+            if cell.nameGuests.text != "" {
+                cell.nameGuests.text = ""
+                cell.nameGuests.isEnabled = true
+                cell.backgroundColor = .white
+            }
+            
+            convidados1 = convidados1 - 1
+            numberOfGuestsLabel.text = String(convidados.count)
+            tableView.beginUpdates()
+            tableView.deleteRows(at:[indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
+    
+    func inserirNovoConvidado(){
+        convidados1 = convidados1 + 1
+        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        
+        tableView.beginUpdates()
+        tableView.insertRows(at:[indexPath], with:.automatic)
+        tableView.endUpdates()
+        numberOfGuestsLabel.text = String(convidados1)
+        
+    }
+}
+
+
+
+//MARK: - TextField Controller
+
+extension EditGuestListViewController: UITextViewDelegate, UITextFieldDelegate {
+    
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        
+        guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
+        
+        if nameIndex != nil {
+            convidados[nameIndex!] = nameToSave
+            nameIndex = nil
+        } else {
+            convidados.append(nameToSave)
+        }
+        numberOfGuestsLabel.text = String(convidados.count)
+        print("Os convidados são: \(convidados)")
+        
+        tableView.reloadData()
+        
+        if convidados1 > 1 && textField.text == "" {
             let cell = tableView.cellForRow(at: indexPath) as! GuestsNamesTableViewCell
             if convidados.count > indexPath.row {
                 convidados.remove(at: indexPath.row)
@@ -243,35 +314,41 @@ extension EditGuestListViewController: UITableViewDelegate, UITableViewDataSourc
             }
             
             convidados1 = convidados1 - 1
-            numberOfGuestsLabel.text = String(convidados1)
+            numberOfGuestsLabel.text = String(convidados.count)
             tableView.beginUpdates()
             tableView.deleteRows(at:[indexPath], with: .automatic)
             tableView.endUpdates()
-            print(convidados1)
         }
+        
+        
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        if convidados.count >= 0 {
+            if textField.text != "" {
+                for i in 0...convidados.count - 1 {
+                    if convidados[i] == textField.text {
+                        nameIndex = i
+                    }
+                }
+            }
+        }
+        return true
     }
     
-    func inserirNovoConvidado(){
-        convidados1 = convidados1 + 1
-        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at:[indexPath], with:.automatic)
-        tableView.endUpdates()
-        numberOfGuestsLabel.text = String(convidados1)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField.text != "" && nameIndex == nil && createCell == false {
+            self.view.endEditing(true)
+            inserirNovoConvidado()
+        }
+        if createCell == true {
+            inserirNovoConvidado()
+            createCell = false
+        }
+        numberOfGuestsLabel.text = String(convidados.count)
+        return true
     }
 }
 
-
-
-//MARK: - TextField Controller
-
-extension EditGuestListViewController: UITextViewDelegate, UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let nameToSave = textField.text, !nameToSave.isEmpty else { return }
-        convidados.append(nameToSave)
-        print(convidados)
-        tableView.reloadData()
-    }
-}
 
