@@ -16,6 +16,7 @@ class GuestsViewController: UIViewController {
     var convidados:[String] = []
     var guestList:[NSManagedObject] = []
     var nameIndex:Int? = nil
+    var createCell = true
     @IBOutlet weak var ViewConvidados: UIView!
     var numDeConvidados = Int()
     
@@ -227,6 +228,10 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.backgroundColor = .white
             }
             
+            if cell.nameGuests.text == "" {
+                createCell = true
+            }
+            
             convidados1 = convidados1 - 1
             numberOfGuests.text = String(convidados.count)
             tableView.beginUpdates()
@@ -308,10 +313,16 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField.text != "" && nameIndex == nil {
+        if textField.text != "" && nameIndex == nil && createCell == false {
             self.view.endEditing(true)
             inserirNovoConvidado()
         }
+        
+        if createCell == true {
+            inserirNovoConvidado()
+            createCell = false
+        }
+
         numberOfGuests.text = String(convidados.count)
         return true
     }
