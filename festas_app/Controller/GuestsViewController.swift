@@ -242,9 +242,10 @@ extension GuestsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func inserirNovoConvidado(){
         convidados1 = convidados1 + 1
-        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
+        
         
         tableView.beginUpdates()
+        let indexPath = IndexPath.init(row: convidados1 - 1, section: 0)
         tableView.insertRows(at:[indexPath], with:.automatic)
         tableView.endUpdates()
         numberOfGuests.text = String(convidados1)
