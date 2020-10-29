@@ -78,12 +78,36 @@ class LocalDateViewController: UIViewController, UIPickerViewDelegate  {
     }
 
     @IBAction func EditButDate(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        let minutes: String = dateFormatter.string(from: timePicker.date)
+        dateFormatter.dateFormat = "HH"
+        let hour: String = dateFormatter.string(from: timePicker.date)
+        self.saveHour(hourToEvent: hour)
+        self.saveMinute(minuteToEvent: minutes)
+        let formatacao1 = DateFormatter()
+        formatacao1.dateFormat = "HH:mm"
+        timeTextView.text = formatacao1.string(from: timePicker.date)
+        self.view.endEditing(true)
         createDatePickerView()
         self.dateTextView.becomeFirstResponder()
         
     }
     
     @IBAction func EditHourBut(_ sender: Any) {
+        let formatacao = DateFormatter()
+        formatacao.dateStyle = .long
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year: String = dateFormatter.string(from: datePicker.date)
+        dateFormatter.dateFormat = "MM"
+        let month: String = dateFormatter.string(from: datePicker.date)
+        dateFormatter.dateFormat = "dd"
+        let day: String = dateFormatter.string(from: datePicker.date)
+        self.saveDay(dayToEvent: day)
+        self.saveMonth(monthToEvent: month)
+        self.saveYear(yearToEvent: year)
+        dateTextView.text = formatacao.string(from: datePicker.date)
         createTimePickerView()
         self.timeTextView.becomeFirstResponder()
     }
