@@ -38,7 +38,7 @@
 		DF52533C252674BB001C72D0 /* PartySummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */; };
 		DF52533F252681F2001C72D0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF52533E252681F2001C72D0 /* SettingsViewController.swift */; };
 		DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */; };
-		DFEBF6072525222600205D6A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* MainViewController.swift */; };
+		DFEBF6072525222600205D6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEBF6062525222600205D6A /* HomeViewController.swift */; };
 		DFF684242530DE44007E0264 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF684232530DE44007E0264 /* File.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +76,7 @@
 		DF52533B252674BB001C72D0 /* PartySummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySummaryTableViewCell.swift; sourceTree = "<group>"; };
 		DF52533E252681F2001C72D0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewController.swift; sourceTree = "<group>"; };
-		DFEBF6062525222600205D6A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DFEBF6062525222600205D6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DFF684232530DE44007E0264 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 				DF23B99C251AA0DE00F7E57B /* LocalDateViewController.swift */,
 				DFB2222C251D2DA0005A8CC8 /* GuestsViewController.swift */,
 				DF364F272527BE7600BD9FAB /* EditGuestListViewController.swift */,
-				DFEBF6062525222600205D6A /* MainViewController.swift */,
+				DFEBF6062525222600205D6A /* HomeViewController.swift */,
 				DF52533E252681F2001C72D0 /* SettingsViewController.swift */,
 				DF364F2A2527C54400BD9FAB /* ToDoListViewController.swift */,
 			);
@@ -269,7 +269,7 @@
 				DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */,
 				DF23B98E251A6DBB00F7E57B /* festas_app.xcdatamodeld in Sources */,
 				DFB2222D251D2DA0005A8CC8 /* GuestsViewController.swift in Sources */,
-				DFEBF6072525222600205D6A /* MainViewController.swift in Sources */,
+				DFEBF6072525222600205D6A /* HomeViewController.swift in Sources */,
 				DF364F2B2527C54400BD9FAB /* ToDoListViewController.swift in Sources */,
 				DFF684242530DE44007E0264 /* File.swift in Sources */,
 				DF23B99D251AA0DE00F7E57B /* LocalDateViewController.swift in Sources */,

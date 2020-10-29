@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class LocalDateViewController: UIViewController  {
+class LocalDateViewController: UIViewController, UIPickerViewDelegate  {
    
     @IBOutlet weak var dateTextView: UITextView!
     @IBOutlet weak var timeTextView: UITextView!
@@ -24,10 +24,9 @@ class LocalDateViewController: UIViewController  {
     @IBOutlet weak var EditButdate: UIButton!
     @IBOutlet weak var EdiButHour: UIButton!
     @IBOutlet weak var dateView: UIView!
-    
-    
-    let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
+    let datePicker = UIDatePicker()
+    
     var tituloRecebido = String()
     
     
@@ -41,19 +40,44 @@ class LocalDateViewController: UIViewController  {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         timeTextView.isUserInteractionEnabled = false
         dateTextView.isUserInteractionEnabled = false
-        
+       
       
     
         
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        let formatacao = DateFormatter()
+        //Date
+        
+        formatacao.dateStyle = .long
+        formatacao.timeStyle = .none
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year: String = dateFormatter.string(from: datePicker.date)
+        dateFormatter.dateFormat = "MM"
+        let month: String = dateFormatter.string(from: datePicker.date)
+        dateFormatter.dateFormat = "dd"
+        let day: String = dateFormatter.string(from: datePicker.date)
+        self.saveDay(dayToEvent: day)
+        self.saveMonth(monthToEvent: month)
+        self.saveYear(yearToEvent: year)
+        dateTextView.text = formatacao.string(from: datePicker.date)
+        //Time
+
+        dateFormatter.dateFormat = "mm"
+        let minutes: String = dateFormatter.string(from: timePicker.date)
+        dateFormatter.dateFormat = "HH"
+        let hour: String = dateFormatter.string(from: timePicker.date)
+        self.saveHour(hourToEvent: hour)
+        self.saveMinute(minuteToEvent: minutes)
+        let formatacao1 = DateFormatter()
+        formatacao1.dateFormat = "HH:mm"
+        timeTextView.text = formatacao1.string(from: timePicker.date)
         self.view.endEditing(true)
-       
     }
 
     @IBAction func EditButDate(_ sender: Any) {
-        dateTextView.isEditable = true
         createDatePickerView()
         self.dateTextView.becomeFirstResponder()
         
@@ -253,68 +277,18 @@ class LocalDateViewController: UIViewController  {
     
     
     func createDatePickerView(){
-        // Create toolBar
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        //Create bar Button
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePressed))
-        
-        //assign done button to toolbar
-        toolBar.setItems([doneBtn], animated: true)
-        //assign toolbar to textfield
-        dateTextView.inputAccessoryView = toolBar
-        //assign datePicker to textField
+        datePicker.tintColor = .white
         dateTextView.inputView = datePicker
-        datePicker.datePickerMode  = .date
         datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
     }
-    
-    @objc func donePressed(){
-        let formatacao = DateFormatter()
-        formatacao.dateStyle = .long
-        formatacao.timeStyle = .none
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy"
-        let year: String = dateFormatter.string(from: self.datePicker.date)
-        dateFormatter.dateFormat = "MM"
-        let month: String = dateFormatter.string(from: self.datePicker.date)
-        dateFormatter.dateFormat = "dd"
-        let day: String = dateFormatter.string(from: self.datePicker.date)
-        self.saveDay(dayToEvent: day)
-        self.saveMonth(monthToEvent: month)
-        self.saveYear(yearToEvent: year)
-        dateTextView.text = formatacao.string(from: datePicker.date)
-        self.view.endEditing(true)
-        
-    }
-    
+
     func createTimePickerView(){
-        let toolbar1 = UIToolbar()
-        toolbar1.sizeToFit()
-        let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
-        toolbar1.setItems([doneBtn1], animated: true)
-        timeTextView.inputAccessoryView = toolbar1
+        timePicker.datePickerMode = .time
         timeTextView.inputView = timePicker
         timePicker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
-        timePicker.datePickerMode = .time
         timePicker.preferredDatePickerStyle = .wheels
-        
     }
-    
-    @objc func donePressed1(){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
-        let minutes: String = dateFormatter.string(from: self.timePicker.date)
-        dateFormatter.dateFormat = "HH"
-        let hour: String = dateFormatter.string(from: self.timePicker.date)
-        self.saveHour(hourToEvent: hour)
-        self.saveMinute(minuteToEvent: minutes)
-        let formatacao1 = DateFormatter()
-        formatacao1.dateFormat = "HH:mm"
-        timeTextView.text = formatacao1.string(from: timePicker.date)
-        self.view.endEditing(true)
-    }
-    
 
 }
 

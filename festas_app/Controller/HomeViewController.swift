@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDataSource {
     
     
     var itens:[String] = ["","",""]
@@ -49,7 +49,6 @@ class MainViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         //nav.navigationBar.prefersLargeTitles = true
-        self.title = "Hey,Party Animal"
         UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
         navigationItem.largeTitleDisplayMode = .always
         self.viewDetalhes.layer.cornerRadius = 12

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
         
         let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! HomeViewController
         
         var nav = UINavigationController(rootViewController: startViewController)
         if isRegistered {
