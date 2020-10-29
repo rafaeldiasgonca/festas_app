@@ -147,6 +147,29 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func EndBut(_ sender: Any) {
+        let alert = UIAlertController(title: "", message: "Have in mind that you will lose all of your progress if you continue?", preferredStyle: UIAlertController.Style.alert)
+             // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { [self]action in GoAhead()}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+             // show the alert
+             self.present(alert, animated: true, completion: nil)
+
+    }
+    func GoAhead(){
+        let vc = self.storyboard?.instantiateViewController(identifier:"StartViewController")
+              self.show(vc!, sender: self)
+              self.deleteAllData(entity: "Guest")
+              self.deleteAllData(entity: "Completed")
+              self.deleteAllData(entity: "Disposable")
+              self.deleteAllData(entity: "Drinks")
+              self.deleteAllData(entity: "Food")
+              self.deleteAllData(entity: "General")
+              self.deleteAllData(entity: "Space")
+              self.deleteAllData(entity: "Utensils")
+        
+    }
+    
     func updateNumberOfGuests() {
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else {
@@ -349,6 +372,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    func deleteAllData(entity: String) {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try managedContext.fetch(fetchRequest)
+                for managedObject in results {
+                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                    managedContext.delete(managedObjectData)
+                }
+            }
+            catch let error as NSError {
+                print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+            }
+        }
+
+
     
     func createDatePickerView(){
         // Create toolBar

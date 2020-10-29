@@ -595,7 +595,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             return headerView
         case 1:
             button.addTarget(self,action:#selector(bebidasBut),for:.touchUpInside)
-            label.text = "Drinkss"
+            label.text = "Drinks"
             return headerView
         case 2:
             button.addTarget(self,action:#selector(utensiliosBut),for:.touchUpInside)

@@ -20,5 +20,9 @@ class StartViewController: UIViewController {
         UIAccessibility.post(notification: .announcement, argument: "Olá, novato. Vamos criar uma festa?")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.hidesBackButton = true
+        }
 }
 
