@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -662,14 +662,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Pey-uI-Rgi">
-                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" style="plain" id="pTQ-Yq-caL">
-                            <color key="tintColor" name="plus_button_sup"/>
-                            <connections>
-                                <action selector="addGuestPressed:" destination="AL8-w4-EjY" id="hE3-4B-acs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Pey-uI-Rgi"/>
                     <connections>
                         <outlet property="ViewConvidados" destination="xAB-mE-Qce" id="Ypp-Dq-6Vy"/>
                         <outlet property="numberOfGuests" destination="vlC-is-FpJ" id="cge-TB-znO"/>
@@ -859,20 +852,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Ky-1uR">
-                                        <rect key="frame" x="327" y="8" width="31" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Fdw-dJ-uz3"/>
-                                            <constraint firstAttribute="width" constant="31" id="FnJ-ul-wdO"/>
-                                        </constraints>
-                                        <color key="tintColor" name="button_edicao"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="square.and.arrow.up.fill" catalog="system" symbolScale="large"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sharedButtonPressed:" destination="Ryu-CG-i1T" eventType="touchUpInside" id="WCa-gR-nIn"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alphaville" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-BG-Gn8">
                                         <rect key="frame" x="100" y="39" width="230" height="20"/>
                                         <constraints>
@@ -901,6 +880,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="156.5"/>
                                         <connections>
                                             <segue destination="ixz-w3-HpA" kind="show" id="MfU-K2-BsZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZq-Ky-1uR">
+                                        <rect key="frame" x="327" y="8" width="31" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Fdw-dJ-uz3"/>
+                                            <constraint firstAttribute="width" constant="31" id="FnJ-ul-wdO"/>
+                                        </constraints>
+                                        <color key="tintColor" name="button_edicao"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="square.and.arrow.up.fill" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sharedButtonPressed:" destination="Ryu-CG-i1T" eventType="touchUpInside" id="WCa-gR-nIn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1450,7 +1443,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.5" height="111"/>

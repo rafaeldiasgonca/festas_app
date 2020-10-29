@@ -25,8 +25,5 @@ class GuestsNamesTableViewCell: UITableViewCell, UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("a")
-    }
 
 }
