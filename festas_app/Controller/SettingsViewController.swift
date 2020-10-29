@@ -111,7 +111,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 timeEventTextView.text =  "Undefined Schedule"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
-                timeEventTextView.text = timeEvent
+//                timeEventTextView.text = timeEvent
             }
             switch monthEvent {
             case "01":
@@ -360,9 +360,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         //assign done button to toolbar
         toolBar.setItems([doneBtn], animated: true)
         //assign toolbar to textfield
-        dateTextView.inputAccessoryView = toolBar
+//        dateTextView.inputAccessoryView = toolBar
         //assign datePicker to textField
-        dateTextView.inputView = datePicker
+     //   dateTextView.inputView = datePicker
         datePicker.datePickerMode  = .date
         datePicker.preferredDatePickerStyle = .wheels
         
@@ -413,11 +413,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         toolbar1.sizeToFit()
         let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
         toolbar1.setItems([doneBtn1], animated: true)
-        timeEventTextView.inputAccessoryView = toolbar1
-        timeEventTextView.inputView = timePIcker
-        timePIcker.datePickerMode = .time
-        timePIcker.preferredDatePickerStyle = .wheels
-        timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
+//        timeEventTextView.inputAccessoryView = toolbar1
+//        timeEventTextView.inputView = timePIcker
+//        timePIcker.datePickerMode = .time
+//        timePIcker.preferredDatePickerStyle = .wheels
+//        timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
     }
 
     @objc func donePressed1(){
