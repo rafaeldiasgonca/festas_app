@@ -16,18 +16,30 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen" translatesAutoresizingMaskIntoConstraints="NO" id="cCP-vf-Whc">
+                                <rect key="frame" x="97" y="384" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="launchscreen"/>
+                        <color key="backgroundColor" name="fundo_home_inicial"/>
+                        <constraints>
+                            <constraint firstItem="cCP-vf-Whc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="ZDh-qz-ib4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cCP-vf-Whc" secondAttribute="bottom" constant="350" id="euq-GS-ehC"/>
+                            <constraint firstItem="cCP-vf-Whc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="kDk-DT-AwK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCP-vf-Whc" secondAttribute="trailing" constant="77" id="pbP-gQ-63C"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="launchscreen">
-            <color red="0.38823529411764707" green="0.38039215686274508" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="launchscreen" width="263" height="286"/>
+        <namedColor name="fundo_home_inicial">
+            <color red="1" green="0.7839999794960022" blue="0.37299999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

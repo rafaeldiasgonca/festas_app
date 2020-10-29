@@ -108,7 +108,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 dayEventLabel.text = "00"
             }
             if hourEvent == "" && minuteEvent == "" {
-                timeEventTextView.text =  "Undefined Schedule"
+//                timeEventTextView.text =  "Undefined Schedule"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
 //                timeEventTextView.text = timeEvent
