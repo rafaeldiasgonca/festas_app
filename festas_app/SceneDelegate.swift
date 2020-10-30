@@ -25,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var nav = UINavigationController(rootViewController: startViewController)
         if isRegistered {
             nav = UINavigationController(rootViewController: mainViewController)
+            nav.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BalooBhai2-ExtraBold", size: 34) as Any]
         } else {
             nav = UINavigationController(rootViewController: startViewController)
         }

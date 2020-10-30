@@ -764,12 +764,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW6-4z-vLf">
-                                        <rect key="frame" x="264" y="465.5" width="90" height="30"/>
+                                        <rect key="frame" x="317" y="465.5" width="37" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="AhS-OB-jRl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="Mais Tarefas">
+                                        <state key="normal" title="More">
                                             <color key="titleColor" name="label_title_home_principal"/>
                                         </state>
                                         <connections>
@@ -1454,7 +1454,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.5" height="111"/>
