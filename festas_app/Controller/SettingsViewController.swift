@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ButtonExcluir: UIButton!
     @IBOutlet weak var ButtonFinalizar: UIButton!
     @IBOutlet weak var viewDetalhesConvidados: UIView!
-    @IBOutlet weak var ViewDetalhesData: UIView!
+    @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var viewDetalhes: UIView!
     @IBOutlet weak var viewDetalhesTarefas: UIView!
     @IBOutlet weak var typeNameTextField: UITextField!
@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeEventTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var numberOfGuestLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
+    var firstTime = true
     var convidados = 0
     
     let calendar = Calendar.current
@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let gestureDate = UITapGestureRecognizer(target: self, action: #selector(startEditingDate(_:)))
         gestureDate.numberOfTapsRequired = 1
         gestureDate.numberOfTouchesRequired = 1
-        dateTextField.addGestureRecognizer(gestureDate)
+        dateView.addGestureRecognizer(gestureDate)
         
         //Gesture Time
         let gestureTime = UITapGestureRecognizer(target: self, action: #selector(startEditingTime(_:)))
@@ -83,11 +83,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         localNameTextField.isUserInteractionEnabled = true
         localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         timeEventTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
-        self.ViewDetalhesData.layer.cornerRadius = 12
+        self.dateView.layer.cornerRadius = 12
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
         self.viewDetalhesConvidados.layer.cornerRadius = 12
-        
+        createDatePickerView()
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         timeEventTextField.tintColor = .clear
@@ -113,7 +113,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @objc func startEditingDate(_ gesture: UITapGestureRecognizer) {
         createDatePickerView()
         timeEventTextField.becomeFirstResponder()
-
     }
     
     @objc func startEditingTime(_ gesture: UITapGestureRecognizer) {
@@ -499,7 +498,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     func createDatePickerView(){
         datePicker.datePickerMode = .date
-//        datePicker.tintColor = .white
+        datePicker.tintColor = .white
         dateTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         
@@ -513,17 +512,20 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let nameToSave = typeNameTextField.text else { return }
-        self.save(newName: nameToSave)
-        guard let localToSave = localNameTextField.text else { return }
-        self.saveLocal(local: localToSave)
-        self.endEditingTime()
-        self.endEditingDate()
-        self.view.endEditing(true)
-        typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-        localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-        timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-
+        if firstTime == false {
+            guard let nameToSave = typeNameTextField.text else { return }
+            self.save(newName: nameToSave)
+            guard let localToSave = localNameTextField.text else { return }
+            self.saveLocal(local: localToSave)
+            self.endEditingTime()
+            self.endEditingDate()
+            self.view.endEditing(true)
+            typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+            localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+            timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        }
+        firstTime = true
+        
         
     }
     
@@ -556,7 +558,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.saveDay(dayToEvent: day)
         self.saveMonth(monthToEvent: month)
         self.saveYear(yearToEvent: year)
-        dayEventLabel.text = dayEvent
+        dayEventLabel.text = day
         monthEvent = month
         switch monthEvent {
         case "01":

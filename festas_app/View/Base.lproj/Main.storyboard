@@ -1049,6 +1049,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-Gf-54p">
                                         <rect key="frame" x="19" y="13" width="63.5" height="63.5"/>
                                         <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-wK-Jsx">
+                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="63.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm6-br-1Ez">
                                                 <rect key="frame" x="0.0" y="3" width="63.5" height="21"/>
                                                 <constraints>
@@ -1067,24 +1072,22 @@
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-wK-Jsx">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" name="card_data_config"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vqe-wK-Jsx" secondAttribute="trailing" id="158-hr-BCP"/>
                                             <constraint firstItem="LKp-Ap-DNp" firstAttribute="top" secondItem="fxh-Gf-54p" secondAttribute="top" constant="21" id="1Ee-IS-fyw"/>
+                                            <constraint firstItem="vqe-wK-Jsx" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="leading" id="2Td-2A-fyq"/>
                                             <constraint firstItem="LKp-Ap-DNp" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="leading" id="6Xs-sK-wlX"/>
                                             <constraint firstAttribute="trailing" secondItem="LKp-Ap-DNp" secondAttribute="trailing" id="7E0-SR-s1m"/>
                                             <constraint firstAttribute="bottom" secondItem="LKp-Ap-DNp" secondAttribute="bottom" constant="4" id="ALR-Xg-NHC"/>
                                             <constraint firstAttribute="height" constant="63.5" id="KKX-Vb-6oq"/>
+                                            <constraint firstItem="vqe-wK-Jsx" firstAttribute="top" secondItem="fxh-Gf-54p" secondAttribute="top" id="Sdn-Bt-ZdF"/>
                                             <constraint firstAttribute="width" constant="63.5" id="fbg-pi-Q2n"/>
                                             <constraint firstAttribute="trailing" secondItem="Wm6-br-1Ez" secondAttribute="trailing" id="mW1-PF-XQJ"/>
                                             <constraint firstItem="Wm6-br-1Ez" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="leading" id="mtC-W7-THa"/>
                                             <constraint firstAttribute="bottom" secondItem="Wm6-br-1Ez" secondAttribute="bottom" constant="39.5" id="mug-aG-b3X"/>
+                                            <constraint firstAttribute="bottom" secondItem="vqe-wK-Jsx" secondAttribute="bottom" id="tkB-a4-C6Y"/>
                                             <constraint firstItem="Wm6-br-1Ez" firstAttribute="top" secondItem="fxh-Gf-54p" secondAttribute="top" constant="3" id="uR4-po-Vxj"/>
                                         </constraints>
                                     </view>
@@ -1213,8 +1216,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your event" id="8xd-Tz-5Pu"/>
                     <connections>
-                        <outlet property="ViewDetalhesData" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
                         <outlet property="dateTextField" destination="vqe-wK-Jsx" id="LiV-tw-oAI"/>
+                        <outlet property="dateView" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
                         <outlet property="dayEventLabel" destination="LKp-Ap-DNp" id="v1P-Ms-hOo"/>
                         <outlet property="localNameTextField" destination="p7p-Eb-Dyt" id="0cY-Yq-2iw"/>
                         <outlet property="monthEventLabel" destination="Wm6-br-1Ez" id="l9Z-gl-7m5"/>
