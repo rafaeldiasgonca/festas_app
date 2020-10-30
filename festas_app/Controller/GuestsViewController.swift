@@ -320,8 +320,9 @@ extension GuestsViewController: UITextViewDelegate, UITextFieldDelegate {
         }
         
         if createCell == true {
-            inserirNovoConvidado()
             createCell = false
+            self.view.endEditing(true)
+            inserirNovoConvidado()
         }
 
         numberOfGuests.text = String(convidados.count)
