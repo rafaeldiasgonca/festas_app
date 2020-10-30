@@ -1094,6 +1094,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="--:--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-qp-n49">
                                         <rect key="frame" x="100" y="68" width="41" height="18"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="Ts0-YK-WGl"/>
                                             <constraint firstAttribute="height" constant="18" id="z4s-du-iqG"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1124,17 +1125,17 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cuS-qp-n49" secondAttribute="bottom" constant="25" id="17L-mN-0af"/>
                                     <constraint firstItem="cuS-qp-n49" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="28" id="EHW-go-d1l"/>
-                                    <constraint firstAttribute="trailing" secondItem="W7K-PM-SfB" secondAttribute="trailing" constant="8" id="HoD-Ww-qof"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="W7K-PM-SfB" secondAttribute="trailing" constant="8" id="HoD-Ww-qof"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.5" id="JPH-Nr-T6c"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="13" id="K4i-eC-dg8"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="13" id="Ls1-Ew-KvF"/>
-                                    <constraint firstAttribute="trailing" secondItem="cuS-qp-n49" secondAttribute="trailing" constant="233" id="Nbb-xA-nVq"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cuS-qp-n49" secondAttribute="trailing" constant="233" id="Nbb-xA-nVq"/>
                                     <constraint firstAttribute="height" constant="111" id="UoT-bJ-kKK"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="leading" secondItem="eV9-Y8-rye" secondAttribute="leading" constant="19" id="aBH-GL-XoO"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.670000000000002" id="h0e-eX-gGK"/>
                                     <constraint firstItem="cuS-qp-n49" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.5" id="kVT-Lh-BCd"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="5" id="krI-uy-E9J"/>
-                                    <constraint firstAttribute="trailing" secondItem="p7p-Eb-Dyt" secondAttribute="trailing" constant="8" id="yhg-eF-oz4"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="p7p-Eb-Dyt" secondAttribute="trailing" constant="8" id="yhg-eF-oz4"/>
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frI-js-trv">
@@ -1454,7 +1455,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Iyb-6G-pNK"/>
+        <segue reference="vXy-Po-5Qg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.5" height="111"/>
