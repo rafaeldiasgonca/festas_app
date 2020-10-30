@@ -95,6 +95,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingTypeName(_ gesture: UITapGestureRecognizer) {
+        self.endEditingLocalName()
         self.endEditingTime()
         self.endEditingDate()
         typeNameTextField.isUserInteractionEnabled = true
@@ -103,6 +104,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingLocal(_ gesture: UITapGestureRecognizer) {
+        self.endEditingTypeName()
         self.endEditingTime()
         self.endEditingDate()
         localNameTextField.isUserInteractionEnabled = true
@@ -111,23 +113,27 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingDate(_ gesture: UITapGestureRecognizer) {
+        self.endEditingTypeName()
+        self.endEditingLocalName()
+        self.endEditingTime()
         createDatePickerView()
         timeEventTextField.becomeFirstResponder()
     }
     
     @objc func startEditingTime(_ gesture: UITapGestureRecognizer) {
+        self.endEditingTypeName()
+        self.endEditingLocalName()
+        self.endEditingDate()
         createTimePickerView()
         timeEventTextField.becomeFirstResponder()
         timeEventTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
-        self.endEditingDate()
+        self.endEditingTypeName()
+        self.endEditingLocalName()
         self.endEditingTime()
-        self.view.endEditing(true)
-        typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-        localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-        timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        self.endEditingDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -220,7 +226,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func EndBut(_ sender: Any) {
+    @IBAction func dndBut(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "Have in mind that you will lose all of your progress if you continue?", preferredStyle: UIAlertController.Style.alert)
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { [self]action in goAhead()}))
@@ -529,6 +535,20 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func endEditingTypeName() {
+        guard let nameToSave = typeNameTextField.text else { return }
+        self.save(newName: nameToSave)
+        typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        self.view.endEditing(true)
+    }
+    
+    func endEditingLocalName() {
+        guard let localToSave = localNameTextField.text else { return }
+        self.saveLocal(local: localToSave)
+        localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        self.view.endEditing(true)
+    }
+    
     func endEditingTime() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "mm"
@@ -593,7 +613,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        self.endEditingTypeName()
+        self.endEditingLocalName()
+        self.endEditingTime()
+        self.endEditingDate()
+        return true
     }
     
     

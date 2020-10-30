@@ -1151,7 +1151,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="EndBut:" destination="ixz-w3-HpA" eventType="touchUpInside" id="EfT-hR-iMy"/>
+                                    <action selector="dndBut:" destination="ixz-w3-HpA" eventType="touchUpInside" id="EfT-hR-iMy"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frI-js-trv">
