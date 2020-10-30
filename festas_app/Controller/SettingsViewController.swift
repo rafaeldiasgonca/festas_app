@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var localNameTextField: UITextField!
     @IBOutlet weak var dayEventLabel: UILabel!
     @IBOutlet weak var monthEventLabel: UILabel!
-    @IBOutlet weak var timeEventTextView: UITextView!
+    @IBOutlet weak var timeEventTextField: UITextField!
     @IBOutlet weak var dateTextView: UITextView!
     @IBOutlet weak var numberOfGuestLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
@@ -43,7 +43,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         typeNameTextField.delegate = self
         localNameTextField.delegate = self
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BalooBhai2-ExtraBold", size: 34) as Any]
-
+        
+        let gestureType = UITapGestureRecognizer(target: self, action: #selector(startEditingTypeName(_:)))
+        gestureType.numberOfTapsRequired = 1
+        gestureType.numberOfTouchesRequired = 1
+        typeNameTextField.addGestureRecognizer(gestureType)
+        
+        let gestureLocal = UITapGestureRecognizer(target: self, action: #selector(startEditingLocal(_:)))
+        gestureLocal.numberOfTapsRequired = 1
+        gestureLocal.numberOfTouchesRequired = 1
+        localNameTextField.addGestureRecognizer(gestureLocal)
+        
        //self.title = typeName
         super.viewDidLoad()
         self.ViewDetalhesData.layer.cornerRadius = 12
@@ -52,9 +62,21 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.viewDetalhesConvidados.layer.cornerRadius = 12
         createDatePickerView()
         createTimePickerView()
-        typeNameTextField.isEnabled = false
-        localNameTextField.isEnabled = false
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        timeEventTextField.isUserInteractionEnabled = false
+    }
+    
+    @objc func startEditingTypeName(_ gesture: UITapGestureRecognizer) {
+        typeNameTextField.isUserInteractionEnabled = true
+        typeNameTextField.becomeFirstResponder()
+        typeNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
+    }
+    
+    @objc func startEditingLocal(_ gesture: UITapGestureRecognizer) {
+        localNameTextField.isUserInteractionEnabled = true
+        localNameTextField.becomeFirstResponder()
+        localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,10 +130,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 dayEventLabel.text = "00"
             }
             if hourEvent == "" && minuteEvent == "" {
-//                timeEventTextView.text =  "Undefined Schedule"
+                timeEventTextField.text =  "Undefined Schedule"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
-//                timeEventTextView.text = timeEvent
+                timeEventTextField.text = timeEvent
             }
             switch monthEvent {
             case "01":
@@ -150,13 +172,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBAction func EndBut(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "Have in mind that you will lose all of your progress if you continue?", preferredStyle: UIAlertController.Style.alert)
              // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { [self]action in GoAhead()}))
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { [self]action in goAhead()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
              // show the alert
              self.present(alert, animated: true, completion: nil)
 
     }
-    func GoAhead(){
+    func goAhead(){
         let vc = self.storyboard?.instantiateViewController(identifier:"StartViewController")
               self.show(vc!, sender: self)
               self.deleteAllData(entity: "Guest")
@@ -362,7 +384,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let minute = NSManagedObject(entity: entity,
                                     insertInto: managedContext)
         
-        // 3
+
         minute.setValue(minuteToEvent, forKeyPath: "minute")
         
         // 4
@@ -468,66 +490,26 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         let minutes: String = dateFormatter.string(from: self.timePIcker.date)
         dateFormatter.dateFormat = "HH"
         let hour: String = dateFormatter.string(from: self.timePIcker.date)
-        timeEventTextView.text = hour + ":" + minutes
+        timeEventTextField.text = hour + ":" + minutes
         self.view.endEditing(true)
     }
     
-    @IBAction func editDetailsButton(_ sender: UIButton) {
-        if sender.tag == 1 {
-            sender.tag = 2
-            typeNameTextField.isEnabled = true
-//            typeNameTextField.backgroundColor =  colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
-//            localNameTextField.backgroundColor =  colorLiteral(red: 0.5005502701, green: 0.4901447296, blue: 1, alpha: 1)
-            localNameTextField.alpha = 1
-            localNameTextField.isEnabled = true
-            dateTextView.isUserInteractionEnabled = true
-            if typeNameTextField.text == "Sem Nome Definido" {
-                typeNameTextField.text = ""
-            }
-            if localNameTextField.text == "Sem Local Definido" {
-                localNameTextField.text = ""
-            }
-            let image = UIImage(systemName: "checkmark.circle.fill")
-            editButton.setImage(image, for: .normal)
-        } else {
-            sender.tag = 1
-            let dateFormatter = DateFormatter()
-            timeEventTextView.isEditable = false
-            typeNameTextField.backgroundColor = UIColor(named: "card_color-1")
-            localNameTextField.backgroundColor = UIColor(named: "card_color-1")
-            dateFormatter.dateFormat = "mm"
-            let minutes: String = dateFormatter.string(from: self.timePIcker.date)
-            dateFormatter.dateFormat = "HH"
-            let hour: String = dateFormatter.string(from: self.timePIcker.date)
-            dateTextView.isUserInteractionEnabled = false
-            dateFormatter.dateFormat = "MM"
-            let month: String = dateFormatter.string(from: self.datePicker.date)
-            dateFormatter.dateFormat = "dd"
-            let day: String = dateFormatter.string(from: self.datePicker.date)
-            typeNameTextField.isEnabled = false
-            if typeNameTextField.text == "" {
-                typeNameTextField.text = "Sem Nome Definido"
-            }
-            self.save(newName: typeNameTextField.text ?? "")
-            localNameTextField.isEnabled = false
-            if localNameTextField.text == "" {
-                localNameTextField.text = "Sem Local Definido"
-            }
-            self.saveLocal(local: localNameTextField.text ?? "")
-            self.saveHour(hourToEvent: hour)
-            self.saveMinute(minuteToEvent: minutes)
-            self.saveDay(dayToEvent: day)
-            self.saveMonth(monthToEvent: month)
-            let image = UIImage(systemName: "pencil.circle.fill")
-            editButton.setImage(image, for: .normal)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == typeNameTextField {
+            guard let nameToSave = textField.text else { return }
+            self.save(newName: nameToSave)
         }
+        if textField == localNameTextField {
+            guard let localToSave = textField.text else { return }
+            self.saveLocal(local: localToSave)
+        }
+        textField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
         
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
     }
     
-    //Por para salvar td ao final da edição
-    //Talvez trocar pela função de edição
 
 }
