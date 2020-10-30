@@ -1032,20 +1032,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-Y8-rye">
                                 <rect key="frame" x="20" y="152" width="374" height="111"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alphaville" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Eb-Dyt">
-                                        <rect key="frame" x="100" y="40" width="266" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="CBW-9d-6Lq"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="Churrasco" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7K-PM-SfB">
                                         <rect key="frame" x="100" y="13" width="266" height="27"/>
                                         <constraints>
@@ -1097,7 +1083,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="--:--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-qp-n49">
-                                        <rect key="frame" x="100" y="58" width="266" height="18"/>
+                                        <rect key="frame" x="100" y="68" width="266" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="z4s-du-iqG"/>
                                         </constraints>
@@ -1105,11 +1091,25 @@
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alphaville" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Eb-Dyt">
+                                        <rect key="frame" x="100" y="45" width="266" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="CBW-9d-6Lq"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="BalooBhai2-Bold" family="Baloo Bhai 2" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" name="card_color-1"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cuS-qp-n49" secondAttribute="bottom" constant="35" id="17L-mN-0af"/>
-                                    <constraint firstItem="cuS-qp-n49" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="18" id="EHW-go-d1l"/>
+                                    <constraint firstAttribute="bottom" secondItem="cuS-qp-n49" secondAttribute="bottom" constant="25" id="17L-mN-0af"/>
+                                    <constraint firstItem="cuS-qp-n49" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="28" id="EHW-go-d1l"/>
                                     <constraint firstAttribute="trailing" secondItem="W7K-PM-SfB" secondAttribute="trailing" constant="8" id="HoD-Ww-qof"/>
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.5" id="JPH-Nr-T6c"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="13" id="K4i-eC-dg8"/>
@@ -1119,7 +1119,7 @@
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="leading" secondItem="eV9-Y8-rye" secondAttribute="leading" constant="19" id="aBH-GL-XoO"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.670000000000002" id="h0e-eX-gGK"/>
                                     <constraint firstItem="cuS-qp-n49" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.5" id="kVT-Lh-BCd"/>
-                                    <constraint firstItem="p7p-Eb-Dyt" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" id="krI-uy-E9J"/>
+                                    <constraint firstItem="p7p-Eb-Dyt" firstAttribute="top" secondItem="W7K-PM-SfB" secondAttribute="bottom" constant="5" id="krI-uy-E9J"/>
                                     <constraint firstAttribute="trailing" secondItem="p7p-Eb-Dyt" secondAttribute="trailing" constant="8" id="yhg-eF-oz4"/>
                                 </constraints>
                             </view>

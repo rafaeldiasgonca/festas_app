@@ -54,8 +54,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         gestureLocal.numberOfTouchesRequired = 1
         localNameTextField.addGestureRecognizer(gestureLocal)
         
-       //self.title = typeName
+        let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
+        gestureOneTapRecognizer.numberOfTapsRequired = 1
+        gestureOneTapRecognizer.numberOfTouchesRequired = 1
+        self.view.addGestureRecognizer(gestureOneTapRecognizer)
+       
         super.viewDidLoad()
+        typeNameTextField.isUserInteractionEnabled = true
+        typeNameTextField.becomeFirstResponder()
+        typeNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
+        localNameTextField.isUserInteractionEnabled = true
+        localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         self.ViewDetalhesData.layer.cornerRadius = 12
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
@@ -77,6 +86,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         localNameTextField.isUserInteractionEnabled = true
         localNameTextField.becomeFirstResponder()
         localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
+    }
+    
+    @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+        typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
