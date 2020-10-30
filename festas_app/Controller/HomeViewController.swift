@@ -283,7 +283,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             typeNameLabel.text = typeName
             dayEventLabel.text = dayEvent
             if hourEvent == "" && minuteEvent == "" {
-                timeEventLabel.text = "Undefined Schedule"
+                timeEventLabel.text = "--:--"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
                 timeEventLabel.text = timeEvent
@@ -350,13 +350,13 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         let intMinutes = Int(diffDateComponents.minute ?? 0)
         let intHours = Int(diffDateComponents.hour ?? 0)
         if intDays == 0, intHours == 0, intMinutes >= -30, intMinutes <= 0 {
-            faltamLabel.text = ""
-            countTimeLabel.text = "The party is set for now!"
+            countTimeLabel.text = ""
+            faltamLabel.text = "The party is set for now!"
         }
         
         if (intDays <= 0 && intHours <= 0 && intMinutes < -30) || (intDays <= 0 && intHours <= 0 && intMinutes < 0) {
-            faltamLabel.text = ""
-            countTimeLabel.text = "The party already happend"
+            countTimeLabel.text = ""
+            faltamLabel.text = "The party already happend"
         }
         if intDays >= 0 && intHours >= 0 && intMinutes > 0 {
             let countdown = "\(diffDateComponents.day ?? 0) days, \(diffDateComponents.hour ?? 0) hours, \(diffDateComponents.minute ?? 0) minutes"
