@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var ButtonExcluir: UIButton!
     @IBOutlet weak var ButtonFinalizar: UIButton!
     @IBOutlet weak var viewDetalhesConvidados: UIView!
@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dayEventLabel: UILabel!
     @IBOutlet weak var monthEventLabel: UILabel!
     @IBOutlet weak var timeEventTextField: UITextField!
-    @IBOutlet weak var dateTextView: UITextView!
+    @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var numberOfGuestLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
     var convidados = 0
@@ -35,63 +35,100 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     var monthEvent = String()
     var hourEvent = String()
     var minuteEvent = String()
+    var yearEvent:NSManagedObject?
     
     let datePicker = UIDatePicker()
-    let timePIcker = UIDatePicker()
+    let timePicker = UIDatePicker()
     
     override func viewDidLoad() {
+        view.endEditing(true)
         typeNameTextField.delegate = self
         localNameTextField.delegate = self
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "BalooBhai2-ExtraBold", size: 34) as Any]
         
+        //Gesture Type
         let gestureType = UITapGestureRecognizer(target: self, action: #selector(startEditingTypeName(_:)))
         gestureType.numberOfTapsRequired = 1
         gestureType.numberOfTouchesRequired = 1
         typeNameTextField.addGestureRecognizer(gestureType)
         
+        //Gesture Local
         let gestureLocal = UITapGestureRecognizer(target: self, action: #selector(startEditingLocal(_:)))
         gestureLocal.numberOfTapsRequired = 1
         gestureLocal.numberOfTouchesRequired = 1
         localNameTextField.addGestureRecognizer(gestureLocal)
         
+        //Gesture Date
+        let gestureDate = UITapGestureRecognizer(target: self, action: #selector(startEditingDate(_:)))
+        gestureDate.numberOfTapsRequired = 1
+        gestureDate.numberOfTouchesRequired = 1
+        dateTextField.addGestureRecognizer(gestureDate)
+        
+        //Gesture Time
+        let gestureTime = UITapGestureRecognizer(target: self, action: #selector(startEditingTime(_:)))
+        gestureTime.numberOfTapsRequired = 1
+        gestureTime.numberOfTouchesRequired = 1
+        timeEventTextField.addGestureRecognizer(gestureTime)
+        
+        //End Editing
         let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
         gestureOneTapRecognizer.numberOfTapsRequired = 1
         gestureOneTapRecognizer.numberOfTouchesRequired = 1
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
-       
+        
         super.viewDidLoad()
         typeNameTextField.isUserInteractionEnabled = true
         typeNameTextField.becomeFirstResponder()
         typeNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         localNameTextField.isUserInteractionEnabled = true
         localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
+        timeEventTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         self.ViewDetalhesData.layer.cornerRadius = 12
         self.viewDetalhes.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
         self.viewDetalhesConvidados.layer.cornerRadius = 12
-        createDatePickerView()
-        createTimePickerView()
+        
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        timeEventTextField.isUserInteractionEnabled = false
+        timeEventTextField.tintColor = .clear
+        dateTextField.tintColor = .clear
     }
     
     @objc func startEditingTypeName(_ gesture: UITapGestureRecognizer) {
+        self.endEditingTime()
+        self.endEditingDate()
         typeNameTextField.isUserInteractionEnabled = true
         typeNameTextField.becomeFirstResponder()
         typeNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
     }
     
     @objc func startEditingLocal(_ gesture: UITapGestureRecognizer) {
+        self.endEditingTime()
+        self.endEditingDate()
         localNameTextField.isUserInteractionEnabled = true
         localNameTextField.becomeFirstResponder()
         localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
     }
     
+    @objc func startEditingDate(_ gesture: UITapGestureRecognizer) {
+        createDatePickerView()
+        timeEventTextField.becomeFirstResponder()
+
+    }
+    
+    @objc func startEditingTime(_ gesture: UITapGestureRecognizer) {
+        createTimePickerView()
+        timeEventTextField.becomeFirstResponder()
+        timeEventTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
+    }
+    
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
+        self.endEditingDate()
+        self.endEditingTime()
         self.view.endEditing(true)
         typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
         localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,7 +182,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 dayEventLabel.text = "00"
             }
             if hourEvent == "" && minuteEvent == "" {
-                timeEventTextField.text =  "Undefined Schedule"
+                timeEventTextField.text =  "--:--"
             } else {
                 let timeEvent = hourEvent + ":" + minuteEvent
                 timeEventTextField.text = timeEvent
@@ -186,24 +223,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func EndBut(_ sender: Any) {
         let alert = UIAlertController(title: "", message: "Have in mind that you will lose all of your progress if you continue?", preferredStyle: UIAlertController.Style.alert)
-             // add the actions (buttons)
+        // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { [self]action in goAhead()}))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-             // show the alert
-             self.present(alert, animated: true, completion: nil)
-
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
     }
     func goAhead(){
         let vc = self.storyboard?.instantiateViewController(identifier:"StartViewController")
-              self.show(vc!, sender: self)
-              self.deleteAllData(entity: "Guest")
-              self.deleteAllData(entity: "Completed")
-              self.deleteAllData(entity: "Disposable")
-              self.deleteAllData(entity: "Drinks")
-              self.deleteAllData(entity: "Food")
-              self.deleteAllData(entity: "General")
-              self.deleteAllData(entity: "Space")
-              self.deleteAllData(entity: "Utensils")
+        self.show(vc!, sender: self)
+        self.deleteAllData(entity: "Guest")
+        self.deleteAllData(entity: "Completed")
+        self.deleteAllData(entity: "Disposable")
+        self.deleteAllData(entity: "Drinks")
+        self.deleteAllData(entity: "Food")
+        self.deleteAllData(entity: "General")
+        self.deleteAllData(entity: "Space")
+        self.deleteAllData(entity: "Utensils")
         
     }
     
@@ -247,7 +284,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                        in: managedContext)!
         
         let modelType = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                        insertInto: managedContext)
         
         // 3
         modelType.setValue(newName, forKeyPath: "type")
@@ -307,7 +344,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                        in: managedContext)!
         
         let day = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                  insertInto: managedContext)
         
         // 3
         day.setValue(dayToEvent, forKeyPath: "day")
@@ -319,7 +356,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-
+    
     func saveMonth(monthToEvent: String) {
         
         guard let appDelegate =
@@ -350,6 +387,37 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func saveYear(yearToEvent: String) {
+        
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "General",
+                                       in: managedContext)!
+        
+        let month = NSManagedObject(entity: entity,
+                                    insertInto: managedContext)
+        
+        // 3
+        month.setValue(yearToEvent, forKeyPath: "year")
+        
+        // 4
+        do {
+            try managedContext.save()
+            yearEvent = month
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     func saveHour(hourToEvent: String) {
         
         guard let appDelegate =
@@ -367,7 +435,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                        in: managedContext)!
         
         let hour = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                   insertInto: managedContext)
         
         // 3
         hour.setValue(hourToEvent, forKeyPath: "hour")
@@ -397,9 +465,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                        in: managedContext)!
         
         let minute = NSManagedObject(entity: entity,
-                                    insertInto: managedContext)
+                                     insertInto: managedContext)
         
-
+        
         minute.setValue(minuteToEvent, forKeyPath: "minute")
         
         // 4
@@ -410,121 +478,121 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     func deleteAllData(entity: String) {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
-            fetchRequest.returnsObjectsAsFaults = false
-            
-            do {
-                let results = try managedContext.fetch(fetchRequest)
-                for managedObject in results {
-                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                    managedContext.delete(managedObjectData)
-                }
-            }
-            catch let error as NSError {
-                print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
             }
         }
-
-
+        catch let error as NSError {
+            print("Delete all data in \(entity) error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    
     
     func createDatePickerView(){
-        // Create toolBar
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        //Create bar Button
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePressed))
-        
-        //assign done button to toolbar
-        toolBar.setItems([doneBtn], animated: true)
-        //assign toolbar to textfield
-//        dateTextView.inputAccessoryView = toolBar
-        //assign datePicker to textField
-     //   dateTextView.inputView = datePicker
-        datePicker.datePickerMode  = .date
+        datePicker.datePickerMode = .date
+//        datePicker.tintColor = .white
+        dateTextField.inputView = datePicker
         datePicker.preferredDatePickerStyle = .wheels
         
     }
-    @objc func donePressed(){
+    
+    func createTimePickerView(){
+        timePicker.datePickerMode = .time
+        timeEventTextField.inputView = timePicker
+        timePicker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
+        timePicker.preferredDatePickerStyle = .wheels
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let nameToSave = typeNameTextField.text else { return }
+        self.save(newName: nameToSave)
+        guard let localToSave = localNameTextField.text else { return }
+        self.saveLocal(local: localToSave)
+        self.endEditingTime()
+        self.endEditingDate()
+        self.view.endEditing(true)
+        typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+        timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+
+        
+    }
+    
+    func endEditingTime() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        let minutes: String = dateFormatter.string(from: timePicker.date)
+        dateFormatter.dateFormat = "HH"
+        let hour: String = dateFormatter.string(from: timePicker.date)
+        self.saveHour(hourToEvent: hour)
+        self.saveMinute(minuteToEvent: minutes)
+        let formatacao1 = DateFormatter()
+        formatacao1.dateFormat = "HH:mm"
+        timeEventTextField.text = formatacao1.string(from: timePicker.date)
+        self.view.endEditing(true)
+        timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+    }
+    
+    func endEditingDate() {
         let formatacao = DateFormatter()
+        let dateFormatter = DateFormatter()
         formatacao.dateStyle = .long
         formatacao.timeStyle = .none
-        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year: String = dateFormatter.string(from: datePicker.date)
         dateFormatter.dateFormat = "MM"
-        let month: String = dateFormatter.string(from: self.datePicker.date)
+        let month: String = dateFormatter.string(from: datePicker.date)
         dateFormatter.dateFormat = "dd"
-        let day: String = dateFormatter.string(from: self.datePicker.date)
-        dayEventLabel.text = day
-        switch month {
+        let day: String = dateFormatter.string(from: datePicker.date)
+        self.saveDay(dayToEvent: day)
+        self.saveMonth(monthToEvent: month)
+        self.saveYear(yearToEvent: year)
+        dayEventLabel.text = dayEvent
+        monthEvent = month
+        switch monthEvent {
         case "01":
             monthEventLabel.text = "JAN"
         case "02":
-            monthEventLabel.text = "FEV"
+            monthEventLabel.text = "FEB"
         case "03":
             monthEventLabel.text = "MAR"
         case "04":
-            monthEventLabel.text = "ABR"
+            monthEventLabel.text = "APR"
         case "05":
-            monthEventLabel.text = "MAI"
+            monthEventLabel.text = "MAY"
         case "06":
             monthEventLabel.text = "JUN"
         case "07":
             monthEventLabel.text = "JUL"
         case "08":
-            monthEventLabel.text = "AGO"
+            monthEventLabel.text = "AUG"
         case "09":
-            monthEventLabel.text = "SET"
+            monthEventLabel.text = "SEP"
         case "10":
-            monthEventLabel.text = "OUT"
+            monthEventLabel.text = "OCT"
         case "11":
             monthEventLabel.text = "NOV"
         case "12":
-            monthEventLabel.text = "DEZ"
+            monthEventLabel.text = "DEC"
         default:
-            print("Erro!!")
+            monthEventLabel.text = "UND"
         }
+        //dateTextField.text = formatacao.string(from: datePicker.date)
         self.view.endEditing(true)
-        
-    }
-    func createTimePickerView(){
-        let toolbar1 = UIToolbar()
-        toolbar1.sizeToFit()
-        let doneBtn1 = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed1))
-        toolbar1.setItems([doneBtn1], animated: true)
-//        timeEventTextView.inputAccessoryView = toolbar1
-//        timeEventTextView.inputView = timePIcker
-//        timePIcker.datePickerMode = .time
-//        timePIcker.preferredDatePickerStyle = .wheels
-//        timePIcker.locale = NSLocale(localeIdentifier: "en_GB") as Locale
-    }
-
-    @objc func donePressed1(){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
-        let minutes: String = dateFormatter.string(from: self.timePIcker.date)
-        dateFormatter.dateFormat = "HH"
-        let hour: String = dateFormatter.string(from: self.timePIcker.date)
-        timeEventTextField.text = hour + ":" + minutes
-        self.view.endEditing(true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == typeNameTextField {
-            guard let nameToSave = textField.text else { return }
-            self.save(newName: nameToSave)
-        }
-        if textField == localNameTextField {
-            guard let localToSave = textField.text else { return }
-            self.saveLocal(local: localToSave)
-        }
-        textField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
     }
     
-
+    
 }

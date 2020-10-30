@@ -1067,6 +1067,12 @@
                                                 <color key="textColor" systemColor="systemIndigoColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-wK-Jsx">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" name="card_data_config"/>
                                         <constraints>
@@ -1083,13 +1089,18 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="--:--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cuS-qp-n49">
-                                        <rect key="frame" x="100" y="68" width="266" height="18"/>
+                                        <rect key="frame" x="100" y="68" width="41" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="z4s-du-iqG"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alphaville" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7p-Eb-Dyt">
                                         <rect key="frame" x="100" y="45" width="266" height="20"/>
@@ -1114,7 +1125,7 @@
                                     <constraint firstItem="p7p-Eb-Dyt" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.5" id="JPH-Nr-T6c"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="13" id="K4i-eC-dg8"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="top" secondItem="eV9-Y8-rye" secondAttribute="top" constant="13" id="Ls1-Ew-KvF"/>
-                                    <constraint firstAttribute="trailing" secondItem="cuS-qp-n49" secondAttribute="trailing" constant="8" id="Nbb-xA-nVq"/>
+                                    <constraint firstAttribute="trailing" secondItem="cuS-qp-n49" secondAttribute="trailing" constant="233" id="Nbb-xA-nVq"/>
                                     <constraint firstAttribute="height" constant="111" id="UoT-bJ-kKK"/>
                                     <constraint firstItem="fxh-Gf-54p" firstAttribute="leading" secondItem="eV9-Y8-rye" secondAttribute="leading" constant="19" id="aBH-GL-XoO"/>
                                     <constraint firstItem="W7K-PM-SfB" firstAttribute="leading" secondItem="fxh-Gf-54p" secondAttribute="trailing" constant="17.670000000000002" id="h0e-eX-gGK"/>
@@ -1203,6 +1214,7 @@
                     <navigationItem key="navigationItem" title="Your event" id="8xd-Tz-5Pu"/>
                     <connections>
                         <outlet property="ViewDetalhesData" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
+                        <outlet property="dateTextField" destination="vqe-wK-Jsx" id="LiV-tw-oAI"/>
                         <outlet property="dayEventLabel" destination="LKp-Ap-DNp" id="v1P-Ms-hOo"/>
                         <outlet property="localNameTextField" destination="p7p-Eb-Dyt" id="0cY-Yq-2iw"/>
                         <outlet property="monthEventLabel" destination="Wm6-br-1Ez" id="l9Z-gl-7m5"/>

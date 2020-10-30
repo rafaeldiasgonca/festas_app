@@ -40,10 +40,6 @@ class LocalDateViewController: UIViewController, UIPickerViewDelegate  {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         timeTextView.isUserInteractionEnabled = false
         dateTextView.isUserInteractionEnabled = false
-       
-      
-    
-        
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
