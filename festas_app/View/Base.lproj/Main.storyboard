@@ -1360,33 +1360,39 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rUq-FC-lj8" customClass="ToDoTableViewCell" customModule="festas_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="334" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="54" id="rUq-FC-lj8" customClass="ToDoTableViewCell" customModule="festas_app" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="334" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rUq-FC-lj8" id="A24-EP-36M">
-                                            <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="334" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="0SZ-Xt-84s">
-                                                    <rect key="frame" x="52" y="11" width="270" height="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="SFProRounded-Semibold" family="SF Pro Rounded" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" smartDashesType="no"/>
-                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-28-OSe">
-                                                    <rect key="frame" x="16" y="11" width="20" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="20" height="32"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="circle" catalog="system"/>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-2b-1KX">
+                                                    <rect key="frame" x="44" y="9" width="282" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="750" constant="34" id="Eif-hp-4pG"/>
+                                                    </constraints>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0SZ-Xt-84s" secondAttribute="trailing" constant="12" id="0jI-gb-RP4"/>
-                                                <constraint firstItem="0SZ-Xt-84s" firstAttribute="leading" secondItem="NKf-28-OSe" secondAttribute="trailing" constant="16" id="5cF-oe-m3z"/>
+                                                <constraint firstItem="Qmd-2b-1KX" firstAttribute="leading" secondItem="NKf-28-OSe" secondAttribute="trailing" constant="8" id="68R-A0-JyH"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qmd-2b-1KX" secondAttribute="trailing" constant="8" id="DvC-qS-PF1"/>
                                                 <constraint firstItem="NKf-28-OSe" firstAttribute="centerY" secondItem="A24-EP-36M" secondAttribute="centerY" id="ExK-yf-YEX"/>
                                                 <constraint firstItem="NKf-28-OSe" firstAttribute="leading" secondItem="A24-EP-36M" secondAttribute="leading" constant="16" id="Fk2-62-c72"/>
-                                                <constraint firstItem="0SZ-Xt-84s" firstAttribute="centerY" secondItem="A24-EP-36M" secondAttribute="centerY" id="TuR-vH-hUU"/>
+                                                <constraint firstItem="Qmd-2b-1KX" firstAttribute="top" secondItem="A24-EP-36M" secondAttribute="top" constant="9" id="U2K-kN-G3w"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qmd-2b-1KX" secondAttribute="bottom" constant="11" id="icQ-1w-VAe"/>
+                                                <constraint firstItem="NKf-28-OSe" firstAttribute="top" secondItem="A24-EP-36M" secondAttribute="top" constant="11" id="tTy-mD-aZO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="celulas_checklist"/>
@@ -1396,8 +1402,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="itensTF" destination="0SZ-Xt-84s" id="Ic1-cM-WW2"/>
-                                            <outlet property="textFieldToDo" destination="0SZ-Xt-84s" id="vkc-Tc-bWJ"/>
+                                            <outlet property="textViewToDo" destination="Qmd-2b-1KX" id="Mu1-Se-BTR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1455,7 +1460,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vXy-Po-5Qg"/>
+        <segue reference="Iyb-6G-pNK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="brilho_1" width="47.5" height="111"/>

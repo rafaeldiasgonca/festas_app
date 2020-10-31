@@ -11,11 +11,9 @@ import UIKit
 class ToDoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checkButton: UIButton!
-    @IBOutlet weak var itensTF: UITextField!
-    @IBOutlet weak var textFieldToDo: UITextField!
+    @IBOutlet weak var textViewToDo: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        itensTF.isUserInteractionEnabled = false
         // Initialization code
     }
 
@@ -28,13 +26,13 @@ class ToDoTableViewCell: UITableViewCell {
     @IBAction func checkButtonPressed(_ sender: UIButton) {
         if sender.isSelected{
             sender.isSelected = false
-            textFieldToDo.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            textViewToDo.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             
         }
         else{
             sender.isSelected = true
             checkButton.setImage(UIImage.checkmark, for: .normal)
-            textFieldToDo.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            textViewToDo.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
 
     }

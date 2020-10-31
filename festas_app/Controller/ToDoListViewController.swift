@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ToDoListViewController: UIViewController {
+class ToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tableViewToDoList: UITableView!
     var a = 0
     var cont  = 0
@@ -524,36 +524,36 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         switch sectionType {
         case .comida:
             if foodList.count > indexPath.row {
-                cell.textFieldToDo.text = foodList[indexPath.row]
+                cell.textViewToDo.text = foodList[indexPath.row]
             } else {
-                cell.textFieldToDo.text = ""
+                cell.textViewToDo.text = ""
             }
         case .bebidas:
             if drinksList.count > indexPath.row {
-                cell.textFieldToDo.text = drinksList[indexPath.row]
+                cell.textViewToDo.text = drinksList[indexPath.row]
             } else {
-                cell.textFieldToDo.text = ""
+                cell.textViewToDo.text = ""
             }
             
         case .utensílios:
             if utensilsList.count > indexPath.row {
-                cell.textFieldToDo.text = utensilsList[indexPath.row]
+                cell.textViewToDo.text = utensilsList[indexPath.row]
             } else {
-                cell.textFieldToDo.text = ""
+                cell.textViewToDo.text = ""
             }
             
         case .descartáveis:
             if disposableList.count > indexPath.row {
-                cell.textFieldToDo.text = disposableList[indexPath.row]
+                cell.textViewToDo.text = disposableList[indexPath.row]
             } else {
-                cell.textFieldToDo.text = ""
+                cell.textViewToDo.text = ""
             }
             
         case .espaço:
             if spaceList.count > indexPath.row {
-                cell.textFieldToDo.text = spaceList[indexPath.row]
+                cell.textViewToDo.text = spaceList[indexPath.row]
             } else {
-                cell.textFieldToDo.text = ""
+                cell.textViewToDo.text = ""
             }
             
         case .none:
@@ -562,13 +562,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none
         //cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
-        cell.textFieldToDo.delegate = self
+        cell.textViewToDo.delegate = self
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
-        cell.textFieldToDo.isEnabled = true
+        cell.textViewToDo.isUserInteractionEnabled = true
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
