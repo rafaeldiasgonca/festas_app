@@ -576,7 +576,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height:100))
         
         
-        let label = UILabel(frame: CGRect(x: 5 , y: 5, width: 100, height: 20))
+        let label = UILabel(frame: CGRect(x: 5 , y: 5, width: 250, height: 20))
         label.tag = section
         headerView.addSubview(label)
         label.font = UIFont(name: "Baloo Bhai 2", size: 28)
