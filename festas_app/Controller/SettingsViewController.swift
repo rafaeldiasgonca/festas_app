@@ -95,6 +95,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingTypeName(_ gesture: UITapGestureRecognizer) {
+        firstTime = false
         self.endEditingLocalName()
         self.endEditingTime()
         self.endEditingDate()
@@ -104,6 +105,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingLocal(_ gesture: UITapGestureRecognizer) {
+        firstTime = false
         self.endEditingTypeName()
         self.endEditingTime()
         self.endEditingDate()
@@ -113,6 +115,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingDate(_ gesture: UITapGestureRecognizer) {
+        firstTime = false
         self.endEditingTypeName()
         self.endEditingLocalName()
         self.endEditingTime()
@@ -121,6 +124,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func startEditingTime(_ gesture: UITapGestureRecognizer) {
+        firstTime = false
         self.endEditingTypeName()
         self.endEditingLocalName()
         self.endEditingDate()
@@ -130,10 +134,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
-        self.endEditingTypeName()
-        self.endEditingLocalName()
-        self.endEditingTime()
-        self.endEditingDate()
+        if firstTime {
+            typeNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+            localNameTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+            timeEventTextField.backgroundColor = #colorLiteral(red: 0.2940218747, green: 0.2438195944, blue: 0.8556853533, alpha: 1)
+            self.view.endEditing(true)
+        } else {
+            self.endEditingTypeName()
+            self.endEditingLocalName()
+            self.endEditingTime()
+            self.endEditingDate()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
