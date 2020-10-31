@@ -1225,10 +1225,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Your event" id="8xd-Tz-5Pu"/>
                     <connections>
-                        <outlet property="datailsView" destination="eV9-Y8-rye" id="OyB-SA-DTc"/>
                         <outlet property="dateTextField" destination="vqe-wK-Jsx" id="LiV-tw-oAI"/>
                         <outlet property="dateView" destination="fxh-Gf-54p" id="KG2-By-NrN"/>
                         <outlet property="dayEventLabel" destination="LKp-Ap-DNp" id="v1P-Ms-hOo"/>
+                        <outlet property="detailsView" destination="eV9-Y8-rye" id="OyB-SA-DTc"/>
                         <outlet property="localNameTextField" destination="p7p-Eb-Dyt" id="0cY-Yq-2iw"/>
                         <outlet property="monthEventLabel" destination="Wm6-br-1Ez" id="l9Z-gl-7m5"/>
                         <outlet property="numberOfGuestLabel" destination="34g-8M-nqc" id="rGT-GE-GmV"/>

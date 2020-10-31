@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ButtonFinalizar: UIButton!
     @IBOutlet weak var viewDetalhesConvidados: UIView!
     @IBOutlet weak var dateView: UIView!
-    @IBOutlet weak var datailsView: UIView!
+    @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var viewDetalhesTarefas: UIView!
     @IBOutlet weak var typeNameTextField: UITextField!
     @IBOutlet weak var localNameTextField: UITextField!
@@ -84,7 +84,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         localNameTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         timeEventTextField.backgroundColor = #colorLiteral(red: 0.5132836699, green: 0.4757140875, blue: 1, alpha: 1)
         self.dateView.layer.cornerRadius = 12
-        self.datailsView.layer.cornerRadius = 12
+        self.detailsView.layer.cornerRadius = 12
         self.viewDetalhesTarefas.layer.cornerRadius = 12
         self.viewDetalhesConvidados.layer.cornerRadius = 12
         createDatePickerView()
@@ -135,9 +135,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func endEditing(_ gesture: UITapGestureRecognizer) {
         if firstTime {
-            typeNameTextField.backgroundColor = datailsView.backgroundColor
-            localNameTextField.backgroundColor = datailsView.backgroundColor
-            timeEventTextField.backgroundColor = datailsView.backgroundColor
+            typeNameTextField.backgroundColor = detailsView.backgroundColor
+            localNameTextField.backgroundColor = detailsView.backgroundColor
+            timeEventTextField.backgroundColor = detailsView.backgroundColor
             self.view.endEditing(true)
         } else {
             self.endEditingTypeName()
@@ -537,9 +537,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             self.endEditingTime()
             self.endEditingDate()
             self.view.endEditing(true)
-            typeNameTextField.backgroundColor = datailsView.backgroundColor
-            localNameTextField.backgroundColor = datailsView.backgroundColor
-            timeEventTextField.backgroundColor = datailsView.backgroundColor
+            typeNameTextField.backgroundColor = detailsView.backgroundColor
+            localNameTextField.backgroundColor = detailsView.backgroundColor
+            timeEventTextField.backgroundColor = detailsView.backgroundColor
         }
         firstTime = true
         
@@ -549,14 +549,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     func endEditingTypeName() {
         guard let nameToSave = typeNameTextField.text else { return }
         self.save(newName: nameToSave)
-        typeNameTextField.backgroundColor = datailsView.backgroundColor
+        typeNameTextField.backgroundColor = detailsView.backgroundColor
         self.view.endEditing(true)
     }
     
     func endEditingLocalName() {
         guard let localToSave = localNameTextField.text else { return }
         self.saveLocal(local: localToSave)
-        localNameTextField.backgroundColor = datailsView.backgroundColor
+        localNameTextField.backgroundColor = detailsView.backgroundColor
         self.view.endEditing(true)
     }
     
@@ -572,7 +572,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         formatacao1.dateFormat = "HH:mm"
         timeEventTextField.text = formatacao1.string(from: timePicker.date)
         self.view.endEditing(true)
-        timeEventTextField.backgroundColor = datailsView.backgroundColor
+        timeEventTextField.backgroundColor = detailsView.backgroundColor
     }
     
     func endEditingDate() {
