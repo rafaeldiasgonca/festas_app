@@ -44,11 +44,18 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     var minuteEvent = String()
     let calendar = Calendar.current
     let date = Date()
+    let screenSize = UIScreen.main.bounds
+    
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //nav.navigationBar.prefersLargeTitles = true
+        let screenSize = UIScreen.main.bounds
+//        let screenWidth = screenSize.width
+//        let screenHeight = screenSize.height
+//        print(screenWidth)
+//        print(screenHeight)
         UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
         navigationItem.largeTitleDisplayMode = .always
         self.viewDetalhes.layer.cornerRadius = 12
@@ -220,6 +227,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        if screenHeight <= 667.0 && screenWidth <= 375.0 {
+            return 2
+        }
         return rowsNumber
     }
     
@@ -363,6 +375,8 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             countTimeLabel.text = countdown
         }
     }
+    
+    
     
 }
 
