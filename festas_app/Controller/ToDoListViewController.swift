@@ -11,7 +11,6 @@ import CoreData
 
 class ToDoListViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tableViewToDoList: UITableView!
-    var a = 0
     var cont  = 0
     var aux = 0
     var modelNumber = 0
@@ -31,7 +30,7 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
     var spaceRows = 0
     var utiRows = 0
     var desRows = 0
-   // let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+    var textsSelected:[String] = []
     
     enum Section:Int {
         case comida = 0
@@ -78,8 +77,8 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         self.view.addGestureRecognizer(gestureOneTapRecognizer)
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
         view.addSubview(navBar)
-
-       // let navItem = UINavigationItem(title: "SomeTitle")
+        
+        // let navItem = UINavigationItem(title: "SomeTitle")
         let backButton = UIBarButtonItem()
         backButton.title = "Something Else"
         let button = UIBarButtonItem(title: "Your Event", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.goBack))
@@ -253,34 +252,7 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-    }
-    
-    func loadDataUtensils() {
-        //1
-        guard let appDelegate =
-                UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
         
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-        
-        //2
-        let fetchRequest =
-            NSFetchRequest<NSManagedObject>(entityName: "Utensils")
-        
-        //3
-        do {
-            let results = try managedContext.fetch(fetchRequest)
-            if (results.count > 0) {
-                for i in 0...results.count - 1 {
-                    let element = results[i].value(forKey: "toDo") as? String ?? ""
-                    utensilsList.append(element)
-                }
-            }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
     }
     
     func loadDataDisposable() {
@@ -309,7 +281,39 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
     }
+    
+    
+    func loadDataUtensils() {
+        //1
+        guard let appDelegate =
+                UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "Utensils")
+        
+        //3
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if (results.count > 0) {
+                for i in 0...results.count - 1 {
+                    let element = results[i].value(forKey: "toDo") as? String ?? ""
+                    utensilsList.append(element)
+                }
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
     
     func loadDataSpace() {
         //1
@@ -337,37 +341,9 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+        
     }
     
-    
-    
-    //
-    //    func loadModelType() {
-    //        //1
-    //        guard let appDelegate =
-    //                UIApplication.shared.delegate as? AppDelegate else {
-    //            return
-    //        }
-    //
-    //        let managedContext =
-    //            appDelegate.persistentContainer.viewContext
-    //
-    //        //2
-    //        let fetchRequest =
-    //            NSFetchRequest<NSManagedObject>(entityName: "General")
-    //
-    //        //3
-    //        do {
-    //            let results = try managedContext.fetch(fetchRequest)
-    //            for i in 0...results.count - 1 {
-    //                if results[i].value(forKey: "type") != nil {
-    //                    typeName = results[i].value(forKey: "type") as! String
-    //                }
-    //            }
-    //        } catch let error as NSError {
-    //            print("Could not fetch. \(error), \(error.userInfo)")
-    //        }
-    //    }
     
     func save(task: String, entityName: String, section: Int) {
         
@@ -559,17 +535,36 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         case .none:
             print("Erro!")
         }
-        
+        cell.textViewToDo.isUserInteractionEnabled = true
+        cell.checkButton.addTarget(self, action: #selector(self.buttonmethod), for: .touchUpInside)
+        cell.checkButton.tag = indexPath.row
+        if textsSelected.count > 0 {
+            if cell.textViewToDo.text != textsSelected[0] {
+                cell.checkButton.isSelected = false
+            }
+        }
         cell.selectionStyle = .none
-        //cell.checkButton.addTarget(self, action:#selector(CheckButtonClicked(sender:)) , for: .touchUpInside)
         cell.textViewToDo.delegate = self
         return cell
     }
+    
+    @objc func buttonmethod(_ button: UIButton) {
+        let indexPath = IndexPath.init(row: button.tag , section: 0)
+        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
+        if button.isSelected == false {
+            button.isSelected = true
+        } else {
+            button.isSelected = false
+        }
+        textsSelected.append(cell.textViewToDo.text)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)
         cell.textViewToDo.isUserInteractionEnabled = true
     }
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -643,16 +638,6 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
-    }
-    
-    @objc func CheckButtonClicked(sender:UIButton){
-        if sender.isSelected{
-            sender.isSelected = false
-        }
-        else{
-            sender.isSelected = true
-        }
-        
     }
     
     

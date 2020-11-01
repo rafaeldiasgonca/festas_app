@@ -1380,6 +1380,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="circle" catalog="system"/>
+                                                    <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-2b-1KX">
                                                     <rect key="frame" x="44" y="9" width="282" height="34"/>
@@ -1410,6 +1411,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="checkButton" destination="NKf-28-OSe" id="PRh-E7-sdG"/>
                                             <outlet property="textViewToDo" destination="Qmd-2b-1KX" id="Mu1-Se-BTR"/>
                                         </connections>
                                     </tableViewCell>
@@ -1473,6 +1475,7 @@
     <resources>
         <image name="brilho_1" width="47.5" height="111"/>
         <image name="brilho_2" width="48.5" height="114.5"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="config" width="457.5" height="530.5"/>
         <image name="curva_card_home_inicial" width="303" height="323"/>
