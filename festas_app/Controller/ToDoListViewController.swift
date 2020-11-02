@@ -535,29 +535,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         case .none:
             print("Erro!")
         }
+        cell.checkButton.isUserInteractionEnabled = false
         cell.textViewToDo.isUserInteractionEnabled = true
-        cell.checkButton.addTarget(self, action: #selector(self.buttonmethod), for: .touchUpInside)
-        cell.checkButton.tag = indexPath.row
-        if textsSelected.count > 0 {
-            if cell.textViewToDo.text != textsSelected[0] {
-                cell.checkButton.isSelected = false
-            }
-        }
         cell.selectionStyle = .none
         cell.textViewToDo.delegate = self
         return cell
     }
     
-    @objc func buttonmethod(_ button: UIButton) {
-        let indexPath = IndexPath.init(row: button.tag , section: 0)
-        let cell = tableViewToDoList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
-        if button.isSelected == false {
-            button.isSelected = true
-        } else {
-            button.isSelected = false
-        }
-        textsSelected.append(cell.textViewToDo.text)
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell

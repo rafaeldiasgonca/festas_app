@@ -240,6 +240,8 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier:"itens", for: indexPath) as! PartySummaryTableViewCell
             let random = Int.random(in: 0..<randomList.count)
             cell.LabelItens.text = randomList[random]
+        cell.isUserInteractionEnabled = false
+        cell.checkButton.isUserInteractionEnabled = false
         return cell
     }
     

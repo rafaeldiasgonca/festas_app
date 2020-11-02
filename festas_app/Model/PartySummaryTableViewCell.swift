@@ -10,6 +10,7 @@ import UIKit
 
 class PartySummaryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var LabelItens: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
