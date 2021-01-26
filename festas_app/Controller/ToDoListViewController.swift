@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class ToDoListViewController: UIViewController, UITextViewDelegate {
+
+    
     @IBOutlet weak var tableViewToDoList: UITableView!
     var cont  = 0
     var aux = 0
@@ -125,6 +127,14 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         self.deleteAllData(entity: "Utensils")
         self.savePreToDoListUtensils(utensilsArray: utensilsList, entityName: "Utensils")
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     //MARK: - Core Data Functions
@@ -535,7 +545,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         case .none:
             print("Erro!")
         }
-        cell.checkButton.isUserInteractionEnabled = false
+        cell.checkButton.isUserInteractionEnabled = true
         cell.textViewToDo.isUserInteractionEnabled = true
         cell.selectionStyle = .none
         cell.textViewToDo.delegate = self

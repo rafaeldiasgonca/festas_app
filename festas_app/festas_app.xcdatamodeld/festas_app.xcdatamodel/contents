@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Completed" representedClassName="Completed" syncable="YES" codeGenerationType="class">
-        <attribute name="doneTasks" optional="YES" attributeType="String"/>
+        <attribute name="checkedTask" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Disposable" representedClassName="Disposable" syncable="YES" codeGenerationType="class">
         <attribute name="toDo" optional="YES" attributeType="String"/>
@@ -31,6 +31,7 @@
         <attribute name="toDo" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="Completed" positionX="-9" positionY="81" width="128" height="44"/>
         <element name="Disposable" positionX="-18" positionY="27" width="128" height="58"/>
         <element name="Drinks" positionX="-36" positionY="18" width="128" height="58"/>
         <element name="Food" positionX="-45" positionY="9" width="128" height="58"/>
@@ -38,6 +39,5 @@
         <element name="Guest" positionX="-45" positionY="0" width="128" height="58"/>
         <element name="Space" positionX="27" positionY="72" width="128" height="58"/>
         <element name="Utensils" positionX="9" positionY="54" width="128" height="58"/>
-        <element name="Completed" positionX="-9" positionY="81" width="128" height="58"/>
     </elements>
 </model>

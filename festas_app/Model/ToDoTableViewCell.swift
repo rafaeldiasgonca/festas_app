@@ -10,8 +10,9 @@ import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var checkButton: UIButton!
+    
     @IBOutlet weak var textViewToDo: UITextView!
+    @IBOutlet weak var checkButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,22 +20,31 @@ class ToDoTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     @IBAction func checkButtonPressed(_ sender: UIButton) {
-        if sender.isSelected{
-            sender.isSelected = false
-            textViewToDo.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        if checkButton.isSelected == true{
+            checkButton.isSelected = false
+           
             
         }
         else{
-            sender.isSelected = true
-            checkButton.setImage(UIImage.checkmark, for: .normal)
-            textViewToDo.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            checkButton.isSelected = true
+            checkButton.setImage(UIImage(named: "CheckedBut"), for: .selected)
+            
+        }
+        
+        
+       
+            
+        
+            
+        }
+       
         }
 
-    }
     
-}
+    
+
