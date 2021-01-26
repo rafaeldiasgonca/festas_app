@@ -21,8 +21,17 @@
 		4581CC1B2534C61A00E3645B /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4581CC122534C61900E3645B /* SF-Pro-Rounded-Bold.otf */; };
 		4581CC1C2534C61A00E3645B /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4581CC132534C61900E3645B /* SF-Pro-Rounded-Light.otf */; };
 		4581CC1D2534C61A00E3645B /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4581CC142534C61A00E3645B /* SF-Pro-Rounded-Semibold.otf */; };
+		5C2F556525BF47E100B377D0 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2F556425BF47E100B377D0 /* Messages.framework */; };
+		5C2F556825BF47E100B377D0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2F556725BF47E100B377D0 /* MessagesViewController.swift */; };
+		5C2F556B25BF47E100B377D0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2F556925BF47E100B377D0 /* MainInterface.storyboard */; };
+		5C2F556D25BF47E200B377D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2F556C25BF47E200B377D0 /* Assets.xcassets */; };
+		5C2F557125BF47E200B377D0 /* Festeje!.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2F556225BF47E100B377D0 /* Festeje!.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5C2F557F25BF4C3000B377D0 /* curious.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2F557E25BF4C3000B377D0 /* curious.png */; };
 		5C67C67D251D2BB000421657 /* PartyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C67C67C251D2BB000421657 /* PartyData.swift */; };
 		5CC6D8E325250301001F49D9 /* GuestsNamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */; };
+		5CD1F6FA25C08EBF00A73FE8 /* soda.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD1F6F725C08EBF00A73FE8 /* soda.png */; };
+		5CD1F6FB25C08EBF00A73FE8 /* cake.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD1F6F825C08EBF00A73FE8 /* cake.png */; };
+		5CD1F6FC25C08EBF00A73FE8 /* inphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD1F6F925C08EBF00A73FE8 /* inphone.png */; };
 		DF23B984251A6DBB00F7E57B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B983251A6DBB00F7E57B /* AppDelegate.swift */; };
 		DF23B986251A6DBB00F7E57B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */; };
 		DF23B988251A6DBB00F7E57B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF23B987251A6DBB00F7E57B /* StartViewController.swift */; };
@@ -42,6 +51,30 @@
 		DFF684242530DE44007E0264 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF684232530DE44007E0264 /* File.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5C2F556F25BF47E200B377D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF23B978251A6DBB00F7E57B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C2F556125BF47E100B377D0;
+			remoteInfo = "Festeje!";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C2F557225BF47E300B377D0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5C2F557125BF47E200B377D0 /* Festeje!.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4581CC012534C5E100E3645B /* BalooBhai2-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-Medium.ttf"; sourceTree = "<group>"; };
 		4581CC022534C5E100E3645B /* BalooBhai2-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BalooBhai2-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -57,8 +90,18 @@
 		4581CC122534C61900E3645B /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		4581CC132534C61900E3645B /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
 		4581CC142534C61A00E3645B /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		5C2F556225BF47E100B377D0 /* Festeje!.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Festeje!.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2F556425BF47E100B377D0 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		5C2F556725BF47E100B377D0 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		5C2F556A25BF47E100B377D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5C2F556C25BF47E200B377D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C2F556E25BF47E200B377D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C2F557E25BF4C3000B377D0 /* curious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = curious.png; sourceTree = "<group>"; };
 		5C67C67C251D2BB000421657 /* PartyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyData.swift; sourceTree = "<group>"; };
 		5CC6D8E225250301001F49D9 /* GuestsNamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsNamesTableViewCell.swift; sourceTree = "<group>"; };
+		5CD1F6F725C08EBF00A73FE8 /* soda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soda.png; sourceTree = "<group>"; };
+		5CD1F6F825C08EBF00A73FE8 /* cake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cake.png; sourceTree = "<group>"; };
+		5CD1F6F925C08EBF00A73FE8 /* inphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inphone.png; sourceTree = "<group>"; };
 		DF23B980251A6DBB00F7E57B /* festas_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = festas_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF23B983251A6DBB00F7E57B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF23B985251A6DBB00F7E57B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +124,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C2F555F25BF47E100B377D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2F556525BF47E100B377D0 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF23B97D251A6DBB00F7E57B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,6 +162,29 @@
 			);
 			name = Fonts;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		5C2F556325BF47E100B377D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C2F556425BF47E100B377D0 /* Messages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C2F556625BF47E100B377D0 /* Festeje! */ = {
+			isa = PBXGroup;
+			children = (
+				5CD1F6F825C08EBF00A73FE8 /* cake.png */,
+				5CD1F6F925C08EBF00A73FE8 /* inphone.png */,
+				5CD1F6F725C08EBF00A73FE8 /* soda.png */,
+				5C2F557E25BF4C3000B377D0 /* curious.png */,
+				5C2F556725BF47E100B377D0 /* MessagesViewController.swift */,
+				5C2F556925BF47E100B377D0 /* MainInterface.storyboard */,
+				5C2F556C25BF47E200B377D0 /* Assets.xcassets */,
+				5C2F556E25BF47E200B377D0 /* Info.plist */,
+			);
+			path = "Festeje!";
 			sourceTree = "<group>";
 		};
 		5C67C67A251D2B5900421657 /* View */ = {
@@ -153,6 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				DF23B982251A6DBB00F7E57B /* festas_app */,
+				5C2F556625BF47E100B377D0 /* Festeje! */,
+				5C2F556325BF47E100B377D0 /* Frameworks */,
 				DF23B981251A6DBB00F7E57B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				DF23B980251A6DBB00F7E57B /* festas_app.app */,
+				5C2F556225BF47E100B377D0 /* Festeje!.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +261,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C2F556125BF47E100B377D0 /* Festeje! */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C2F557525BF47E300B377D0 /* Build configuration list for PBXNativeTarget "Festeje!" */;
+			buildPhases = (
+				5C2F555E25BF47E100B377D0 /* Sources */,
+				5C2F555F25BF47E100B377D0 /* Frameworks */,
+				5C2F556025BF47E100B377D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Festeje!";
+			productName = "Festeje!";
+			productReference = 5C2F556225BF47E100B377D0 /* Festeje!.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		DF23B97F251A6DBB00F7E57B /* festas_app */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF23B997251A6DBE00F7E57B /* Build configuration list for PBXNativeTarget "festas_app" */;
@@ -191,10 +285,12 @@
 				DF23B97C251A6DBB00F7E57B /* Sources */,
 				DF23B97D251A6DBB00F7E57B /* Frameworks */,
 				DF23B97E251A6DBB00F7E57B /* Resources */,
+				5C2F557225BF47E300B377D0 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C2F557025BF47E200B377D0 /* PBXTargetDependency */,
 			);
 			name = festas_app;
 			productName = festas_app;
@@ -207,10 +303,13 @@
 		DF23B978251A6DBB00F7E57B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Rafael Dias Gonçalves";
 				TargetAttributes = {
+					5C2F556125BF47E100B377D0 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					DF23B97F251A6DBB00F7E57B = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -230,11 +329,25 @@
 			projectRoot = "";
 			targets = (
 				DF23B97F251A6DBB00F7E57B /* festas_app */,
+				5C2F556125BF47E100B377D0 /* Festeje! */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C2F556025BF47E100B377D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2F557F25BF4C3000B377D0 /* curious.png in Resources */,
+				5CD1F6FB25C08EBF00A73FE8 /* cake.png in Resources */,
+				5C2F556D25BF47E200B377D0 /* Assets.xcassets in Resources */,
+				5CD1F6FA25C08EBF00A73FE8 /* soda.png in Resources */,
+				5C2F556B25BF47E100B377D0 /* MainInterface.storyboard in Resources */,
+				5CD1F6FC25C08EBF00A73FE8 /* inphone.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF23B97E251A6DBB00F7E57B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +375,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C2F555E25BF47E100B377D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2F556825BF47E100B377D0 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DF23B97C251A6DBB00F7E57B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,7 +408,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5C2F557025BF47E200B377D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C2F556125BF47E100B377D0 /* Festeje! */;
+			targetProxy = 5C2F556F25BF47E200B377D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5C2F556925BF47E100B377D0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2F556A25BF47E100B377D0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		DF23B989251A6DBB00F7E57B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -307,6 +444,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C2F557325BF47E300B377D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NV6658KLR4;
+				INFOPLIST_FILE = "Festeje!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "develoepr-academy.festas-app.Festeje-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C2F557425BF47E300B377D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NV6658KLR4;
+				INFOPLIST_FILE = "Festeje!/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "develoepr-academy.festas-app.Festeje-";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DF23B995251A6DBE00F7E57B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -424,6 +605,7 @@
 		DF23B998251A6DBE00F7E57B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -444,6 +626,7 @@
 		DF23B999251A6DBE00F7E57B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -464,6 +647,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C2F557525BF47E300B377D0 /* Build configuration list for PBXNativeTarget "Festeje!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2F557325BF47E300B377D0 /* Debug */,
+				5C2F557425BF47E300B377D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DF23B97B251A6DBB00F7E57B /* Build configuration list for PBXProject "festas_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
