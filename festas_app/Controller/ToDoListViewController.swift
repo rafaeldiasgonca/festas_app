@@ -9,7 +9,11 @@
 import UIKit
 import CoreData
 
-class ToDoListViewController: UIViewController, UITextViewDelegate {
+class ToDoListViewController: UIViewController, UITextViewDelegate, ChangeButton {
+    func changeButton(checked: Bool, index: Int) {
+        food[index].checked = checked
+    }
+    
 
     
     @IBOutlet weak var tableViewToDoList: UITableView!
@@ -33,6 +37,7 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
     var utiRows = 0
     var desRows = 0
     var textsSelected:[String] = []
+    var  food:[Task] = []
     
     enum Section:Int {
         case comida = 0
@@ -71,7 +76,10 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
     
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
+        food.append(Task(name: "alou"))
+        
         self.title = "To do"
         let gestureOneTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
         gestureOneTapRecognizer.numberOfTapsRequired = 1
@@ -380,20 +388,20 @@ class ToDoListViewController: UIViewController, UITextViewDelegate {
         // 4
         do {
             try managedContext.save()
-            //            switch section {
-            //            case 0:
-            //                foodList.append(toDoTask)
-            //            case 1:
-            //                drinksList.append(toDoTask)
-            //            case 2:
-            //                utensilsList.append(toDoTask)
-            //            case 3:
-            //                disposableList.append(toDoTask)
-            //            case 4:
-            //                spaceList.append(toDoTask)
-            //            default:
-            //                print("Erro!")
-            //            }
+//                        switch section {
+//                        case 0:
+//                            foodList.append(toDoTask)
+//                        case 1:
+//                            drinksList.append(toDoTask)
+//                        case 2:
+//                            utensilsList.append(toDoTask)
+//                        case 3:
+//                            disposableList.append(toDoTask)
+//                        case 4:
+//                            spaceList.append(toDoTask)
+//                        default:
+//                            print("Erro!")
+//                        }
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -490,7 +498,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let sectionType = Section.init(rawValue: section) else { return 0 }
         switch sectionType {
         case .comida:
-            return foodRows
+            return food.count
+           
         case .bebidas:
             return drinkRows
         case .utensílios:
@@ -509,8 +518,14 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let sectionType = Section.init(rawValue: indexPath.section) else { return .init() }
         switch sectionType {
         case .comida:
-            if foodList.count > indexPath.row {
-                cell.textViewToDo.text = foodList[indexPath.row]
+            if food.count > indexPath.row {
+                cell.textViewToDo.text = food[indexPath.row].name
+                if food[indexPath.row].checked{
+                    cell.checkButton.setBackgroundImage(UIImage(named: "CheckedBut"), for: .normal)
+                    
+                }else{
+                    cell.checkButton.setBackgroundImage(UIImage(named: "Circle.fill"), for: .normal)
+                }
             } else {
                 cell.textViewToDo.text = ""
             }
@@ -549,10 +564,21 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textViewToDo.isUserInteractionEnabled = true
         cell.selectionStyle = .none
         cell.textViewToDo.delegate = self
+        cell.delegate = self
+        cell.indexP = indexPath.row
+        cell.food = food
         return cell
     }
     
-    
+    class Task{
+      var name = ""
+      var checked = false
+        convenience init(name:String){
+            self.init()
+            self.name = name
+            
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let  cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ToDoTableViewCell
         tableView.deselectRow(at: indexPath, animated: true)

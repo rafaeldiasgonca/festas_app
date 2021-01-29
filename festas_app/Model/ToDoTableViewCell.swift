@@ -8,43 +8,32 @@
 
 import UIKit
 
-class ToDoTableViewCell: UITableViewCell {
+
+protocol ChangeButton {
+    func changeButton(checked:Bool, index:Int)
+}
+
+
+class ToDoTableViewCell: UITableViewCell{
 
     
     @IBOutlet weak var textViewToDo: UITextView!
     @IBOutlet weak var checkButton: UIButton!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     @IBAction func checkButtonPressed(_ sender: UIButton) {
-        if checkButton.isSelected == true{
-            checkButton.isSelected = false
-           
+        if food![indexP!].checked{
+            delegate?.changeButton(checked: false, index: indexP!)
+            
+        }else{
+            delegate?.changeButton(checked: true, index: indexP!)
+        }
             
         }
-        else{
-            checkButton.isSelected = true
-            checkButton.setImage(UIImage(named: "CheckedBut"), for: .selected)
-            
-        }
-        
-        
-       
-            
-        
-            
-        }
-       
-        }
+    var delegate: ChangeButton?
+    var indexP:Int?
+    var food: [Task]?
+            }
+
 
     
-    
+
 
